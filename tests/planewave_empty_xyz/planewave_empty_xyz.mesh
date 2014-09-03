@@ -1,0 +1,16 @@
+VM 1.0.0
+CE Vulture Test: Plane-wave in free-space: k_x, E_y, H_z
+DM 20 23 25
+GS
+# Gaussian source.
+WF wf1 GAUSSIAN_PULSE 1.0
+# Planewave.
+PW  5 15  6 17  5 18 pw1 wf1 90.0 0.0 180.0 111111 1.0 0.0
+# Observe field at centre.
+OP 10 10 11 11 12 12 op1 TDOM_ASCII
+OP 10 10 11 11 12 12 op2 FDOM_ASCII
+OP 10 10 11 11 12 12 op3 TDOM_BINARY 1 1 1
+GE 
+NT 300
+MS 0.01
+EN

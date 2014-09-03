@@ -1,0 +1,27 @@
+VM 1.0.0
+CE Vulture example: An empty space with absorbing boundaries.
+# The mesh extents are 20x40x20 cells.
+DM 20 40 20
+GS
+# Define all external surfaces to be Mur ABCs.
+BT XLO MUR
+BT XHI MUR
+BT YLO MUR
+BT YHI MUR
+BT ZLO MUR
+BT ZHI MUR
+# The waveform is a Gaussian pulse with default paramters.
+WF wf1 GAUSSIAN_PULSE
+# The source is a surface of z-polarised soft electric fields.
+EX  0 20 10 10  0 20 source EZ wf1 1.0
+# Observe the fields on a plane, every second cell.
+OP  0 20 0  40 10 10 plane TDOM_BINARY 2 2 2
+# Observe the fields at the centre of the mesh.
+OP 10 10 20 20 10 10 centre1 TDOM_ASCII
+OP 10 10 20 20 10 10 centre2 FDOM_ASCII
+GE
+# Run for 400 time-steps.
+NT 400 
+# The mesh size is 1 m.
+MS 1.0
+EN

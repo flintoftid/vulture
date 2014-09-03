@@ -1,0 +1,26 @@
+VM 1.0.0
+CE Vulture Test Case: Closed SPAR box
+DM 12 12 12
+GS
+BT XLO PEC
+BT XHI PEC
+BT YLO PEC
+BT YHI PEC
+BT ZLO PEC
+BT ZHI PEC
+BT sibc SIBC "go04.pfe"
+TB  1  1  1 11  1 11 sibc
+TB 11 11  1 11  1 11 sibc
+TB  1 11  1  1  1 11 sibc
+TB  1 11 11 11  1 11 sibc
+TB  1 11  1 11  1  1 sibc
+TB  1 11  1 11 11 11 sibc
+WF wf1 GAUSSIAN_PULSE 1.0
+EX 6 7 6 6 6 6 hertdip EX wf1 1.0 0.0 
+OP 8 8 8 8 8 8 op1 TDOM_ASCII
+OP 8 8 8 8 8 8 op2 FDOM_ASCII
+OP 8 8 8 8 8 8 op3 TDOM_BINARY 1 1 1
+GE 
+NT 2000
+MS 0.01
+EN

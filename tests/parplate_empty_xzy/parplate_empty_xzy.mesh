@@ -1,0 +1,22 @@
+VM 1.0.0
+CE Vulture Test: Parallel plate waveguide k_x, E_z, H_y
+DM 20  6  6  
+GS
+BT XLO PML
+BT XHI PML
+BT YLO PMC
+BT YHI PMC
+BT ZLO PEC
+BT ZHI PEC
+WF wf1 GAUSSIAN_PULSE 1.0
+EX  5  5  0  6  0  6  source EZ wf1 1.0 0.0
+OP  8  8  3  3  3  3  op1 TDOM_ASCII
+OP  8  8  3  3  3  3  op2 FDOM_ASCII
+OP  8  8  3  3  3  3  op3 TDOM_BINARY 1 1 1
+OP 12 12  3  3  3  3  op4 TDOM_ASCII
+OP 12 12  3  3  3  3  op5 FDOM_ASCII
+OP 12 12  3  3  3  3  op6 TDOM_BINARY 1 1 1
+GE 
+NT 2000
+MS 0.01
+EN

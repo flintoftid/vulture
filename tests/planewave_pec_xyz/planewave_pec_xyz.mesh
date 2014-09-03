@@ -1,0 +1,18 @@
+VM 1.0.0
+CE Vulture Test: Plane-wave cut by PEC: k_x, E_y, H_z
+DM 20 23 25
+GS
+# Gaussian source.
+WF wf1 GAUSSIAN_PULSE 1.0
+# Planewave.
+TB 10 10  0 23  0 25 PEC
+PW  5 10  6 17  5 18 pw1 wf1 90.0   0.0 180.0 101111 1.0 0.0
+PW  5 10  6 17  5 18 pw2 wf1 90.0 180.0 180.0 101111 1.0 1.6678e-10
+# Observe field at centre.
+OP  9  9 11 11 12 12 op1 TDOM_ASCII
+OP  9  9 11 11 12 12 op2 FDOM_ASCII
+OP  9  9 11 11 12 12 op3 TDOM_BINARY 1 1 1
+GE 
+NT 300
+MS 0.01
+EN

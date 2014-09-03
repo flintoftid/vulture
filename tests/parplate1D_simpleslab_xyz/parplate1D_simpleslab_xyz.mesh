@@ -1,0 +1,26 @@
+VM 1.0.0
+CE Vulture Test: Parallel plate waveguide with simple slab: k_x, E_y, H_z
+DM 200   1   1
+GS
+# Parallel-plate waveguide boundary conditions.
+BT XLO PML
+BT XHI PML
+BT YLO PEC
+BT YHI PEC
+BT ZLO PMC
+BT ZHI PMC
+# Simple medium.
+MT dielectric SIMPLE 2.0 0.01 1.0
+MB  50 150   0   1   0   1 dielectric
+# Gaussian source.
+WF wf1 GAUSSIAN_PULSE 1.0 8.3391e-10 1.6678e-10
+EX   5   5   0   1   0   1 source EY wf1 1.0
+# Observe field at interface.
+OP 175 175   0   0   0   0 op1 TDOM_ASCII
+OP 175 175   0   0   0   0 op2 FDOM_ASCII
+# Observe field along entire mesh.
+OP 175 175   0   0   0   0 op3 TDOM_BINARY 1 1 1
+GE 
+NT 5000
+MS 0.01
+EN

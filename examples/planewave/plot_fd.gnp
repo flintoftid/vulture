@@ -1,0 +1,6 @@
+set terminal post eps enhanced color 'Helvetica' 18
+set output 'planewave_fd.eps'
+se xlabel 'Frequency (MHz)'
+se ylabel 'Electric field, |E_z|(10,20,10) (dB V/m)'
+plot 'eh_centre2_fd.asc' us ($1/1e6):(db20ri($6,$7)) ti '' w l ls 1
+

@@ -1,0 +1,28 @@
+VM 1.0.0
+CE Vulture example: Aperture in infinite plane (solid)
+DM 60 40 40
+GS
+# Free-space boundaries.
+BT XLO PML
+BT XHI PML
+BT YLO PML
+BT YHI PML
+BT ZLO PML
+BT ZHI PML
+# Solid PEC sheet.
+TB 30 30  0 40  0 40 PEC
+# Plane-wave stops at cell 30 and mask is set to deactivated XHI surface.
+WF wf1 DIFF_GAUSSIAN_PULSE 1.0
+PW  5 30  5 35  5 35 pw1 wf1 90.0 0.0 90.0 101111 1.0 0.0
+# Observe incident field point.
+OP 29 29 20 20 20 20 inc1 TDOM_ASCII
+OP 29 29 20 20 20 20 inc2 FDOM_ASCII
+# Observe transmitted field on axis of aperture.
+OP 50 50 20 20 20 20 trans1 TDOM_ASCII
+OP 50 50 20 20 20 20 trans2 FDOM_ASCII
+# Observe fields in plane through aperture.
+OP  0 60  0 40 20 20 plane TDOM_BINARY 1 1 1 
+GE 
+NT 500
+MS 0.001
+EN

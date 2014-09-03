@@ -1,0 +1,5 @@
+set terminal post eps enhanced color 'Helvetica' 18
+set output 'planewave_td.eps'
+set xlabel 'Time (ns)'
+set ylabel 'Electric field, E_z(10,20,10) (V/m)'
+plot 'eh_centre1_td.asc' us ($2/1e-9):5 ti '' w l ls 1

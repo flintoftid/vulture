@@ -1,0 +1,11 @@
+set terminal post eps enhanced color 'Helvetica' 18
+set output 'enclosure_se_fd.eps'
+set xlabel 'Frequency (MHz)'
+set ylabel 'Shielding effectiveness at (40,60,33) (dB)'
+set yrange [-20:60]
+se xra [0:6000]
+plot 'analytic.dat'          us ($1/1e6):(db20($2))       ti 'Analytic, empty' w l ls 3, \
+     'eh_centre2_fd.asc'     us ($1/1e6):(-db20ri($6,$7)) ti 'FDTD, empty'     w l ls 1, \
+     'eh_centre2ls22_fd.asc' us ($1/1e6):(-db20ri($6,$7)) ti 'FDTD, loaded'    w l ls 2
+
+

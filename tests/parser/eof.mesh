@@ -1,0 +1,11 @@
+CE Parser test - no VM directive
+DM 20 40 20
+GS
+WF wf1 GAUSSIAN_PULSE
+EX  0 20 10 10  0 20 source EZ wf1 1.0
+OP 10 10 20 20 10 10 op2 FDOM_ASCII
+GE
+NT 200 
+MS 1.0
+EN
+

@@ -1,0 +1,27 @@
+VM 1.0.0
+CE Vulture Test: Parallel plate waveguide with Debye medium: k_z, E_y, H_x
+DM  1  1 200
+GS
+# Parallel-plate waveguide boundary conditions.
+BT XLO PMC
+BT XHI PMC
+BT YLO PEC
+BT YHI PEC
+BT ZLO PML
+BT ZHI PML
+# One pole Debye medium.
+MT dielectric DEBYE 2.0 0.01 1.0 1e9 -1e9
+#MB   0   1   0   1 100 200 dielectric
+MB   0   1   0   1 100 150 dielectric
+# Gaussian source.
+WF wf1 GAUSSIAN_PULSE 1.0 8.3391e-10 1.6678e-10
+EX   0   1   0   1   5   5 source EY wf1 1.0
+# Observe field at interface.
+OP   0   0   0   0 100 100 op1 TDOM_ASCII
+OP   0   0   0   0 100 100 op2 FDOM_ASCII
+# Observe field along entire mesh.
+OP   0   0   0   0   0 200 op3 TDOM_BINARY 1 1 1
+GE 
+NT 5000
+MS 0.01
+EN

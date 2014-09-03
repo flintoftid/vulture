@@ -1,0 +1,31 @@
+VM 1.0.0
+CE Vulture example: Parallel plate waveguide with dielectric slab
+DM 200   1   1
+GS
+# Parallel-plate waveguide boundary conditions.
+BT XLO PML
+BT XHI PML
+BT YLO PEC
+BT YHI PEC
+BT ZLO PMC
+BT ZHI PMC
+# Simple dielectric medium.
+MT dielectric SIMPLE 2.0 0.01 1.0
+MB  50 150   0   1   0   1 dielectric
+# Gaussian source.
+WF wf1 GAUSSIAN_PULSE
+# Partial TF/SF.
+PW  30 170   0   1   0   1 pw1 wf1 90 0 180 110000 1.0 0.0
+# Observe field reflected field if SF zone.
+OP  20  20   0   0   0   0 ref1 TDOM_ASCII
+OP  20  20   0   0   0   0 ref2 FDOM_ASCII
+# Observe transmitted field in TF zone.
+OP 160 160   0   0   0   0 trans1 TDOM_ASCII
+OP 160 160   0   0   0   0 trans2 FDOM_ASCII
+# Observe field along waveguide.
+OP   0 200   0   0   0   0 line TDOM_BINARY 1 1 1
+GE
+NT 5000
+MS 0.01
+EN
+

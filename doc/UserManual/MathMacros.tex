@@ -1,0 +1,203 @@
+%====================================================================
+%-------------------------------------------------------------------- 
+%
+%   isomath.tex  LaTeX macros for math conforming to ISO standards
+%
+%---------------------------------------- this is a LaTeX-2e document
+%====================================================================     
+
+%% Blackboard Bold
+
+\newcommand*{\bbb}[1]{\mathbb{#1}}
+\newcommand{\bC}{\bbb{C}}
+\newcommand{\bN}{\bbb{N}}
+\newcommand{\bQ}{\bbb{Q}}
+\newcommand{\bR}{\bbb{R}}
+\newcommand{\bZ}{\bbb{Z}}
+\newcommand{\bF}{\bbb{F}}
+\newcommand{\bFp}{\bbb{F}_p}
+\newcommand{\bFpn}{\bbb{F}_{p^n}}
+\newcommand{\ii}{\mathbf{i}}
+\newcommand{\jj}{\mathbf{j}}
+\newcommand{\kk}{\mathbf{k}}
+
+\newcommand{\N}{\bN}
+\newcommand{\Q}{\bQ}
+\newcommand{\R}{\bR}
+\newcommand{\Z}{\bZ}
+\newcommand{\ZpZ}{\Z/p\Z}
+\newcommand{\ZmZ}{\Z/m\Z}
+\newcommand{\C}{\bC}
+\newcommand{\F}{\bF}
+\newcommand{\Fp}{\bFp}
+\newcommand{\Fpn}{\bFpn}
+
+%% Calligraphic
+
+%\newcommand*{\cal}[1]{\mathcal{#1}}
+%\newcommand{\cB}{\cal{B}}
+%\newcommand{\cC}{\cal{C}}
+%\newcommand{\cF}{\cal{F}}
+%\newcommand{\cH}{\cal{H}}
+%\newcommand{\cK}{\cal{K}}
+%\newcommand{\cT}{\cal{T}}
+
+%% Named Functions and Operators
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Aut}{\mathrm{Aut}}
+\renewcommand{\Re}{\ensuremath{\mathrm{Re}}}
+\renewcommand{\Im}{\ensuremath{\mathrm{Im}}}
+
+\DeclareMathOperator{\cod}{Codom}
+\DeclareMathOperator{\dom}{Dom}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\ran}{Ran}
+\DeclareMathOperator{\supp}{supp}
+
+\DeclareMathOperator*{\clsp}{\overline{span}}
+\DeclareMathOperator*{\spn}{span}
+
+%% Vectors
+
+\usepackage{amsbsy}
+\renewcommand*{\vec}[1]{\boldsymbol{#1}}
+\newcommand{\va}{\vec{a}}
+\newcommand{\vb}{\vec{b}}
+\newcommand{\vc}{\vec{c}}
+\newcommand{\ve}{\vec{e}}
+\newcommand{\vf}{\vec{f}}
+\newcommand{\vk}{\vec{k}}
+\newcommand{\vl}{\vec{l}}
+\newcommand{\vn}{\vec{n}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\vs}{\vec{s}}
+\newcommand{\vx}{\vec{x}}
+\newcommand{\vy}{\vec{y}}
+\newcommand{\vz}{\vec{z}}
+\newcommand{\vu}{\vec{u}}
+\newcommand{\vv}{\vec{v}}
+\newcommand{\vw}{\vec{w}}
+\newcommand{\vA}{\vec{A}}
+\newcommand{\vE}{\vec{E}}
+\newcommand{\vH}{\vec{H}}
+\newcommand{\vI}{\vec{I}}
+\newcommand{\vD}{\vec{D}}
+\newcommand{\vB}{\vec{B}}
+\newcommand{\vJ}{\vec{J}}
+\newcommand{\vM}{\vec{M}}
+\newcommand{\vP}{\vec{P}}
+\newcommand{\vQ}{\vec{Q}}
+\newcommand{\vS}{\vec{S}}
+\newcommand{\vtimes}{\vec{\times}}
+\newcommand{\vcdot}{\vec{\cdot}}
+\newcommand{\vnabla}{\vec{\nabla}}
+
+%% Normalised fields
+
+\newcommand{\tE}{\tilde{E}}
+\newcommand{\tH}{\tilde{H}}
+\newcommand{\tP}{\tilde{E}}
+\newcommand{\tPP}{\tilde{P'}}
+\newcommand{\tB}{\tilde{B}}
+\newcommand{\tM}{\tilde{M}}
+\newcommand{\tJ}{\tilde{J}}
+\newcommand{\tDelta}{\tilde{\Delta}}
+\newcommand{\tbeta}{\tilde{\beta}}
+\newcommand{\tgamma}{\tilde{\gamma}}
+\newcommand{\talpha}{\tilde{\alpha}}
+\newcommand{\bbeta}{\bar{\beta}}
+\newcommand{\bgamma}{\bar{\gamma}}
+\newcommand{\balpha}{\bar{\alpha}}
+
+%% Logical Propositions
+
+\newcommand*{\pro}[1]{\mathsf{#1}}
+\newcommand{\pP}{\pro{P}}
+\newcommand{\pQ}{\pro{Q}}
+\newcommand{\pR}{\pro{R}}
+
+%% Matrices and Tensors
+
+\DeclareMathAlphabet{\mathsfsl}{OT1}{cmss}{m}{sl}
+\newcommand*{\mat}[1]{\mathsfsl{#1}}
+\newcommand{\mA}{\mat{A}}
+\newcommand{\mD}{\mat{D}}
+\newcommand{\mI}{\mat{I}}
+\newcommand{\mM}{\mat{M}}
+\newcommand{\mO}{\mat{O}}
+\newcommand{\mP}{\mat{P}}
+\newcommand{\mQ}{\mat{Q}}
+\newcommand{\mR}{\mat{R}}
+\newcommand{\mS}{\mat{S}}
+\newcommand{\mT}{\mat{T}}
+\newcommand{\mU}{\mat{U}}
+\newcommand{\mY}{\mat{Y}}
+\newcommand{\mZ}{\mat{Z}}
+
+%% Special Numbers and Characters
+
+\newcommand{\ra}{\mathrm{a}}
+\newcommand{\rc}{\mathrm{c}}
+\newcommand{\re}{\mathrm{e}}
+\newcommand{\ri}{\mathrm{i}}
+\newcommand{\ro}{\mathrm{o}}
+\newcommand{\rp}{\mathrm{p}}
+\newcommand{\rr}{\mathrm{r}}
+\newcommand{\rs}{\mathrm{s}}
+\newcommand{\rd}{\mathrm{d}} % differential
+\newcommand{\rt}{\mathrm{t}}
+\newcommand{\rz}{\mathrm{z}}
+\newcommand{\rE}{\mathsf{E}}
+\newcommand{\rF}{\mathsf{F}}
+\newcommand{\rG}{\mathrm{G}}
+\newcommand{\rI}{\mathsf{I}}
+\newcommand{\rK}{\mathsf{K}}
+\newcommand{\rL}{\mathsf{L}}
+\newcommand{\rM}{\mathsf{M}}
+\newcommand{\rN}{\mathsf{N}}
+\newcommand{\rO}{\mathsf{O}}
+\newcommand{\rP}{\mathsf{P}}
+\newcommand{\rS}{\mathsf{S}}
+\newcommand{\rT}{\mathsf{T}}
+\newcommand{\rU}{\mathsf{U}}
+\newcommand{\rV}{\mathsf{V}}
+\newcommand{\rW}{\mathsf{W}}
+\newcommand{\rX}{\mathsf{X}}
+\newcommand{\rY}{\mathsf{Y}}
+\newcommand{\rZ}{\mathsf{Z}}
+
+%\newcommand{\rpi}{\pi}       % actually, pi should be upright.
+\newcommand{\rpi}{\piup}      % like this - needs txfonts package!
+
+\newcommand{\dif}[1]{\,\rd{#1}} % differential
+\newcommand{\df}{\dif{f}}
+\newcommand{\dx}{\dif{x}}
+\newcommand{\dy}{\dif{y}}
+\newcommand{\dz}{\dif{z}}
+\newcommand{\dt}{\dif{t}}
+\newcommand{\deriv}[3][]{\frac{\rd^{#1}#2}{\rd #3^{#1}}}           % total derivative
+\newcommand{\pderiv}[3][]{\frac{\partial^{#1}#2}{\partial #3^{#1}}} % partial derivative
+
+%% Units
+\newcommand*{\unit}[1]{\ensuremath{\mathrm{\,#1}}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\celsius}{\ensuremath{^\circ C}}
+\newcommand{\micro}{\ensuremath{\mu}}
+\newcommand{\ohm}{\ensuremath{\mathrm{\Omega}}}
+
+%% Shortcuts
+\newcommand{\prt}{(\vr,t)}
+\newcommand{\prw}{(\vr,\omega)}
+\newcommand{\epsilonc}{\hat{\epsilon}}
+
+%% Unit vectors
+\newcommand{\uvx}{\hat{\vx}}
+\newcommand{\uvy}{\hat{\vy}}
+\newcommand{\uvz}{\hat{\vz}}
+\newcommand{\uvk}{\hat{\vk}}
+\newcommand{\uvn}{\hat{\vn}}
+
+%====================================================================

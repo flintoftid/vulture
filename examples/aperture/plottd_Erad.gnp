@@ -1,0 +1,10 @@
+set terminal post eps enhanced color "Helvetica" 16
+set output 'aperture-Erad_td.eps'
+set xlabel "Time (ps)"
+set ylabel "Electric field, E_z(50,20,20) (mV/m)"
+set key top left width -11
+plot 'aperture-eh_trans1_td.asc'              us ($2/1e-12):($5/1e-3)         ti "Physical aperture model"                                w lines ls 1 , \
+     'aperture-equivdipole-eh_trans1_td.asc'  us ($2/1e-12):(-$5/1e-3)        ti "Equiv. dipole model, a = 2 {/Symbol D}l"                w lines ls 2 , \
+     'aperture-equivdipole-eh_trans1_td.asc'  us ($2/1e-12+7):(-0.42*$5/1e-3) ti "Equiv. dipole model, a = 1.49 {/Symbol D}l, 7 ps delay" w lines ls 3 , \
+     'aperture-sibc-eh_trans1_td.asc'         us ($2/1e-12):(-$5/1e-3*100)        ti "SIBC model"                                         w lines ls 4
+

@@ -1,0 +1,37 @@
+VM 1.0.0
+CE Vulture test: PML6 dual grid reflection test.
+DM 30 30 30
+GS
+BT XLO MUR
+BT XHI MUR
+BT YLO MUR
+BT YHI MUR
+BT ZLO MUR
+BT ZHI MUR
+WF wf1 GAUSSIAN_PULSE 1.0
+EX  15  16  15  15  15  15 dipolex =EX wf1 1.0 0.0
+EX  15  15  15  16  15  15 dipoley =EY wf1 1.0 0.0
+EX  15  15  15  15  15  16 dipolez =EZ wf1 1.0 0.0
+OP   2   2   2   2   2   2 xlylzl1 TDOM_ASCII
+OP   2   2   2   2  13  13 xlylzh1 TDOM_ASCII
+OP   2   2  13  13   2   2 xlyhzl1 TDOM_ASCII
+OP   2   2  13  13  13  13 xlyhzh1 TDOM_ASCII
+OP  13  13   2   2   2   2 xhylzl1 TDOM_ASCII
+OP  13  13   2   2  13  13 xhylzh1 TDOM_ASCII
+OP  13  13  13  13   2   2 xhyhzl1 TDOM_ASCII
+OP  13  13  13  13  13  13 xhyhzh1 TDOM_ASCII
+OP   2   2   2   2   2   2 xlylzl2 FDOM_ASCII
+OP   2   2   2   2  13  13 xlylzh2 FDOM_ASCII
+OP   2   2  13  13   2   2 xlyhzl2 FDOM_ASCII
+OP   2   2  13  13  13  13 xlyhzh2 FDOM_ASCII
+OP  13  13   2   2   2   2 xhylzl2 FDOM_ASCII
+OP  13  13   2   2  13  13 xhylzh2 FDOM_ASCII
+OP  13  13  13  13   2   2 xhyhzl2 FDOM_ASCII
+OP  13  13  13  13  13  13 xhyhzh2 FDOM_ASCII
+OP   3  27   3  27   3  27 volume  TDOM_BINARY 4 4 4
+GE
+NT 270
+OF 0.1e9 30e9 60
+MS 0.001
+EN
+

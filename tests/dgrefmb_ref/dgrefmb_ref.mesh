@@ -1,0 +1,39 @@
+VM 1.0.0
+CE Vulture test: Dual grid dielectric reflection test reference grid.
+DM 150 150 150
+GS
+BT XLO MUR 
+BT XHI MUR
+BT YLO MUR
+BT YHI MUR
+BT ZLO MUR
+BT ZHI MUR
+MT dielectric SIMPLE 4.0
+MB   0 150   0 150   0 150 dielectric
+WF wf1 GAUSSIAN_PULSE 1.0
+EX  75  76  75  75  75  75 dipolex =EX wf1 1.0 0.0
+EX  75  75  75  76  75  75 dipoley =EY wf1 1.0 0.0
+EX  75  75  75  75  75  76 dipolez =EZ wf1 1.0 0.0
+OP  62  62  62  62  62  62 xlylzl1ref TDOM_ASCII
+OP  62  62  62  62  73  73 xlylzh1ref TDOM_ASCII
+OP  62  62  73  73  62  62 xlyhzl1ref TDOM_ASCII
+OP  62  62  73  73  73  73 xlyhzh1ref TDOM_ASCII
+OP  73  73  62  62  62  62 xhylzl1ref TDOM_ASCII
+OP  73  73  62  62  73  73 xhylzh1ref TDOM_ASCII
+OP  73  73  73  73  62  62 xhyhzl1ref TDOM_ASCII
+OP  73  73  73  73  73  73 xhyhzh1ref TDOM_ASCII
+OP  62  62  62  62  62  62 xlylzl2ref FDOM_ASCII
+OP  62  62  62  62  73  73 xlylzh2ref FDOM_ASCII
+OP  62  62  73  73  62  62 xlyhzl2ref FDOM_ASCII
+OP  62  62  73  73  73  73 xlyhzh2ref FDOM_ASCII
+OP  73  73  62  62  62  62 xhylzl2ref FDOM_ASCII
+OP  73  73  62  62  73  73 xhylzh2ref FDOM_ASCII
+OP  73  73  73  73  62  62 xhyhzl2ref FDOM_ASCII
+OP  73  73  73  73  73  73 xhyhzh2ref FDOM_ASCII
+OP  63  87  63  87  63  87 volume  TDOM_BINARY 4 4 4
+GE
+NT 270
+OF 0.1e9 30e9 60
+MS 0.001
+EN
+

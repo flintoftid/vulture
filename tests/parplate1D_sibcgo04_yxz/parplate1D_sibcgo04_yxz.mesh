@@ -1,0 +1,34 @@
+VM 1.0.0
+CE Vulture Test: Parallel plate WG with GO04 SIBC: k_y, E_x, H_z
+DM   1 200   1
+GS
+# Parallel-plate waveguide boundary conditions.
+BT XLO PERIODIC
+BT XHI PERIODIC
+BT YLO PML 8
+BT YHI PML 8
+BT ZLO PERIODIC
+BT ZHI PERIODIC
+# SIBC medium.
+BT sibc SIBC "go04.pfe"
+TB   0   1   100 100 0   1 sibc 1 0.0
+# Gaussian source.
+WF wf1 GAUSSIAN_PULSE 1.0 8.3391e-10 1.6678e-10
+# Partial TF/SF.
+# PW   0   1   5 180   0   1 pw1 wf1 90 90 0 001000 1.0 0.0
+# Soft electric field excitation.
+EX   0   1   5   5   0   1 ex1 EX wf1 1.0 0.0
+# Observe field reflected field.
+OP   0   0   3   3   0   0 op1 TDOM_ASCII
+OP   0   0   3   3   0   0 op2 FDOM_ASCII
+# Observe transmitted field.
+OP    0  0 175 175   0   0 op3 TDOM_ASCII
+OP    0  0 175 175   0   0 op4 FDOM_ASCII
+# Observe transmitted field.
+OP    0  0 175 175   0   0 op5 TDOM_BINARY 1 1 1
+GE
+NT 5000
+# Gate out incident wave.
+OT 200 5000
+MS 0.01
+EN

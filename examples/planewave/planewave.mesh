@@ -1,0 +1,27 @@
+VM 1.0.0
+CE Vulture example: Plane wave in free-space.
+# The mesh extents are 20x40x20 cells.
+DM 20 40 20
+GS
+# Define all external surfaces to be PML.
+BT XLO PML
+BT XHI PML
+BT YLO PML
+BT YHI PML
+BT ZLO PML
+BT ZHI PML
+# The waveform is a Gaussian pulse with default paramters.
+WF wf1 GAUSSIAN_PULSE
+# Plane-wave in +ve y direction, Ez polarisation.
+PW  3 17  3  37  3 17 pw1 wf1 90 90 90 111111 1.0 0.0
+# Observe the fields on a plane, every second cell.
+OP  0 20 0  40 10 10 plane TDOM_BINARY 1 1 1
+# Observe the fields at the centre of the mesh.
+OP 10 10 20 20 10 10 centre1 TDOM_ASCII
+OP 10 10 20 20 10 10 centre2 FDOM_ASCII
+GE
+# Run for 400 time-steps.
+NT 400 
+# The mesh size is 1 m.
+MS 1.0
+EN

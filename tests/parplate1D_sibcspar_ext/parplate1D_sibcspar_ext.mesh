@@ -1,0 +1,35 @@
+VM 1.0.0
+CE Vulture Test: Parallel plate WG with S-parameter SIBC: k_x, E_y, H_z
+DM 200   1   1
+GS
+# Parallel-plate waveguide boundary conditions.
+BT XLO PML 8
+BT XHI PML 8
+BT YLO PERIODIC
+BT YHI PERIODIC
+BT ZLO PERIODIC
+BT ZHI PERIODIC
+# SIBC medium.
+BT sibc SIBC "spar.prm"
+TB 100 100   0   1   0   1 sibc
+# Gaussian source.
+WF wf1 GAUSSIAN_PULSE 1.0 8.3391e-10 1.6678e-10
+# Partial TF/SF.
+# PW    5 180   0   1   0   1 pw1 wf1 90 0 180 100000 1.0 0.0
+# Soft electric field excitation.
+EX   5   5   0   1   0   1 ex1 EY wf1 1.0 0.0
+# Observe field reflected field.
+OP   3   3   1   1   1   1 op1 TDOM_ASCII
+OP   3   3   1   1   1   1 op2 FDOM_ASCII
+# Observe transmitted field.
+OP 175 175   1   1   1   1 op3 TDOM_ASCII
+OP 175 175   1   1   1   1 op4 FDOM_ASCII
+# Observe transmitted field.
+OP 175 175   1   1   1   1 op5 TDOM_BINARY 1 1 1
+GE
+NT 5000
+# Gate out incident wave.
+OT 200 5000
+MS 0.01
+EN
+

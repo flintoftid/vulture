@@ -1,0 +1,14 @@
+set terminal post eps enhanced color "Helvetica" 16
+set out 'parplate1D_dielslab_Sarg.eps'
+se xlabel "Frequency (GHz)"
+se ylabel "Phase of scattering parameters, /\\_S_{ij}| (degrees)"
+se xrange [0:2]
+se yrange [-300:300]
+c0 = 299792458
+dl = 0.01
+j = sqrt( -1 )
+plot 'analytic.dat'  us ($1/1e9):(($3))                                              ti "S_{11} Analytic" w lines ls 1, \
+     'eh_ref2_fd.asc' us ($1/1e9):(180/pi*arg(exp(+j*2*pi*$1/c0*51*dl)*($4+j*$5)))   ti "S_{11} FDTD"     w lines ls 2, \
+     'analytic.dat'  us ($1/1e9):(($5))                                              ti "S_{21} Analytic" w lines ls 3, \
+     'eh_trans2_fd.asc' us ($1/1e9):(180/pi*arg(exp(+j*2*pi*$1/c0*31*dl)*($4+j*$5))) ti "S_{21} FDTD"     w lines ls 4
+

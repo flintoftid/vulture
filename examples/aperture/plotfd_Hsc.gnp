@@ -1,0 +1,10 @@
+se terminal post eps enhanced color "Helvetica" 16
+se output 'aperture-Hsc.eps'
+se xlabel "Frequency (GHz)"
+se ylabel "Magnetic field, H_y(29,20,20) (dB A/m)"
+se yrange [-60:-10]
+plot 'aperture-empty-eh_inc2_fd.asc'        us ($1/1e9):(db20ri($10,$11)) ti "Free-space"                              w linesp ls 1, \
+     'aperture-solid-eh_inc2_fd.asc'        us ($1/1e9):(db20ri($10,$11)) ti "Solid plate, inc. wave only"             w linesp ls 2, \
+     'aperture-solidreflect-eh_inc2_fd.asc' us ($1/1e9):(db20ri($10,$11)) ti "Solid plate, inc. + ref. waves"          w linesp ls 3, \
+     'aperture-eh_inc2_fd.asc'              us ($1/1e9):(db20ri($10,$11)) ti "Plate with aperture, inc. + ref. waves"  w linesp ls 4
+

@@ -1,0 +1,1748 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: mesh.eps
+%%Creator: gnuplot 4.4 patchlevel 3
+%%CreationDate: Thu May 30 16:08:24 2013
+%%DocumentFonts: (atend)
+%%BoundingBox: 50 50 410 302
+%%EndComments
+%%BeginProlog
+/gnudict 256 dict def
+gnudict begin
+%
+% The following true/false flags may be edited by hand if desired.
+% The unit line width and grayscale image gamma correction may also be changed.
+%
+/Color true def
+/Blacktext false def
+/Solid false def
+/Dashlength 1 def
+/Landscape false def
+/Level1 false def
+/Rounded false def
+/ClipToBoundingBox false def
+/TransparentPatterns false def
+/gnulinewidth 5.000 def
+/userlinewidth gnulinewidth def
+/Gamma 1.0 def
+%
+/vshift -53 def
+/dl1 {
+  10.0 Dashlength mul mul
+  Rounded { currentlinewidth 0.75 mul sub dup 0 le { pop 0.01 } if } if
+} def
+/dl2 {
+  10.0 Dashlength mul mul
+  Rounded { currentlinewidth 0.75 mul add } if
+} def
+/hpt_ 31.5 def
+/vpt_ 31.5 def
+/hpt hpt_ def
+/vpt vpt_ def
+Level1 {} {
+/SDict 10 dict def
+systemdict /pdfmark known not {
+  userdict /pdfmark systemdict /cleartomark get put
+} if
+SDict begin [
+  /Title (mesh.eps)
+  /Subject (gnuplot plot)
+  /Creator (gnuplot 4.4 patchlevel 3)
+  /Author (idf1)
+%  /Producer (gnuplot)
+%  /Keywords ()
+  /CreationDate (Thu May 30 16:08:24 2013)
+  /DOCINFO pdfmark
+end
+} ifelse
+/doclip {
+  ClipToBoundingBox {
+    newpath 50 50 moveto 410 50 lineto 410 302 lineto 50 302 lineto closepath
+    clip
+  } if
+} def
+%
+% Gnuplot Prolog Version 4.4 (August 2010)
+%
+%/SuppressPDFMark true def
+%
+/M {moveto} bind def
+/L {lineto} bind def
+/R {rmoveto} bind def
+/V {rlineto} bind def
+/N {newpath moveto} bind def
+/Z {closepath} bind def
+/C {setrgbcolor} bind def
+/f {rlineto fill} bind def
+/g {setgray} bind def
+/Gshow {show} def   % May be redefined later in the file to support UTF-8
+/vpt2 vpt 2 mul def
+/hpt2 hpt 2 mul def
+/Lshow {currentpoint stroke M 0 vshift R 
+	Blacktext {gsave 0 setgray show grestore} {show} ifelse} def
+/Rshow {currentpoint stroke M dup stringwidth pop neg vshift R
+	Blacktext {gsave 0 setgray show grestore} {show} ifelse} def
+/Cshow {currentpoint stroke M dup stringwidth pop -2 div vshift R 
+	Blacktext {gsave 0 setgray show grestore} {show} ifelse} def
+/UP {dup vpt_ mul /vpt exch def hpt_ mul /hpt exch def
+  /hpt2 hpt 2 mul def /vpt2 vpt 2 mul def} def
+/DL {Color {setrgbcolor Solid {pop []} if 0 setdash}
+ {pop pop pop 0 setgray Solid {pop []} if 0 setdash} ifelse} def
+/BL {stroke userlinewidth 2 mul setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+/AL {stroke userlinewidth 2 div setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+/UL {dup gnulinewidth mul /userlinewidth exch def
+	dup 1 lt {pop 1} if 10 mul /udl exch def} def
+/PL {stroke userlinewidth setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+3.8 setmiterlimit
+% Default Line colors
+/LCw {1 1 1} def
+/LCb {0 0 0} def
+/LCa {0 0 0} def
+/LC0 {1 0 0} def
+/LC1 {0 1 0} def
+/LC2 {0 0 1} def
+/LC3 {1 0 1} def
+/LC4 {0 1 1} def
+/LC5 {1 1 0} def
+/LC6 {0 0 0} def
+/LC7 {1 0.3 0} def
+/LC8 {0.5 0.5 0.5} def
+% Default Line Types
+/LTw {PL [] 1 setgray} def
+/LTb {BL [] LCb DL} def
+/LTa {AL [1 udl mul 2 udl mul] 0 setdash LCa setrgbcolor} def
+/LT0 {PL [] LC0 DL} def
+/LT1 {PL [4 dl1 2 dl2] LC1 DL} def
+/LT2 {PL [2 dl1 3 dl2] LC2 DL} def
+/LT3 {PL [1 dl1 1.5 dl2] LC3 DL} def
+/LT4 {PL [6 dl1 2 dl2 1 dl1 2 dl2] LC4 DL} def
+/LT5 {PL [3 dl1 3 dl2 1 dl1 3 dl2] LC5 DL} def
+/LT6 {PL [2 dl1 2 dl2 2 dl1 6 dl2] LC6 DL} def
+/LT7 {PL [1 dl1 2 dl2 6 dl1 2 dl2 1 dl1 2 dl2] LC7 DL} def
+/LT8 {PL [2 dl1 2 dl2 2 dl1 2 dl2 2 dl1 2 dl2 2 dl1 4 dl2] LC8 DL} def
+/Pnt {stroke [] 0 setdash gsave 1 setlinecap M 0 0 V stroke grestore} def
+/Dia {stroke [] 0 setdash 2 copy vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath stroke
+  Pnt} def
+/Pls {stroke [] 0 setdash vpt sub M 0 vpt2 V
+  currentpoint stroke M
+  hpt neg vpt neg R hpt2 0 V stroke
+ } def
+/Box {stroke [] 0 setdash 2 copy exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath stroke
+  Pnt} def
+/Crs {stroke [] 0 setdash exch hpt sub exch vpt add M
+  hpt2 vpt2 neg V currentpoint stroke M
+  hpt2 neg 0 R hpt2 vpt2 V stroke} def
+/TriU {stroke [] 0 setdash 2 copy vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath stroke
+  Pnt} def
+/Star {2 copy Pls Crs} def
+/BoxF {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath fill} def
+/TriUF {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath fill} def
+/TriD {stroke [] 0 setdash 2 copy vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath stroke
+  Pnt} def
+/TriDF {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath fill} def
+/DiaF {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath fill} def
+/Pent {stroke [] 0 setdash 2 copy gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath stroke grestore Pnt} def
+/PentF {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath fill grestore} def
+/Circle {stroke [] 0 setdash 2 copy
+  hpt 0 360 arc stroke Pnt} def
+/CircleF {stroke [] 0 setdash hpt 0 360 arc fill} def
+/C0 {BL [] 0 setdash 2 copy moveto vpt 90 450 arc} bind def
+/C1 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C2 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C3 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C4 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 180 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C5 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc
+	2 copy moveto
+	2 copy vpt 180 270 arc closepath fill
+	vpt 0 360 arc} bind def
+/C6 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C7 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C8 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 270 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C9 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 270 450 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C10 {BL [] 0 setdash 2 copy 2 copy moveto vpt 270 360 arc closepath fill
+	2 copy moveto
+	2 copy vpt 90 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C11 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 180 arc closepath fill
+	2 copy moveto
+	2 copy vpt 270 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C12 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 180 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C13 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc closepath fill
+	2 copy moveto
+	2 copy vpt 180 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C14 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 360 arc closepath fill
+	vpt 0 360 arc} bind def
+/C15 {BL [] 0 setdash 2 copy vpt 0 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/Rec {newpath 4 2 roll moveto 1 index 0 rlineto 0 exch rlineto
+	neg 0 rlineto closepath} bind def
+/Square {dup Rec} bind def
+/Bsquare {vpt sub exch vpt sub exch vpt2 Square} bind def
+/S0 {BL [] 0 setdash 2 copy moveto 0 vpt rlineto BL Bsquare} bind def
+/S1 {BL [] 0 setdash 2 copy vpt Square fill Bsquare} bind def
+/S2 {BL [] 0 setdash 2 copy exch vpt sub exch vpt Square fill Bsquare} bind def
+/S3 {BL [] 0 setdash 2 copy exch vpt sub exch vpt2 vpt Rec fill Bsquare} bind def
+/S4 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt Square fill Bsquare} bind def
+/S5 {BL [] 0 setdash 2 copy 2 copy vpt Square fill
+	exch vpt sub exch vpt sub vpt Square fill Bsquare} bind def
+/S6 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt vpt2 Rec fill Bsquare} bind def
+/S7 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt vpt2 Rec fill
+	2 copy vpt Square fill Bsquare} bind def
+/S8 {BL [] 0 setdash 2 copy vpt sub vpt Square fill Bsquare} bind def
+/S9 {BL [] 0 setdash 2 copy vpt sub vpt vpt2 Rec fill Bsquare} bind def
+/S10 {BL [] 0 setdash 2 copy vpt sub vpt Square fill 2 copy exch vpt sub exch vpt Square fill
+	Bsquare} bind def
+/S11 {BL [] 0 setdash 2 copy vpt sub vpt Square fill 2 copy exch vpt sub exch vpt2 vpt Rec fill
+	Bsquare} bind def
+/S12 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill Bsquare} bind def
+/S13 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill
+	2 copy vpt Square fill Bsquare} bind def
+/S14 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill
+	2 copy exch vpt sub exch vpt Square fill Bsquare} bind def
+/S15 {BL [] 0 setdash 2 copy Bsquare fill Bsquare} bind def
+/D0 {gsave translate 45 rotate 0 0 S0 stroke grestore} bind def
+/D1 {gsave translate 45 rotate 0 0 S1 stroke grestore} bind def
+/D2 {gsave translate 45 rotate 0 0 S2 stroke grestore} bind def
+/D3 {gsave translate 45 rotate 0 0 S3 stroke grestore} bind def
+/D4 {gsave translate 45 rotate 0 0 S4 stroke grestore} bind def
+/D5 {gsave translate 45 rotate 0 0 S5 stroke grestore} bind def
+/D6 {gsave translate 45 rotate 0 0 S6 stroke grestore} bind def
+/D7 {gsave translate 45 rotate 0 0 S7 stroke grestore} bind def
+/D8 {gsave translate 45 rotate 0 0 S8 stroke grestore} bind def
+/D9 {gsave translate 45 rotate 0 0 S9 stroke grestore} bind def
+/D10 {gsave translate 45 rotate 0 0 S10 stroke grestore} bind def
+/D11 {gsave translate 45 rotate 0 0 S11 stroke grestore} bind def
+/D12 {gsave translate 45 rotate 0 0 S12 stroke grestore} bind def
+/D13 {gsave translate 45 rotate 0 0 S13 stroke grestore} bind def
+/D14 {gsave translate 45 rotate 0 0 S14 stroke grestore} bind def
+/D15 {gsave translate 45 rotate 0 0 S15 stroke grestore} bind def
+/DiaE {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath stroke} def
+/BoxE {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath stroke} def
+/TriUE {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath stroke} def
+/TriDE {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath stroke} def
+/PentE {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath stroke grestore} def
+/CircE {stroke [] 0 setdash 
+  hpt 0 360 arc stroke} def
+/Opaque {gsave closepath 1 setgray fill grestore 0 setgray closepath} def
+/DiaW {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V Opaque stroke} def
+/BoxW {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V Opaque stroke} def
+/TriUW {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V Opaque stroke} def
+/TriDW {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V Opaque stroke} def
+/PentW {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  Opaque stroke grestore} def
+/CircW {stroke [] 0 setdash 
+  hpt 0 360 arc Opaque stroke} def
+/BoxFill {gsave Rec 1 setgray fill grestore} def
+/Density {
+  /Fillden exch def
+  currentrgbcolor
+  /ColB exch def /ColG exch def /ColR exch def
+  /ColR ColR Fillden mul Fillden sub 1 add def
+  /ColG ColG Fillden mul Fillden sub 1 add def
+  /ColB ColB Fillden mul Fillden sub 1 add def
+  ColR ColG ColB setrgbcolor} def
+/BoxColFill {gsave Rec PolyFill} def
+/PolyFill {gsave Density fill grestore grestore} def
+/h {rlineto rlineto rlineto gsave closepath fill grestore} bind def
+%
+% PostScript Level 1 Pattern Fill routine for rectangles
+% Usage: x y w h s a XX PatternFill
+%	x,y = lower left corner of box to be filled
+%	w,h = width and height of box
+%	  a = angle in degrees between lines and x-axis
+%	 XX = 0/1 for no/yes cross-hatch
+%
+/PatternFill {gsave /PFa [ 9 2 roll ] def
+  PFa 0 get PFa 2 get 2 div add PFa 1 get PFa 3 get 2 div add translate
+  PFa 2 get -2 div PFa 3 get -2 div PFa 2 get PFa 3 get Rec
+  gsave 1 setgray fill grestore clip
+  currentlinewidth 0.5 mul setlinewidth
+  /PFs PFa 2 get dup mul PFa 3 get dup mul add sqrt def
+  0 0 M PFa 5 get rotate PFs -2 div dup translate
+  0 1 PFs PFa 4 get div 1 add floor cvi
+	{PFa 4 get mul 0 M 0 PFs V} for
+  0 PFa 6 get ne {
+	0 1 PFs PFa 4 get div 1 add floor cvi
+	{PFa 4 get mul 0 2 1 roll M PFs 0 V} for
+ } if
+  stroke grestore} def
+%
+/languagelevel where
+ {pop languagelevel} {1} ifelse
+ 2 lt
+	{/InterpretLevel1 true def}
+	{/InterpretLevel1 Level1 def}
+ ifelse
+%
+% PostScript level 2 pattern fill definitions
+%
+/Level2PatternFill {
+/Tile8x8 {/PaintType 2 /PatternType 1 /TilingType 1 /BBox [0 0 8 8] /XStep 8 /YStep 8}
+	bind def
+/KeepColor {currentrgbcolor [/Pattern /DeviceRGB] setcolorspace} bind def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 8 8 L 0 8 M 8 0 L stroke} 
+>> matrix makepattern
+/Pat1 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 8 8 L 0 8 M 8 0 L stroke
+	0 4 M 4 8 L 8 4 L 4 0 L 0 4 L stroke}
+>> matrix makepattern
+/Pat2 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 0 8 L
+	8 8 L 8 0 L 0 0 L fill}
+>> matrix makepattern
+/Pat3 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -4 8 M 8 -4 L
+	0 12 M 12 0 L stroke}
+>> matrix makepattern
+/Pat4 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -4 0 M 8 12 L
+	0 -4 M 12 8 L stroke}
+>> matrix makepattern
+/Pat5 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -2 8 M 4 -4 L
+	0 12 M 8 -4 L 4 12 M 10 0 L stroke}
+>> matrix makepattern
+/Pat6 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -2 0 M 4 12 L
+	0 -4 M 8 12 L 4 -4 M 10 8 L stroke}
+>> matrix makepattern
+/Pat7 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 8 -2 M -4 4 L
+	12 0 M -4 8 L 12 4 M 0 10 L stroke}
+>> matrix makepattern
+/Pat8 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 -2 M 12 4 L
+	-4 0 M 12 8 L -4 4 M 8 10 L stroke}
+>> matrix makepattern
+/Pat9 exch def
+/Pattern1 {PatternBgnd KeepColor Pat1 setpattern} bind def
+/Pattern2 {PatternBgnd KeepColor Pat2 setpattern} bind def
+/Pattern3 {PatternBgnd KeepColor Pat3 setpattern} bind def
+/Pattern4 {PatternBgnd KeepColor Landscape {Pat5} {Pat4} ifelse setpattern} bind def
+/Pattern5 {PatternBgnd KeepColor Landscape {Pat4} {Pat5} ifelse setpattern} bind def
+/Pattern6 {PatternBgnd KeepColor Landscape {Pat9} {Pat6} ifelse setpattern} bind def
+/Pattern7 {PatternBgnd KeepColor Landscape {Pat8} {Pat7} ifelse setpattern} bind def
+} def
+%
+%
+%End of PostScript Level 2 code
+%
+/PatternBgnd {
+  TransparentPatterns {} {gsave 1 setgray fill grestore} ifelse
+} def
+%
+% Substitute for Level 2 pattern fill codes with
+% grayscale if Level 2 support is not selected.
+%
+/Level1PatternFill {
+/Pattern1 {0.250 Density} bind def
+/Pattern2 {0.500 Density} bind def
+/Pattern3 {0.750 Density} bind def
+/Pattern4 {0.125 Density} bind def
+/Pattern5 {0.375 Density} bind def
+/Pattern6 {0.625 Density} bind def
+/Pattern7 {0.875 Density} bind def
+} def
+%
+% Now test for support of Level 2 code
+%
+Level1 {Level1PatternFill} {Level2PatternFill} ifelse
+%
+/Symbol-Oblique /Symbol findfont [1 0 .167 1 0 0] makefont
+dup length dict begin {1 index /FID eq {pop pop} {def} ifelse} forall
+currentdict end definefont pop
+/MFshow {
+   { dup 5 get 3 ge
+     { 5 get 3 eq {gsave} {grestore} ifelse }
+     {dup dup 0 get findfont exch 1 get scalefont setfont
+     [ currentpoint ] exch dup 2 get 0 exch R dup 5 get 2 ne {dup dup 6
+     get exch 4 get {Gshow} {stringwidth pop 0 R} ifelse }if dup 5 get 0 eq
+     {dup 3 get {2 get neg 0 exch R pop} {pop aload pop M} ifelse} {dup 5
+     get 1 eq {dup 2 get exch dup 3 get exch 6 get stringwidth pop -2 div
+     dup 0 R} {dup 6 get stringwidth pop -2 div 0 R 6 get
+     show 2 index {aload pop M neg 3 -1 roll neg R pop pop} {pop pop pop
+     pop aload pop M} ifelse }ifelse }ifelse }
+     ifelse }
+   forall} def
+/Gswidth {dup type /stringtype eq {stringwidth} {pop (n) stringwidth} ifelse} def
+/MFwidth {0 exch { dup 5 get 3 ge { 5 get 3 eq { 0 } { pop } ifelse }
+ {dup 3 get{dup dup 0 get findfont exch 1 get scalefont setfont
+     6 get Gswidth pop add} {pop} ifelse} ifelse} forall} def
+/MLshow { currentpoint stroke M
+  0 exch R
+  Blacktext {gsave 0 setgray MFshow grestore} {MFshow} ifelse } bind def
+/MRshow { currentpoint stroke M
+  exch dup MFwidth neg 3 -1 roll R
+  Blacktext {gsave 0 setgray MFshow grestore} {MFshow} ifelse } bind def
+/MCshow { currentpoint stroke M
+  exch dup MFwidth -2 div 3 -1 roll R
+  Blacktext {gsave 0 setgray MFshow grestore} {MFshow} ifelse } bind def
+/XYsave    { [( ) 1 2 true false 3 ()] } bind def
+/XYrestore { [( ) 1 2 true false 4 ()] } bind def
+end
+%%EndProlog
+gnudict begin
+gsave
+doclip
+50 50 translate
+0.050 0.050 scale
+0 setgray
+newpath
+(Helvetica) findfont 160 scalefont setfont
+1.000 UL
+LTb
+1.000 UL
+LTb
+990 1251 M
+2901 2299 L
+6210 1694 M
+2901 2299 L
+990 1251 M
+0 2095 V
+0 -2095 R
+50 27 V
+stroke
+914 1181 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 0)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+2901 2299 M
+-50 -27 V
+1652 1130 M
+50 27 V
+stroke
+1576 1060 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 5)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+3563 2178 M
+-50 -27 V
+2314 1009 M
+50 27 V
+stroke
+2238 939 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 10)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+4224 2057 M
+-50 -27 V
+2976 887 M
+50 28 V
+stroke
+2900 818 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 15)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+4886 1936 M
+-50 -27 V
+3637 766 M
+50 28 V
+stroke
+3562 697 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 20)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+5548 1815 M
+-50 -28 V
+4299 645 M
+50 28 V
+stroke
+4223 576 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 25)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+6210 1694 M
+-50 -28 V
+4299 645 M
+-55 10 V
+stroke
+4382 620 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 0)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+990 1251 M
+55 -10 V
+4511 762 M
+-54 10 V
+stroke
+4594 737 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 5)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+1202 1367 M
+55 -10 V
+4724 878 M
+-55 10 V
+stroke
+4807 853 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 10)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+1415 1484 M
+54 -10 V
+4936 995 M
+-55 10 V
+stroke
+5019 969 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 15)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+1627 1600 M
+55 -10 V
+5148 1111 M
+-54 10 V
+stroke
+5231 1086 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 20)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+1839 1717 M
+55 -10 V
+5361 1228 M
+-55 10 V
+stroke
+5444 1202 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 25)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+2052 1833 M
+54 -10 V
+5573 1344 M
+-55 10 V
+stroke
+5656 1319 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 30)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+2264 1950 M
+55 -10 V
+5785 1461 M
+-54 10 V
+stroke
+5868 1435 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 35)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+2476 2066 M
+55 -10 V
+5998 1577 M
+-55 10 V
+stroke
+6081 1552 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 40)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+2689 2182 M
+54 -9 V
+6210 1694 M
+-55 10 V
+stroke
+6293 1668 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 45)]
+] -53.3 MCshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+2901 2299 M
+55 -10 V
+990 1251 M
+63 0 V
+stroke
+864 1251 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 0)]
+] -53.3 MRshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+990 1670 M
+63 0 V
+stroke
+864 1670 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 5)]
+] -53.3 MRshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+990 2089 M
+63 0 V
+stroke
+864 2089 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 10)]
+] -53.3 MRshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+990 2509 M
+63 0 V
+stroke
+864 2509 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 15)]
+] -53.3 MRshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+990 2927 M
+63 0 V
+stroke
+864 2927 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 20)]
+] -53.3 MRshow
+1.000 UL
+LTb
+1.000 UL
+LTb
+990 3346 M
+63 0 V
+stroke
+864 3346 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( 25)]
+] -53.3 MRshow
+1.000 UL
+LTb
+LCb setrgbcolor
+163 2450 M
+[ [(Helvetica) 160.0 0.0 true true 0 (z [m])]
+] -53.3 MCshow
+LTb
+3599 4735 M
+[ [(Helvetica) 160.0 0.0 true true 0 ( Vulture example: Plane wave in free-space.)]
+] -53.3 MCshow
+1.000 UP
+% Begin plot #1
+LCb setrgbcolor
+5571 4336 M
+[ [(Helvetica) 160.0 0.0 true true 0 (External surfaces)]
+] -53.3 MRshow
+2.000 UL
+LT2
+1.00 0.55 0.00 C 1.00 0.55 0.00 C 5667 4336 M
+447 0 V
+2688 2181 M
+0 1678 V
+5336 3375 L
+0 -1678 V
+2688 2181 L
+3637 765 M
+0 1678 V
+1699 932 V
+0 -1678 V
+3637 765 L
+989 2927 M
+1699 932 V
+5336 3375 L
+3637 2443 L
+989 2927 L
+0 -1677 R
+0 1677 V
+3637 2443 L
+0 -1678 V
+989 1250 L
+0 1677 V
+1699 932 V
+0 -1678 V
+989 1250 L
+1699 931 V
+5336 1697 L
+3637 765 L
+989 1250 L
+5336 3375 M
+989 1250 M
+% End plot #1
+% Begin plot #2
+stroke
+LCb setrgbcolor
+5571 4176 M
+[ [(Helvetica) 160.0 0.0 true true 0 (Plane waves)]
+] -53.3 MRshow
+2.000 UL
+LT4
+1.00 0.00 1.00 C 1.00 0.00 1.00 C 5667 4176 M
+447 0 V
+1514 1498 M
+556 -101 V
+-139 113 V
+139 -113 V
+-139 -63 V
+139 63 V
+-278 95 V
+278 -95 V
+-278 7 V
+-278 94 R
+0 353 V
+44 -64 V
+-89 -49 V
+45 113 V
+0 -353 R
+178 98 V
+-45 64 V
+45 -64 V
+-45 -112 V
+4811 3126 M
+2957 3465 L
+1514 2673 L
+3367 2334 L
+1444 792 V
+0 -1174 V
+3367 1160 L
+0 1174 V
+1444 792 V
+0 -1174 V
+2957 2291 L
+0 1174 V
+4811 3126 L
+1514 1498 M
+1443 793 V
+4811 1952 L
+3367 1160 L
+1514 1498 L
+1443 793 V
+0 1174 V
+1514 2673 L
+0 -1175 V
+3367 1160 L
+0 1174 V
+1514 2673 L
+0 -1175 V
+5336 3375 M
+989 1250 M
+% End plot #2
+% Begin plot #3
+stroke
+LCb setrgbcolor
+5571 4016 M
+[ [(Helvetica) 160.0 0.0 true true 0 (Observers)]
+] -53.3 MRshow
+0.200 UP
+4.000 UL
+LT1
+0.00 0.00 0.00 C 0.00 0.00 0.00 C 5890 4016 Circle
+0.00 0.00 0.00 C 3162 2312 Circle
+0.00 0.00 0.00 C 3162 2312 Circle
+0.00 0.00 0.00 C 5336 2536 Circle
+0.00 0.00 0.00 C 5203 2560 Circle
+0.00 0.00 0.00 C 5071 2584 Circle
+0.00 0.00 0.00 C 4938 2609 Circle
+0.00 0.00 0.00 C 4806 2633 Circle
+0.00 0.00 0.00 C 4674 2657 Circle
+0.00 0.00 0.00 C 4541 2681 Circle
+0.00 0.00 0.00 C 4409 2705 Circle
+0.00 0.00 0.00 C 4276 2730 Circle
+0.00 0.00 0.00 C 4144 2754 Circle
+0.00 0.00 0.00 C 4012 2778 Circle
+0.00 0.00 0.00 C 3879 2802 Circle
+0.00 0.00 0.00 C 3747 2826 Circle
+0.00 0.00 0.00 C 3614 2851 Circle
+0.00 0.00 0.00 C 3482 2875 Circle
+0.00 0.00 0.00 C 3350 2899 Circle
+0.00 0.00 0.00 C 3217 2923 Circle
+0.00 0.00 0.00 C 3085 2948 Circle
+0.00 0.00 0.00 C 2952 2972 Circle
+0.00 0.00 0.00 C 2820 2996 Circle
+0.00 0.00 0.00 C 2688 3020 Circle
+0.00 0.00 0.00 C 5293 2513 Circle
+0.00 0.00 0.00 C 5161 2537 Circle
+0.00 0.00 0.00 C 5028 2561 Circle
+0.00 0.00 0.00 C 4896 2585 Circle
+0.00 0.00 0.00 C 4764 2609 Circle
+0.00 0.00 0.00 C 4631 2634 Circle
+0.00 0.00 0.00 C 4499 2658 Circle
+0.00 0.00 0.00 C 4366 2682 Circle
+0.00 0.00 0.00 C 4234 2706 Circle
+0.00 0.00 0.00 C 4102 2731 Circle
+0.00 0.00 0.00 C 3969 2755 Circle
+0.00 0.00 0.00 C 3837 2779 Circle
+0.00 0.00 0.00 C 3704 2803 Circle
+0.00 0.00 0.00 C 3572 2827 Circle
+0.00 0.00 0.00 C 3440 2852 Circle
+0.00 0.00 0.00 C 3307 2876 Circle
+0.00 0.00 0.00 C 3175 2900 Circle
+0.00 0.00 0.00 C 3042 2924 Circle
+0.00 0.00 0.00 C 2910 2948 Circle
+0.00 0.00 0.00 C 2778 2973 Circle
+0.00 0.00 0.00 C 2645 2997 Circle
+0.00 0.00 0.00 C 5251 2489 Circle
+0.00 0.00 0.00 C 5118 2514 Circle
+0.00 0.00 0.00 C 4986 2538 Circle
+0.00 0.00 0.00 C 4854 2562 Circle
+0.00 0.00 0.00 C 4721 2586 Circle
+0.00 0.00 0.00 C 4589 2610 Circle
+0.00 0.00 0.00 C 4456 2635 Circle
+0.00 0.00 0.00 C 4324 2659 Circle
+0.00 0.00 0.00 C 4192 2683 Circle
+0.00 0.00 0.00 C 4059 2707 Circle
+0.00 0.00 0.00 C 3927 2731 Circle
+0.00 0.00 0.00 C 3794 2756 Circle
+0.00 0.00 0.00 C 3662 2780 Circle
+0.00 0.00 0.00 C 3530 2804 Circle
+0.00 0.00 0.00 C 3397 2828 Circle
+0.00 0.00 0.00 C 3265 2852 Circle
+0.00 0.00 0.00 C 3132 2877 Circle
+0.00 0.00 0.00 C 3000 2901 Circle
+0.00 0.00 0.00 C 2868 2925 Circle
+0.00 0.00 0.00 C 2735 2949 Circle
+0.00 0.00 0.00 C 2603 2974 Circle
+0.00 0.00 0.00 C 5208 2466 Circle
+0.00 0.00 0.00 C 5076 2490 Circle
+0.00 0.00 0.00 C 4943 2514 Circle
+0.00 0.00 0.00 C 4811 2539 Circle
+0.00 0.00 0.00 C 4679 2563 Circle
+0.00 0.00 0.00 C 4546 2587 Circle
+0.00 0.00 0.00 C 4414 2611 Circle
+0.00 0.00 0.00 C 4281 2636 Circle
+0.00 0.00 0.00 C 4149 2660 Circle
+0.00 0.00 0.00 C 4017 2684 Circle
+0.00 0.00 0.00 C 3884 2708 Circle
+0.00 0.00 0.00 C 3752 2732 Circle
+0.00 0.00 0.00 C 3619 2757 Circle
+0.00 0.00 0.00 C 3487 2781 Circle
+0.00 0.00 0.00 C 3355 2805 Circle
+0.00 0.00 0.00 C 3222 2829 Circle
+0.00 0.00 0.00 C 3090 2853 Circle
+0.00 0.00 0.00 C 2957 2878 Circle
+0.00 0.00 0.00 C 2825 2902 Circle
+0.00 0.00 0.00 C 2693 2926 Circle
+0.00 0.00 0.00 C 2560 2950 Circle
+0.00 0.00 0.00 C 5166 2443 Circle
+0.00 0.00 0.00 C 5033 2467 Circle
+0.00 0.00 0.00 C 4901 2491 Circle
+0.00 0.00 0.00 C 4769 2515 Circle
+0.00 0.00 0.00 C 4636 2540 Circle
+0.00 0.00 0.00 C 4504 2564 Circle
+0.00 0.00 0.00 C 4371 2588 Circle
+0.00 0.00 0.00 C 4239 2612 Circle
+0.00 0.00 0.00 C 4107 2636 Circle
+0.00 0.00 0.00 C 3974 2661 Circle
+0.00 0.00 0.00 C 3842 2685 Circle
+0.00 0.00 0.00 C 3709 2709 Circle
+0.00 0.00 0.00 C 3577 2733 Circle
+0.00 0.00 0.00 C 3445 2757 Circle
+0.00 0.00 0.00 C 3312 2782 Circle
+0.00 0.00 0.00 C 3180 2806 Circle
+0.00 0.00 0.00 C 3047 2830 Circle
+0.00 0.00 0.00 C 2915 2854 Circle
+0.00 0.00 0.00 C 2783 2879 Circle
+0.00 0.00 0.00 C 2650 2903 Circle
+0.00 0.00 0.00 C 2518 2927 Circle
+0.00 0.00 0.00 C 5123 2419 Circle
+0.00 0.00 0.00 C 4991 2444 Circle
+0.00 0.00 0.00 C 4859 2468 Circle
+0.00 0.00 0.00 C 4726 2492 Circle
+0.00 0.00 0.00 C 4594 2516 Circle
+0.00 0.00 0.00 C 4461 2541 Circle
+0.00 0.00 0.00 C 4329 2565 Circle
+0.00 0.00 0.00 C 4197 2589 Circle
+0.00 0.00 0.00 C 4064 2613 Circle
+0.00 0.00 0.00 C 3932 2637 Circle
+0.00 0.00 0.00 C 3799 2662 Circle
+0.00 0.00 0.00 C 3667 2686 Circle
+0.00 0.00 0.00 C 3535 2710 Circle
+0.00 0.00 0.00 C 3402 2734 Circle
+0.00 0.00 0.00 C 3270 2758 Circle
+0.00 0.00 0.00 C 3137 2783 Circle
+0.00 0.00 0.00 C 3005 2807 Circle
+0.00 0.00 0.00 C 2873 2831 Circle
+0.00 0.00 0.00 C 2740 2855 Circle
+0.00 0.00 0.00 C 2608 2879 Circle
+0.00 0.00 0.00 C 2475 2904 Circle
+0.00 0.00 0.00 C 5081 2396 Circle
+0.00 0.00 0.00 C 4948 2420 Circle
+0.00 0.00 0.00 C 4816 2445 Circle
+0.00 0.00 0.00 C 4684 2469 Circle
+0.00 0.00 0.00 C 4551 2493 Circle
+0.00 0.00 0.00 C 4419 2517 Circle
+0.00 0.00 0.00 C 4286 2541 Circle
+0.00 0.00 0.00 C 4154 2566 Circle
+0.00 0.00 0.00 C 4022 2590 Circle
+0.00 0.00 0.00 C 3889 2614 Circle
+0.00 0.00 0.00 C 3757 2638 Circle
+0.00 0.00 0.00 C 3624 2662 Circle
+0.00 0.00 0.00 C 3492 2687 Circle
+0.00 0.00 0.00 C 3360 2711 Circle
+0.00 0.00 0.00 C 3227 2735 Circle
+0.00 0.00 0.00 C 3095 2759 Circle
+0.00 0.00 0.00 C 2962 2784 Circle
+0.00 0.00 0.00 C 2830 2808 Circle
+0.00 0.00 0.00 C 2698 2832 Circle
+0.00 0.00 0.00 C 2565 2856 Circle
+0.00 0.00 0.00 C 2433 2880 Circle
+0.00 0.00 0.00 C 5038 2373 Circle
+0.00 0.00 0.00 C 4906 2397 Circle
+0.00 0.00 0.00 C 4774 2421 Circle
+0.00 0.00 0.00 C 4641 2445 Circle
+0.00 0.00 0.00 C 4509 2470 Circle
+0.00 0.00 0.00 C 4376 2494 Circle
+0.00 0.00 0.00 C 4244 2518 Circle
+0.00 0.00 0.00 C 4112 2542 Circle
+0.00 0.00 0.00 C 3979 2567 Circle
+0.00 0.00 0.00 C 3847 2591 Circle
+0.00 0.00 0.00 C 3714 2615 Circle
+0.00 0.00 0.00 C 3582 2639 Circle
+0.00 0.00 0.00 C 3450 2663 Circle
+0.00 0.00 0.00 C 3317 2688 Circle
+0.00 0.00 0.00 C 3185 2712 Circle
+0.00 0.00 0.00 C 3052 2736 Circle
+0.00 0.00 0.00 C 2920 2760 Circle
+0.00 0.00 0.00 C 2788 2784 Circle
+0.00 0.00 0.00 C 2655 2809 Circle
+0.00 0.00 0.00 C 2523 2833 Circle
+0.00 0.00 0.00 C 2390 2857 Circle
+0.00 0.00 0.00 C 4996 2350 Circle
+0.00 0.00 0.00 C 4864 2374 Circle
+0.00 0.00 0.00 C 4731 2398 Circle
+0.00 0.00 0.00 C 4599 2422 Circle
+0.00 0.00 0.00 C 4466 2446 Circle
+0.00 0.00 0.00 C 4334 2471 Circle
+0.00 0.00 0.00 C 4202 2495 Circle
+0.00 0.00 0.00 C 4069 2519 Circle
+0.00 0.00 0.00 C 3937 2543 Circle
+0.00 0.00 0.00 C 3804 2567 Circle
+0.00 0.00 0.00 C 3672 2592 Circle
+0.00 0.00 0.00 C 3540 2616 Circle
+0.00 0.00 0.00 C 3407 2640 Circle
+0.00 0.00 0.00 C 3275 2664 Circle
+0.00 0.00 0.00 C 3142 2689 Circle
+0.00 0.00 0.00 C 3010 2713 Circle
+0.00 0.00 0.00 C 2878 2737 Circle
+0.00 0.00 0.00 C 2745 2761 Circle
+0.00 0.00 0.00 C 2613 2785 Circle
+0.00 0.00 0.00 C 2480 2810 Circle
+0.00 0.00 0.00 C 2348 2834 Circle
+0.00 0.00 0.00 C 4953 2326 Circle
+0.00 0.00 0.00 C 4821 2350 Circle
+0.00 0.00 0.00 C 4689 2375 Circle
+0.00 0.00 0.00 C 4556 2399 Circle
+0.00 0.00 0.00 C 4424 2423 Circle
+0.00 0.00 0.00 C 4291 2447 Circle
+0.00 0.00 0.00 C 4159 2472 Circle
+0.00 0.00 0.00 C 4027 2496 Circle
+0.00 0.00 0.00 C 3894 2520 Circle
+0.00 0.00 0.00 C 3762 2544 Circle
+0.00 0.00 0.00 C 3629 2568 Circle
+0.00 0.00 0.00 C 3497 2593 Circle
+0.00 0.00 0.00 C 3365 2617 Circle
+0.00 0.00 0.00 C 3232 2641 Circle
+0.00 0.00 0.00 C 3100 2665 Circle
+0.00 0.00 0.00 C 2967 2689 Circle
+0.00 0.00 0.00 C 2835 2714 Circle
+0.00 0.00 0.00 C 2703 2738 Circle
+0.00 0.00 0.00 C 2570 2762 Circle
+0.00 0.00 0.00 C 2438 2786 Circle
+0.00 0.00 0.00 C 2305 2810 Circle
+0.00 0.00 0.00 C 4911 2303 Circle
+0.00 0.00 0.00 C 4779 2327 Circle
+0.00 0.00 0.00 C 4646 2351 Circle
+0.00 0.00 0.00 C 4514 2376 Circle
+0.00 0.00 0.00 C 4381 2400 Circle
+0.00 0.00 0.00 C 4249 2424 Circle
+0.00 0.00 0.00 C 4117 2448 Circle
+0.00 0.00 0.00 C 3984 2472 Circle
+0.00 0.00 0.00 C 3852 2497 Circle
+0.00 0.00 0.00 C 3719 2521 Circle
+0.00 0.00 0.00 C 3587 2545 Circle
+0.00 0.00 0.00 C 3455 2569 Circle
+0.00 0.00 0.00 C 3322 2594 Circle
+0.00 0.00 0.00 C 3190 2618 Circle
+0.00 0.00 0.00 C 3057 2642 Circle
+0.00 0.00 0.00 C 2925 2666 Circle
+0.00 0.00 0.00 C 2793 2690 Circle
+0.00 0.00 0.00 C 2660 2715 Circle
+0.00 0.00 0.00 C 2528 2739 Circle
+0.00 0.00 0.00 C 2395 2763 Circle
+0.00 0.00 0.00 C 2263 2787 Circle
+0.00 0.00 0.00 C 4869 2280 Circle
+0.00 0.00 0.00 C 4736 2304 Circle
+0.00 0.00 0.00 C 4604 2328 Circle
+0.00 0.00 0.00 C 4471 2352 Circle
+0.00 0.00 0.00 C 4339 2377 Circle
+0.00 0.00 0.00 C 4207 2401 Circle
+0.00 0.00 0.00 C 4074 2425 Circle
+0.00 0.00 0.00 C 3942 2449 Circle
+0.00 0.00 0.00 C 3809 2473 Circle
+0.00 0.00 0.00 C 3677 2498 Circle
+0.00 0.00 0.00 C 3545 2522 Circle
+0.00 0.00 0.00 C 3412 2546 Circle
+0.00 0.00 0.00 C 3280 2570 Circle
+0.00 0.00 0.00 C 3147 2594 Circle
+0.00 0.00 0.00 C 3015 2619 Circle
+0.00 0.00 0.00 C 2883 2643 Circle
+0.00 0.00 0.00 C 2750 2667 Circle
+0.00 0.00 0.00 C 2618 2691 Circle
+0.00 0.00 0.00 C 2485 2715 Circle
+0.00 0.00 0.00 C 2353 2740 Circle
+0.00 0.00 0.00 C 2221 2764 Circle
+0.00 0.00 0.00 C 4826 2256 Circle
+0.00 0.00 0.00 C 4694 2281 Circle
+0.00 0.00 0.00 C 4561 2305 Circle
+0.00 0.00 0.00 C 4429 2329 Circle
+0.00 0.00 0.00 C 4296 2353 Circle
+0.00 0.00 0.00 C 4164 2377 Circle
+0.00 0.00 0.00 C 4032 2402 Circle
+0.00 0.00 0.00 C 3899 2426 Circle
+0.00 0.00 0.00 C 3767 2450 Circle
+0.00 0.00 0.00 C 3634 2474 Circle
+0.00 0.00 0.00 C 3502 2498 Circle
+0.00 0.00 0.00 C 3370 2523 Circle
+0.00 0.00 0.00 C 3237 2547 Circle
+0.00 0.00 0.00 C 3105 2571 Circle
+0.00 0.00 0.00 C 2972 2595 Circle
+0.00 0.00 0.00 C 2840 2620 Circle
+0.00 0.00 0.00 C 2708 2644 Circle
+0.00 0.00 0.00 C 2575 2668 Circle
+0.00 0.00 0.00 C 2443 2692 Circle
+0.00 0.00 0.00 C 2310 2716 Circle
+0.00 0.00 0.00 C 2178 2741 Circle
+0.00 0.00 0.00 C 4784 2233 Circle
+0.00 0.00 0.00 C 4651 2257 Circle
+0.00 0.00 0.00 C 4519 2282 Circle
+0.00 0.00 0.00 C 4386 2306 Circle
+0.00 0.00 0.00 C 4254 2330 Circle
+0.00 0.00 0.00 C 4122 2354 Circle
+0.00 0.00 0.00 C 3989 2378 Circle
+0.00 0.00 0.00 C 3857 2403 Circle
+0.00 0.00 0.00 C 3724 2427 Circle
+0.00 0.00 0.00 C 3592 2451 Circle
+0.00 0.00 0.00 C 3460 2475 Circle
+0.00 0.00 0.00 C 3327 2499 Circle
+0.00 0.00 0.00 C 3195 2524 Circle
+0.00 0.00 0.00 C 3062 2548 Circle
+0.00 0.00 0.00 C 2930 2572 Circle
+0.00 0.00 0.00 C 2798 2596 Circle
+0.00 0.00 0.00 C 2665 2620 Circle
+0.00 0.00 0.00 C 2533 2645 Circle
+0.00 0.00 0.00 C 2400 2669 Circle
+0.00 0.00 0.00 C 2268 2693 Circle
+0.00 0.00 0.00 C 2136 2717 Circle
+0.00 0.00 0.00 C 4741 2210 Circle
+0.00 0.00 0.00 C 4609 2234 Circle
+0.00 0.00 0.00 C 4476 2258 Circle
+0.00 0.00 0.00 C 4344 2282 Circle
+0.00 0.00 0.00 C 4212 2307 Circle
+0.00 0.00 0.00 C 4079 2331 Circle
+0.00 0.00 0.00 C 3947 2355 Circle
+0.00 0.00 0.00 C 3814 2379 Circle
+0.00 0.00 0.00 C 3682 2403 Circle
+0.00 0.00 0.00 C 3550 2428 Circle
+0.00 0.00 0.00 C 3417 2452 Circle
+0.00 0.00 0.00 C 3285 2476 Circle
+0.00 0.00 0.00 C 3152 2500 Circle
+0.00 0.00 0.00 C 3020 2525 Circle
+0.00 0.00 0.00 C 2888 2549 Circle
+0.00 0.00 0.00 C 2755 2573 Circle
+0.00 0.00 0.00 C 2623 2597 Circle
+0.00 0.00 0.00 C 2490 2621 Circle
+0.00 0.00 0.00 C 2358 2646 Circle
+0.00 0.00 0.00 C 2226 2670 Circle
+0.00 0.00 0.00 C 2093 2694 Circle
+0.00 0.00 0.00 C 4699 2187 Circle
+0.00 0.00 0.00 C 4566 2211 Circle
+0.00 0.00 0.00 C 4434 2235 Circle
+0.00 0.00 0.00 C 4301 2259 Circle
+0.00 0.00 0.00 C 4169 2283 Circle
+0.00 0.00 0.00 C 4037 2308 Circle
+0.00 0.00 0.00 C 3904 2332 Circle
+0.00 0.00 0.00 C 3772 2356 Circle
+0.00 0.00 0.00 C 3639 2380 Circle
+0.00 0.00 0.00 C 3507 2404 Circle
+0.00 0.00 0.00 C 3375 2429 Circle
+0.00 0.00 0.00 C 3242 2453 Circle
+0.00 0.00 0.00 C 3110 2477 Circle
+0.00 0.00 0.00 C 2977 2501 Circle
+0.00 0.00 0.00 C 2845 2525 Circle
+0.00 0.00 0.00 C 2713 2550 Circle
+0.00 0.00 0.00 C 2580 2574 Circle
+0.00 0.00 0.00 C 2448 2598 Circle
+0.00 0.00 0.00 C 2315 2622 Circle
+0.00 0.00 0.00 C 2183 2646 Circle
+0.00 0.00 0.00 C 2051 2671 Circle
+0.00 0.00 0.00 C 4656 2163 Circle
+0.00 0.00 0.00 C 4524 2187 Circle
+0.00 0.00 0.00 C 4391 2212 Circle
+0.00 0.00 0.00 C 4259 2236 Circle
+0.00 0.00 0.00 C 4127 2260 Circle
+0.00 0.00 0.00 C 3994 2284 Circle
+0.00 0.00 0.00 C 3862 2308 Circle
+0.00 0.00 0.00 C 3729 2333 Circle
+0.00 0.00 0.00 C 3597 2357 Circle
+0.00 0.00 0.00 C 3465 2381 Circle
+0.00 0.00 0.00 C 3332 2405 Circle
+0.00 0.00 0.00 C 3200 2430 Circle
+0.00 0.00 0.00 C 3067 2454 Circle
+0.00 0.00 0.00 C 2935 2478 Circle
+0.00 0.00 0.00 C 2803 2502 Circle
+0.00 0.00 0.00 C 2670 2526 Circle
+0.00 0.00 0.00 C 2538 2551 Circle
+0.00 0.00 0.00 C 2405 2575 Circle
+0.00 0.00 0.00 C 2273 2599 Circle
+0.00 0.00 0.00 C 2141 2623 Circle
+0.00 0.00 0.00 C 2008 2647 Circle
+0.00 0.00 0.00 C 4614 2140 Circle
+0.00 0.00 0.00 C 4481 2164 Circle
+0.00 0.00 0.00 C 4349 2188 Circle
+0.00 0.00 0.00 C 4217 2213 Circle
+0.00 0.00 0.00 C 4084 2237 Circle
+0.00 0.00 0.00 C 3952 2261 Circle
+0.00 0.00 0.00 C 3819 2285 Circle
+0.00 0.00 0.00 C 3687 2309 Circle
+0.00 0.00 0.00 C 3555 2334 Circle
+0.00 0.00 0.00 C 3422 2358 Circle
+0.00 0.00 0.00 C 3290 2382 Circle
+0.00 0.00 0.00 C 3157 2406 Circle
+0.00 0.00 0.00 C 3025 2430 Circle
+0.00 0.00 0.00 C 2893 2455 Circle
+0.00 0.00 0.00 C 2760 2479 Circle
+0.00 0.00 0.00 C 2628 2503 Circle
+0.00 0.00 0.00 C 2495 2527 Circle
+0.00 0.00 0.00 C 2363 2551 Circle
+0.00 0.00 0.00 C 2231 2576 Circle
+0.00 0.00 0.00 C 2098 2600 Circle
+0.00 0.00 0.00 C 1966 2624 Circle
+0.00 0.00 0.00 C 4571 2117 Circle
+0.00 0.00 0.00 C 4439 2141 Circle
+0.00 0.00 0.00 C 4306 2165 Circle
+0.00 0.00 0.00 C 4174 2189 Circle
+0.00 0.00 0.00 C 4042 2213 Circle
+0.00 0.00 0.00 C 3909 2238 Circle
+0.00 0.00 0.00 C 3777 2262 Circle
+0.00 0.00 0.00 C 3644 2286 Circle
+0.00 0.00 0.00 C 3512 2310 Circle
+0.00 0.00 0.00 C 3380 2335 Circle
+0.00 0.00 0.00 C 3247 2359 Circle
+0.00 0.00 0.00 C 3115 2383 Circle
+0.00 0.00 0.00 C 2982 2407 Circle
+0.00 0.00 0.00 C 2850 2431 Circle
+0.00 0.00 0.00 C 2718 2456 Circle
+0.00 0.00 0.00 C 2585 2480 Circle
+0.00 0.00 0.00 C 2453 2504 Circle
+0.00 0.00 0.00 C 2320 2528 Circle
+0.00 0.00 0.00 C 2188 2552 Circle
+0.00 0.00 0.00 C 2056 2577 Circle
+0.00 0.00 0.00 C 1923 2601 Circle
+0.00 0.00 0.00 C 4529 2093 Circle
+0.00 0.00 0.00 C 4396 2118 Circle
+0.00 0.00 0.00 C 4264 2142 Circle
+0.00 0.00 0.00 C 4132 2166 Circle
+0.00 0.00 0.00 C 3999 2190 Circle
+0.00 0.00 0.00 C 3867 2214 Circle
+0.00 0.00 0.00 C 3734 2239 Circle
+0.00 0.00 0.00 C 3602 2263 Circle
+0.00 0.00 0.00 C 3470 2287 Circle
+0.00 0.00 0.00 C 3337 2311 Circle
+0.00 0.00 0.00 C 3205 2335 Circle
+0.00 0.00 0.00 C 3072 2360 Circle
+0.00 0.00 0.00 C 2940 2384 Circle
+0.00 0.00 0.00 C 2808 2408 Circle
+0.00 0.00 0.00 C 2675 2432 Circle
+0.00 0.00 0.00 C 2543 2456 Circle
+0.00 0.00 0.00 C 2410 2481 Circle
+0.00 0.00 0.00 C 2278 2505 Circle
+0.00 0.00 0.00 C 2146 2529 Circle
+0.00 0.00 0.00 C 2013 2553 Circle
+0.00 0.00 0.00 C 1881 2578 Circle
+0.00 0.00 0.00 C 4486 2070 Circle
+0.00 0.00 0.00 C 4354 2094 Circle
+0.00 0.00 0.00 C 4222 2118 Circle
+0.00 0.00 0.00 C 4089 2143 Circle
+0.00 0.00 0.00 C 3957 2167 Circle
+0.00 0.00 0.00 C 3824 2191 Circle
+0.00 0.00 0.00 C 3692 2215 Circle
+0.00 0.00 0.00 C 3560 2239 Circle
+0.00 0.00 0.00 C 3427 2264 Circle
+0.00 0.00 0.00 C 3295 2288 Circle
+0.00 0.00 0.00 C 3162 2312 Circle
+0.00 0.00 0.00 C 3030 2336 Circle
+0.00 0.00 0.00 C 2898 2361 Circle
+0.00 0.00 0.00 C 2765 2385 Circle
+0.00 0.00 0.00 C 2633 2409 Circle
+0.00 0.00 0.00 C 2500 2433 Circle
+0.00 0.00 0.00 C 2368 2457 Circle
+0.00 0.00 0.00 C 2236 2482 Circle
+0.00 0.00 0.00 C 2103 2506 Circle
+0.00 0.00 0.00 C 1971 2530 Circle
+0.00 0.00 0.00 C 1838 2554 Circle
+0.00 0.00 0.00 C 4444 2047 Circle
+0.00 0.00 0.00 C 4311 2071 Circle
+0.00 0.00 0.00 C 4179 2095 Circle
+0.00 0.00 0.00 C 4047 2119 Circle
+0.00 0.00 0.00 C 3914 2144 Circle
+0.00 0.00 0.00 C 3782 2168 Circle
+0.00 0.00 0.00 C 3649 2192 Circle
+0.00 0.00 0.00 C 3517 2216 Circle
+0.00 0.00 0.00 C 3385 2240 Circle
+0.00 0.00 0.00 C 3252 2265 Circle
+0.00 0.00 0.00 C 3120 2289 Circle
+0.00 0.00 0.00 C 2987 2313 Circle
+0.00 0.00 0.00 C 2855 2337 Circle
+0.00 0.00 0.00 C 2723 2361 Circle
+0.00 0.00 0.00 C 2590 2386 Circle
+0.00 0.00 0.00 C 2458 2410 Circle
+0.00 0.00 0.00 C 2325 2434 Circle
+0.00 0.00 0.00 C 2193 2458 Circle
+0.00 0.00 0.00 C 2061 2483 Circle
+0.00 0.00 0.00 C 1928 2507 Circle
+0.00 0.00 0.00 C 1796 2531 Circle
+0.00 0.00 0.00 C 4401 2023 Circle
+0.00 0.00 0.00 C 4269 2048 Circle
+0.00 0.00 0.00 C 4137 2072 Circle
+0.00 0.00 0.00 C 4004 2096 Circle
+0.00 0.00 0.00 C 3872 2120 Circle
+0.00 0.00 0.00 C 3739 2144 Circle
+0.00 0.00 0.00 C 3607 2169 Circle
+0.00 0.00 0.00 C 3475 2193 Circle
+0.00 0.00 0.00 C 3342 2217 Circle
+0.00 0.00 0.00 C 3210 2241 Circle
+0.00 0.00 0.00 C 3077 2266 Circle
+0.00 0.00 0.00 C 2945 2290 Circle
+0.00 0.00 0.00 C 2813 2314 Circle
+0.00 0.00 0.00 C 2680 2338 Circle
+0.00 0.00 0.00 C 2548 2362 Circle
+0.00 0.00 0.00 C 2415 2387 Circle
+0.00 0.00 0.00 C 2283 2411 Circle
+0.00 0.00 0.00 C 2151 2435 Circle
+0.00 0.00 0.00 C 2018 2459 Circle
+0.00 0.00 0.00 C 1886 2483 Circle
+0.00 0.00 0.00 C 1753 2508 Circle
+0.00 0.00 0.00 C 4359 2000 Circle
+0.00 0.00 0.00 C 4227 2024 Circle
+0.00 0.00 0.00 C 4094 2049 Circle
+0.00 0.00 0.00 C 3962 2073 Circle
+0.00 0.00 0.00 C 3829 2097 Circle
+0.00 0.00 0.00 C 3697 2121 Circle
+0.00 0.00 0.00 C 3565 2145 Circle
+0.00 0.00 0.00 C 3432 2170 Circle
+0.00 0.00 0.00 C 3300 2194 Circle
+0.00 0.00 0.00 C 3167 2218 Circle
+0.00 0.00 0.00 C 3035 2242 Circle
+0.00 0.00 0.00 C 2903 2266 Circle
+0.00 0.00 0.00 C 2770 2291 Circle
+0.00 0.00 0.00 C 2638 2315 Circle
+0.00 0.00 0.00 C 2505 2339 Circle
+0.00 0.00 0.00 C 2373 2363 Circle
+0.00 0.00 0.00 C 2241 2387 Circle
+0.00 0.00 0.00 C 2108 2412 Circle
+0.00 0.00 0.00 C 1976 2436 Circle
+0.00 0.00 0.00 C 1843 2460 Circle
+0.00 0.00 0.00 C 1711 2484 Circle
+0.00 0.00 0.00 C 4316 1977 Circle
+0.00 0.00 0.00 C 4184 2001 Circle
+0.00 0.00 0.00 C 4052 2025 Circle
+0.00 0.00 0.00 C 3919 2049 Circle
+0.00 0.00 0.00 C 3787 2074 Circle
+0.00 0.00 0.00 C 3654 2098 Circle
+0.00 0.00 0.00 C 3522 2122 Circle
+0.00 0.00 0.00 C 3390 2146 Circle
+0.00 0.00 0.00 C 3257 2171 Circle
+0.00 0.00 0.00 C 3125 2195 Circle
+0.00 0.00 0.00 C 2992 2219 Circle
+0.00 0.00 0.00 C 2860 2243 Circle
+0.00 0.00 0.00 C 2728 2267 Circle
+0.00 0.00 0.00 C 2595 2292 Circle
+0.00 0.00 0.00 C 2463 2316 Circle
+0.00 0.00 0.00 C 2330 2340 Circle
+0.00 0.00 0.00 C 2198 2364 Circle
+0.00 0.00 0.00 C 2066 2388 Circle
+0.00 0.00 0.00 C 1933 2413 Circle
+0.00 0.00 0.00 C 1801 2437 Circle
+0.00 0.00 0.00 C 1668 2461 Circle
+0.00 0.00 0.00 C 4274 1954 Circle
+0.00 0.00 0.00 C 4142 1978 Circle
+0.00 0.00 0.00 C 4009 2002 Circle
+0.00 0.00 0.00 C 3877 2026 Circle
+0.00 0.00 0.00 C 3744 2050 Circle
+0.00 0.00 0.00 C 3612 2075 Circle
+0.00 0.00 0.00 C 3480 2099 Circle
+0.00 0.00 0.00 C 3347 2123 Circle
+0.00 0.00 0.00 C 3215 2147 Circle
+0.00 0.00 0.00 C 3082 2171 Circle
+0.00 0.00 0.00 C 2950 2196 Circle
+0.00 0.00 0.00 C 2818 2220 Circle
+0.00 0.00 0.00 C 2685 2244 Circle
+0.00 0.00 0.00 C 2553 2268 Circle
+0.00 0.00 0.00 C 2420 2292 Circle
+0.00 0.00 0.00 C 2288 2317 Circle
+0.00 0.00 0.00 C 2156 2341 Circle
+0.00 0.00 0.00 C 2023 2365 Circle
+0.00 0.00 0.00 C 1891 2389 Circle
+0.00 0.00 0.00 C 1758 2414 Circle
+0.00 0.00 0.00 C 1626 2438 Circle
+0.00 0.00 0.00 C 4232 1930 Circle
+0.00 0.00 0.00 C 4099 1954 Circle
+0.00 0.00 0.00 C 3967 1979 Circle
+0.00 0.00 0.00 C 3834 2003 Circle
+0.00 0.00 0.00 C 3702 2027 Circle
+0.00 0.00 0.00 C 3570 2051 Circle
+0.00 0.00 0.00 C 3437 2076 Circle
+0.00 0.00 0.00 C 3305 2100 Circle
+0.00 0.00 0.00 C 3172 2124 Circle
+0.00 0.00 0.00 C 3040 2148 Circle
+0.00 0.00 0.00 C 2908 2172 Circle
+0.00 0.00 0.00 C 2775 2197 Circle
+0.00 0.00 0.00 C 2643 2221 Circle
+0.00 0.00 0.00 C 2510 2245 Circle
+0.00 0.00 0.00 C 2378 2269 Circle
+0.00 0.00 0.00 C 2246 2293 Circle
+0.00 0.00 0.00 C 2113 2318 Circle
+0.00 0.00 0.00 C 1981 2342 Circle
+0.00 0.00 0.00 C 1848 2366 Circle
+0.00 0.00 0.00 C 1716 2390 Circle
+0.00 0.00 0.00 C 1584 2414 Circle
+0.00 0.00 0.00 C 4189 1907 Circle
+0.00 0.00 0.00 C 4057 1931 Circle
+0.00 0.00 0.00 C 3924 1955 Circle
+0.00 0.00 0.00 C 3792 1980 Circle
+0.00 0.00 0.00 C 3659 2004 Circle
+0.00 0.00 0.00 C 3527 2028 Circle
+0.00 0.00 0.00 C 3395 2052 Circle
+0.00 0.00 0.00 C 3262 2076 Circle
+0.00 0.00 0.00 C 3130 2101 Circle
+0.00 0.00 0.00 C 2997 2125 Circle
+0.00 0.00 0.00 C 2865 2149 Circle
+0.00 0.00 0.00 C 2733 2173 Circle
+0.00 0.00 0.00 C 2600 2197 Circle
+0.00 0.00 0.00 C 2468 2222 Circle
+0.00 0.00 0.00 C 2335 2246 Circle
+0.00 0.00 0.00 C 2203 2270 Circle
+0.00 0.00 0.00 C 2071 2294 Circle
+0.00 0.00 0.00 C 1938 2319 Circle
+0.00 0.00 0.00 C 1806 2343 Circle
+0.00 0.00 0.00 C 1673 2367 Circle
+0.00 0.00 0.00 C 1541 2391 Circle
+0.00 0.00 0.00 C 4147 1884 Circle
+0.00 0.00 0.00 C 4014 1908 Circle
+0.00 0.00 0.00 C 3882 1932 Circle
+0.00 0.00 0.00 C 3749 1956 Circle
+0.00 0.00 0.00 C 3617 1980 Circle
+0.00 0.00 0.00 C 3485 2005 Circle
+0.00 0.00 0.00 C 3352 2029 Circle
+0.00 0.00 0.00 C 3220 2053 Circle
+0.00 0.00 0.00 C 3087 2077 Circle
+0.00 0.00 0.00 C 2955 2102 Circle
+0.00 0.00 0.00 C 2823 2126 Circle
+0.00 0.00 0.00 C 2690 2150 Circle
+0.00 0.00 0.00 C 2558 2174 Circle
+0.00 0.00 0.00 C 2425 2198 Circle
+0.00 0.00 0.00 C 2293 2223 Circle
+0.00 0.00 0.00 C 2161 2247 Circle
+0.00 0.00 0.00 C 2028 2271 Circle
+0.00 0.00 0.00 C 1896 2295 Circle
+0.00 0.00 0.00 C 1763 2319 Circle
+0.00 0.00 0.00 C 1631 2344 Circle
+0.00 0.00 0.00 C 1499 2368 Circle
+0.00 0.00 0.00 C 4104 1860 Circle
+0.00 0.00 0.00 C 3972 1885 Circle
+0.00 0.00 0.00 C 3839 1909 Circle
+0.00 0.00 0.00 C 3707 1933 Circle
+0.00 0.00 0.00 C 3575 1957 Circle
+0.00 0.00 0.00 C 3442 1981 Circle
+0.00 0.00 0.00 C 3310 2006 Circle
+0.00 0.00 0.00 C 3177 2030 Circle
+0.00 0.00 0.00 C 3045 2054 Circle
+0.00 0.00 0.00 C 2913 2078 Circle
+0.00 0.00 0.00 C 2780 2102 Circle
+0.00 0.00 0.00 C 2648 2127 Circle
+0.00 0.00 0.00 C 2515 2151 Circle
+0.00 0.00 0.00 C 2383 2175 Circle
+0.00 0.00 0.00 C 2251 2199 Circle
+0.00 0.00 0.00 C 2118 2224 Circle
+0.00 0.00 0.00 C 1986 2248 Circle
+0.00 0.00 0.00 C 1853 2272 Circle
+0.00 0.00 0.00 C 1721 2296 Circle
+0.00 0.00 0.00 C 1589 2320 Circle
+0.00 0.00 0.00 C 1456 2345 Circle
+0.00 0.00 0.00 C 4062 1837 Circle
+0.00 0.00 0.00 C 3929 1861 Circle
+0.00 0.00 0.00 C 3797 1885 Circle
+0.00 0.00 0.00 C 3664 1910 Circle
+0.00 0.00 0.00 C 3532 1934 Circle
+0.00 0.00 0.00 C 3400 1958 Circle
+0.00 0.00 0.00 C 3267 1982 Circle
+0.00 0.00 0.00 C 3135 2007 Circle
+0.00 0.00 0.00 C 3002 2031 Circle
+0.00 0.00 0.00 C 2870 2055 Circle
+0.00 0.00 0.00 C 2738 2079 Circle
+0.00 0.00 0.00 C 2605 2103 Circle
+0.00 0.00 0.00 C 2473 2128 Circle
+0.00 0.00 0.00 C 2340 2152 Circle
+0.00 0.00 0.00 C 2208 2176 Circle
+0.00 0.00 0.00 C 2076 2200 Circle
+0.00 0.00 0.00 C 1943 2224 Circle
+0.00 0.00 0.00 C 1811 2249 Circle
+0.00 0.00 0.00 C 1678 2273 Circle
+0.00 0.00 0.00 C 1546 2297 Circle
+0.00 0.00 0.00 C 1414 2321 Circle
+0.00 0.00 0.00 C 4019 1814 Circle
+0.00 0.00 0.00 C 3887 1838 Circle
+0.00 0.00 0.00 C 3754 1862 Circle
+0.00 0.00 0.00 C 3622 1886 Circle
+0.00 0.00 0.00 C 3490 1911 Circle
+0.00 0.00 0.00 C 3357 1935 Circle
+0.00 0.00 0.00 C 3225 1959 Circle
+0.00 0.00 0.00 C 3092 1983 Circle
+0.00 0.00 0.00 C 2960 2007 Circle
+0.00 0.00 0.00 C 2828 2032 Circle
+0.00 0.00 0.00 C 2695 2056 Circle
+0.00 0.00 0.00 C 2563 2080 Circle
+0.00 0.00 0.00 C 2430 2104 Circle
+0.00 0.00 0.00 C 2298 2128 Circle
+0.00 0.00 0.00 C 2166 2153 Circle
+0.00 0.00 0.00 C 2033 2177 Circle
+0.00 0.00 0.00 C 1901 2201 Circle
+0.00 0.00 0.00 C 1768 2225 Circle
+0.00 0.00 0.00 C 1636 2250 Circle
+0.00 0.00 0.00 C 1504 2274 Circle
+0.00 0.00 0.00 C 1371 2298 Circle
+0.00 0.00 0.00 C 3977 1790 Circle
+0.00 0.00 0.00 C 3844 1815 Circle
+0.00 0.00 0.00 C 3712 1839 Circle
+0.00 0.00 0.00 C 3580 1863 Circle
+0.00 0.00 0.00 C 3447 1887 Circle
+0.00 0.00 0.00 C 3315 1912 Circle
+0.00 0.00 0.00 C 3182 1936 Circle
+0.00 0.00 0.00 C 3050 1960 Circle
+0.00 0.00 0.00 C 2918 1984 Circle
+0.00 0.00 0.00 C 2785 2008 Circle
+0.00 0.00 0.00 C 2653 2033 Circle
+0.00 0.00 0.00 C 2520 2057 Circle
+0.00 0.00 0.00 C 2388 2081 Circle
+0.00 0.00 0.00 C 2256 2105 Circle
+0.00 0.00 0.00 C 2123 2129 Circle
+0.00 0.00 0.00 C 1991 2154 Circle
+0.00 0.00 0.00 C 1858 2178 Circle
+0.00 0.00 0.00 C 1726 2202 Circle
+0.00 0.00 0.00 C 1594 2226 Circle
+0.00 0.00 0.00 C 1461 2250 Circle
+0.00 0.00 0.00 C 1329 2275 Circle
+0.00 0.00 0.00 C 3934 1767 Circle
+0.00 0.00 0.00 C 3802 1791 Circle
+0.00 0.00 0.00 C 3669 1816 Circle
+0.00 0.00 0.00 C 3537 1840 Circle
+0.00 0.00 0.00 C 3405 1864 Circle
+0.00 0.00 0.00 C 3272 1888 Circle
+0.00 0.00 0.00 C 3140 1912 Circle
+0.00 0.00 0.00 C 3007 1937 Circle
+0.00 0.00 0.00 C 2875 1961 Circle
+0.00 0.00 0.00 C 2743 1985 Circle
+0.00 0.00 0.00 C 2610 2009 Circle
+0.00 0.00 0.00 C 2478 2033 Circle
+0.00 0.00 0.00 C 2345 2058 Circle
+0.00 0.00 0.00 C 2213 2082 Circle
+0.00 0.00 0.00 C 2081 2106 Circle
+0.00 0.00 0.00 C 1948 2130 Circle
+0.00 0.00 0.00 C 1816 2155 Circle
+0.00 0.00 0.00 C 1683 2179 Circle
+0.00 0.00 0.00 C 1551 2203 Circle
+0.00 0.00 0.00 C 1419 2227 Circle
+0.00 0.00 0.00 C 1286 2251 Circle
+0.00 0.00 0.00 C 3892 1744 Circle
+0.00 0.00 0.00 C 3759 1768 Circle
+0.00 0.00 0.00 C 3627 1792 Circle
+0.00 0.00 0.00 C 3495 1817 Circle
+0.00 0.00 0.00 C 3362 1841 Circle
+0.00 0.00 0.00 C 3230 1865 Circle
+0.00 0.00 0.00 C 3097 1889 Circle
+0.00 0.00 0.00 C 2965 1913 Circle
+0.00 0.00 0.00 C 2833 1938 Circle
+0.00 0.00 0.00 C 2700 1962 Circle
+0.00 0.00 0.00 C 2568 1986 Circle
+0.00 0.00 0.00 C 2435 2010 Circle
+0.00 0.00 0.00 C 2303 2034 Circle
+0.00 0.00 0.00 C 2171 2059 Circle
+0.00 0.00 0.00 C 2038 2083 Circle
+0.00 0.00 0.00 C 1906 2107 Circle
+0.00 0.00 0.00 C 1773 2131 Circle
+0.00 0.00 0.00 C 1641 2155 Circle
+0.00 0.00 0.00 C 1509 2180 Circle
+0.00 0.00 0.00 C 1376 2204 Circle
+0.00 0.00 0.00 C 1244 2228 Circle
+0.00 0.00 0.00 C 3849 1721 Circle
+0.00 0.00 0.00 C 3717 1745 Circle
+0.00 0.00 0.00 C 3585 1769 Circle
+0.00 0.00 0.00 C 3452 1793 Circle
+0.00 0.00 0.00 C 3320 1817 Circle
+0.00 0.00 0.00 C 3187 1842 Circle
+0.00 0.00 0.00 C 3055 1866 Circle
+0.00 0.00 0.00 C 2923 1890 Circle
+0.00 0.00 0.00 C 2790 1914 Circle
+0.00 0.00 0.00 C 2658 1938 Circle
+0.00 0.00 0.00 C 2525 1963 Circle
+0.00 0.00 0.00 C 2393 1987 Circle
+0.00 0.00 0.00 C 2261 2011 Circle
+0.00 0.00 0.00 C 2128 2035 Circle
+0.00 0.00 0.00 C 1996 2060 Circle
+0.00 0.00 0.00 C 1863 2084 Circle
+0.00 0.00 0.00 C 1731 2108 Circle
+0.00 0.00 0.00 C 1599 2132 Circle
+0.00 0.00 0.00 C 1466 2156 Circle
+0.00 0.00 0.00 C 1334 2181 Circle
+0.00 0.00 0.00 C 1201 2205 Circle
+0.00 0.00 0.00 C 3807 1697 Circle
+0.00 0.00 0.00 C 3674 1721 Circle
+0.00 0.00 0.00 C 3542 1746 Circle
+0.00 0.00 0.00 C 3410 1770 Circle
+0.00 0.00 0.00 C 3277 1794 Circle
+0.00 0.00 0.00 C 3145 1818 Circle
+0.00 0.00 0.00 C 3012 1843 Circle
+0.00 0.00 0.00 C 2880 1867 Circle
+0.00 0.00 0.00 C 2748 1891 Circle
+0.00 0.00 0.00 C 2615 1915 Circle
+0.00 0.00 0.00 C 2483 1939 Circle
+0.00 0.00 0.00 C 2350 1964 Circle
+0.00 0.00 0.00 C 2218 1988 Circle
+0.00 0.00 0.00 C 2086 2012 Circle
+0.00 0.00 0.00 C 1953 2036 Circle
+0.00 0.00 0.00 C 1821 2060 Circle
+0.00 0.00 0.00 C 1688 2085 Circle
+0.00 0.00 0.00 C 1556 2109 Circle
+0.00 0.00 0.00 C 1424 2133 Circle
+0.00 0.00 0.00 C 1291 2157 Circle
+0.00 0.00 0.00 C 1159 2181 Circle
+0.00 0.00 0.00 C 3764 1674 Circle
+0.00 0.00 0.00 C 3632 1698 Circle
+0.00 0.00 0.00 C 3500 1722 Circle
+0.00 0.00 0.00 C 3367 1747 Circle
+0.00 0.00 0.00 C 3235 1771 Circle
+0.00 0.00 0.00 C 3102 1795 Circle
+0.00 0.00 0.00 C 2970 1819 Circle
+0.00 0.00 0.00 C 2838 1843 Circle
+0.00 0.00 0.00 C 2705 1868 Circle
+0.00 0.00 0.00 C 2573 1892 Circle
+0.00 0.00 0.00 C 2440 1916 Circle
+0.00 0.00 0.00 C 2308 1940 Circle
+0.00 0.00 0.00 C 2176 1965 Circle
+0.00 0.00 0.00 C 2043 1989 Circle
+0.00 0.00 0.00 C 1911 2013 Circle
+0.00 0.00 0.00 C 1778 2037 Circle
+0.00 0.00 0.00 C 1646 2061 Circle
+0.00 0.00 0.00 C 1514 2086 Circle
+0.00 0.00 0.00 C 1381 2110 Circle
+0.00 0.00 0.00 C 1249 2134 Circle
+0.00 0.00 0.00 C 1116 2158 Circle
+0.00 0.00 0.00 C 3722 1651 Circle
+0.00 0.00 0.00 C 3590 1675 Circle
+0.00 0.00 0.00 C 3457 1699 Circle
+0.00 0.00 0.00 C 3325 1723 Circle
+0.00 0.00 0.00 C 3192 1748 Circle
+0.00 0.00 0.00 C 3060 1772 Circle
+0.00 0.00 0.00 C 2928 1796 Circle
+0.00 0.00 0.00 C 2795 1820 Circle
+0.00 0.00 0.00 C 2663 1844 Circle
+0.00 0.00 0.00 C 2530 1869 Circle
+0.00 0.00 0.00 C 2398 1893 Circle
+0.00 0.00 0.00 C 2266 1917 Circle
+0.00 0.00 0.00 C 2133 1941 Circle
+0.00 0.00 0.00 C 2001 1965 Circle
+0.00 0.00 0.00 C 1868 1990 Circle
+0.00 0.00 0.00 C 1736 2014 Circle
+0.00 0.00 0.00 C 1604 2038 Circle
+0.00 0.00 0.00 C 1471 2062 Circle
+0.00 0.00 0.00 C 1339 2086 Circle
+0.00 0.00 0.00 C 1206 2111 Circle
+0.00 0.00 0.00 C 1074 2135 Circle
+0.00 0.00 0.00 C 3679 1627 Circle
+0.00 0.00 0.00 C 3547 1652 Circle
+0.00 0.00 0.00 C 3415 1676 Circle
+0.00 0.00 0.00 C 3282 1700 Circle
+0.00 0.00 0.00 C 3150 1724 Circle
+0.00 0.00 0.00 C 3017 1748 Circle
+0.00 0.00 0.00 C 2885 1773 Circle
+0.00 0.00 0.00 C 2753 1797 Circle
+0.00 0.00 0.00 C 2620 1821 Circle
+0.00 0.00 0.00 C 2488 1845 Circle
+0.00 0.00 0.00 C 2355 1869 Circle
+0.00 0.00 0.00 C 2223 1894 Circle
+0.00 0.00 0.00 C 2091 1918 Circle
+0.00 0.00 0.00 C 1958 1942 Circle
+0.00 0.00 0.00 C 1826 1966 Circle
+0.00 0.00 0.00 C 1693 1991 Circle
+0.00 0.00 0.00 C 1561 2015 Circle
+0.00 0.00 0.00 C 1429 2039 Circle
+0.00 0.00 0.00 C 1296 2063 Circle
+0.00 0.00 0.00 C 1164 2087 Circle
+0.00 0.00 0.00 C 1031 2112 Circle
+0.00 0.00 0.00 C 3637 1604 Circle
+0.00 0.00 0.00 C 3505 1628 Circle
+0.00 0.00 0.00 C 3372 1653 Circle
+0.00 0.00 0.00 C 3240 1677 Circle
+0.00 0.00 0.00 C 3107 1701 Circle
+0.00 0.00 0.00 C 2975 1725 Circle
+0.00 0.00 0.00 C 2843 1749 Circle
+0.00 0.00 0.00 C 2710 1774 Circle
+0.00 0.00 0.00 C 2578 1798 Circle
+0.00 0.00 0.00 C 2445 1822 Circle
+0.00 0.00 0.00 C 2313 1846 Circle
+0.00 0.00 0.00 C 2181 1870 Circle
+0.00 0.00 0.00 C 2048 1895 Circle
+0.00 0.00 0.00 C 1916 1919 Circle
+0.00 0.00 0.00 C 1783 1943 Circle
+0.00 0.00 0.00 C 1651 1967 Circle
+0.00 0.00 0.00 C 1519 1991 Circle
+0.00 0.00 0.00 C 1386 2016 Circle
+0.00 0.00 0.00 C 1254 2040 Circle
+0.00 0.00 0.00 C 1121 2064 Circle
+0.00 0.00 0.00 C 989 2088 Circle
+0.00 0.00 0.00 C 5336 3375 Circle
+5336 3375 Circle
+0.00 0.00 0.00 C 989 1250 Circle
+989 1250 Circle
+989 1250 Circle
+% End plot #3
+1.000 UL
+LTb
+6210 1694 M
+4299 645 L
+990 1251 M
+4299 645 L
+stroke
+LCb setrgbcolor
+2167 686 M
+[ [(Helvetica) 160.0 0.0 true true 0 (x [m])]
+] -53.3 MCshow
+LTb
+LCb setrgbcolor
+6082 1018 M
+[ [(Helvetica) 160.0 0.0 true true 0 (y [m])]
+] -53.3 MCshow
+LTb
+LCb setrgbcolor
+163 2450 M
+[ [(Helvetica) 160.0 0.0 true true 0 (z [m])]
+] -53.3 MCshow
+LTb
+1.000 UP
+stroke
+grestore
+end
+showpage
+%%Trailer
+%%DocumentFonts: Helvetica

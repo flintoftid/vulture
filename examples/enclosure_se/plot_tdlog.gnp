@@ -1,0 +1,7 @@
+set terminal post eps enhanced color 'Helvetica' 18
+set output 'enclosure_se_tdlog.eps'
+set xlabel 'Time (ns)'
+set ylabel 'Electric field, |E_z(40,60,33)| (dB V/m)'
+set yrange [-80:0]
+plot 'eh_centre1_td.asc'     us ($2/1e-9):(20*log10(abs($5))) ti 'Empty'  w l ls 1, \
+     'eh_centre1ls22_td.asc' us ($2/1e-9):(20*log10(abs($5))) ti 'Loaded' w l ls 2

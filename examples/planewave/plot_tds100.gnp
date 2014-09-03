@@ -1,0 +1,10 @@
+set terminal post eps enhanced color 'Helvetica' 18
+set output 'planewave_tds100.eps'
+set xlabel 'i (cells)'
+set ylabel 'j (cells)'
+set zlabel 'Electric field, E_z(i,j,10) (V/m)' rotate by 90 offset -1.5,1.5
+set ticslevel 0
+set title "Time-step: 100"
+set view 120,60
+splot 'tdez.dat' us 1:2:4 ti '' w l ls 1
+

@@ -1,0 +1,37 @@
+VM 1.0.0
+CE Vulture example: Aperture in infinite plane (equiv. dipole)
+DM 60 40 40
+GS
+# Free-space boundaries.
+BT XLO PML
+BT XHI PML
+BT YLO PML
+BT YHI PML
+BT ZLO PML
+BT ZHI PML
+# Solid PEC sheet.
+TB 30 30  0 40  0 40 PEC
+# Add magnetic moment source using differential waveform
+# dt = 1.667818e-12
+# dl = 1e-3
+# a = 2 * dl
+# alpha = 4 * a^3 / 3 / pi^1.5
+# Hsc = 2 / eta0
+# m = -alpha * Hsc
+# sigma = 5 * sqrt(2) * dt
+# Imdl = mu0 * m * 1 / sigma * d/dt WF
+# delay = ( 25 + 0.5 ) * dl / c0 
+WF wf1 RICKER_WAVELET 1.0
+EX 30 31 19 19 19 21 dipmom IMDY wf1 1.0836e-06 8.5059e-11
+# Observe incident field point.
+OP 29 29 20 20 20 20 inc1 TDOM_ASCII
+OP 29 29 20 20 20 20 inc2 FDOM_ASCII
+# Observe transmitted field on axis of aperture.
+OP 50 50 20 20 20 20 trans1 TDOM_ASCII
+OP 50 50 20 20 20 20 trans2 FDOM_ASCII
+# Observe fields in plane through aperture.
+OP  0 60  0 40 20 20 plane TDOM_BINARY 1 1 1 
+GE 
+NT 500
+MS 0.001
+EN
