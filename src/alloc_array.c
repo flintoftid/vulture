@@ -77,7 +77,7 @@ void *allocArray( unsigned long *bytes , size_t size , int dimension , ... )
   strncat( extentString , "(" , 1 );
   prevLength = lengthOfLayer[0] = extent[0] = va_arg( marker , int );
   snprintf( thisExtent , EXTENTSIZE , "%lu" , extent[0] );
-  strncat( extentString , thisExtent , 32 );
+  strncat( extentString , thisExtent , sizeof( extentString ) - strlen( extentString ) - strlen( thisExtent) - 1 );
 
   for( i = 1; i < dimension ; i++ )
   {

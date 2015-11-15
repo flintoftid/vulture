@@ -1,4 +1,9 @@
 
+% If processing tools not installed there will be no data file.
+if( ~exist( 'frequency.dat' ) )
+  exit;
+end % if
+
 c0 = 299792458; 
 
 opNum = 1;
