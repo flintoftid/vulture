@@ -1389,7 +1389,7 @@ $N_{ij}$ by \texttt{N(i,j)} the general format of this PFE input file is
 given in Table~\ref{tb:prm}. Vulture currently supports three cases of SIBC
 in external files determined by the order of the impedance matrix, $M$:
 \begin{itemize}
- \item $M=1$: One-sided (no transmission) isotropic symmetrical material.
+ \item $M=1$: {\color{red} NOT IMPLEMENTED YET: One-sided (no transmission) isotropic symmetrical material}.
  \item $M=2$: Two-sided isotropic material.
  \item $M=4$: Two-sided anisotropic material.
 \end{itemize}
@@ -1445,39 +1445,39 @@ where $\mI$ is the identity matrix.
 \begin{Verbatim}[frame=single]
 M N
 N(1,1) Zinf(1,1)
-Re[r(1,1,1)]       Im[r(1,1,1)]      Re[p(1,1,1)]      Im[r(1,1,1)]
+Re[r(1,1,1)]       Im[r(1,1,1)]      Re[p(1,1,1)]      Im[p(1,1,1)]
 ...
-Re[r(1,1,N(1,1))]  Im[r(1,1,N(1,1))] Re[p(1,1,N(1,1))] Im[r(1,1,N(1,1))]
+Re[r(1,1,N(1,1))]  Im[r(1,1,N(1,1))] Re[p(1,1,N(1,1))] Im[p(1,1,N(1,1))]
 N(1,2) Zinf(1,2)
-Re[r(1,2,1)]       Im[r(1,2,1)]      Re[p(1,2,1)]      Im[r(1,2,1)]
+Re[r(1,2,1)]       Im[r(1,2,1)]      Re[p(1,2,1)]      Im[p(1,2,1)]
 ...
-Re[r(1,2,N(1,2))]  Im[r(1,2,N(1,2))] Re[p(1,2,N(1,2))] Im[r(1,2,N(1,2))]
+Re[r(1,2,N(1,2))]  Im[r(1,2,N(1,2))] Re[p(1,2,N(1,2))] Im[p(1,2,N(1,2))]
 ...
 N(i,j) Zinf(i,j)
-Re[r(i,j,1)]       Im[r(i,j,1)]      Re[p(i,j,1)]      Im[r(i,j,1)]
+Re[r(i,j,1)]       Im[r(i,j,1)]      Re[p(i,j,1)]      Im[p(i,j,1)]
 ...
-Re[r(i,j,N(i,j))]  Im[r(i,j,N(i,j))] Re[p(i,j,N(i,j))] Im[r(i,j,N(i,j))]
+Re[r(i,j,N(i,j))]  Im[r(i,j,N(i,j))] Re[p(i,j,N(i,j))] Im[p(i,j,N(i,j))]
 ...
 N(M,N) Zinf(M,N)
-Re[r(M,N,1)]       Im[r(M,N,1)]      Re[p(M,N,1)]      Im[r(M,N,1)]
+Re[r(M,N,1)]       Im[r(M,N,1)]      Re[p(M,N,1)]      Im[p(M,N,1)]
 ...
-Re[r(M,N,N(M,N))]  Im[r(M,N,N(M,N))] Re[p(M,N,N(M,N))] Im[r(M,N,N(M,N))]
+Re[r(M,N,N(M,N))]  Im[r(M,N,N(M,N))] Re[p(M,N,N(M,N))] Im[p(M,N,N(M,N))]
 \end{Verbatim}
 \caption{\label{tb:prm} PFE ASCII file format for \texttt{SIBC} boundary types. For Vulture 
-SIBC boundaries only $M=N=1,2$ or $4$ are valid.}
+SIBC boundaries only $M=N=2,4$ are currently valid.}
 \end{table}
 
 For example,  a surface composed of a frequency independent, isotropic, symmetric and
 reciprocal surface material with a reflection coefficient of -6\,dB and
 transmission coefficient -20\,dB can be modelled using
 \begin{verbatim}
-BT absorber SIBC 0.5 0.1 0.1 0.5
+BT absorber SIBC -0.5 0.1 0.1 -0.5
 TB 10 10 12 18 12 18 absorber
 \end{verbatim}
 
 An example of an enclosure with five metal walls and one wall composed of a 
 frequency dependent surface material defined by the PFE in a file 
-called \texttt{"cfc2.prm"} is:
+called \texttt{"cfc.prm"} is:
 \begin{verbatim}
 BT cfc2 SIBC "cfc.prm"
 BT walls PEC
@@ -3024,6 +3024,7 @@ set terminal post eps enhanced color 'Helvetica' 18
 set output 'free_space_fd.eps'
 se xlabel 'Frequency (MHz)'
 se ylabel 'Electric field, |E_z|(10,20,10) (dB V/m)'
+db20ri( r , i ) = 10.0 * log10 ( r**2 + i**2 )
 plot 'eh_centre2_fd.asc' us ($1/1e6):(db20ri($6,$7)) ti '' w l lw 2
 \end{verbatim}
 creating the image file \texttt{free\_space\_fd.eps} shown in Figure \ref{fg:free_space_fd}.
@@ -3092,7 +3093,7 @@ Another simple example is a parallel plate transmission line
 of ``infinite'' width. The top and bottom plates are represented using
 PEC boundaries on the external surfaces of the mesh, while the infinite width of the
 waveguide can by modelled by using PMC boundary conditions on 
-the ``sides'' of the mesh. Compared to Example~1 we only need to changed the 
+the ``sides'' of the mesh. Compared to Example~1 we only need to change the 
 boundary conditions on the external surfaces. The complete mesh file is 
 \begin{verbatim}
 VM 1.0.0
@@ -3218,8 +3219,8 @@ BT ZHI PML
 # The waveform is a Gaussian pulse with default paramters.
 WF wf1 GAUSSIAN_PULSE
 # Plane-wave in +ve y direction, Ez polarisation.
-PW  3 17  3  17  3 17 pw1 wf1 90 90 90 111111 1.0 0.0
-# Observe the fields on a plane, every second cell.
+PW  3 17  3  37  3 17 pw1 wf1 90 90 90 111111 1.0 0.0
+# Observe the fields on a plane, every cell.
 OP  0 20 0  40 10 10 plane TDOM_BINARY 1 1 1
 # Observe the fields at the centre of the mesh.
 OP 10 10 20 20 10 10 centre1 TDOM_ASCII
@@ -3355,7 +3356,7 @@ a plane of soft electric field sources as was done in Example~2. However, in thi
 use a partial TFSF plane-wave source, which has the advantage of allowing the reflected 
 wave to be observed directly in the scattered field zone.
 
-The mesh geometry is shown in Figure \ref{fg:parplate1D_dielslab_mesh}. Only the \texttt{XLO} and \texttt{XHI} 
+The mesh geometry is shown in Figure~\ref{fg:parplate1D_dielslab_mesh}. Only the \texttt{XLO} and \texttt{XHI} 
 surfaces of the TFSF are active, as set by the mask \texttt{110000} in the \texttt{PW} directive. 
 The wave is excited at $i=30$ and the upper surface of the TF-SF boundary is at $i=170$.  
 Therefore the transmitted wave can be observed at the point $i=160$ in the total field zone 
@@ -3437,7 +3438,7 @@ The scattering parameters of the slab with reference to its surfaces are:
 S_{11} &=& \frac{E^-_z(50)}{E^+_z(50)} \\
 S_{21} &=& \frac{E^+_z(150)}{E^+_z(50)}.
 \end{eqnarray}
-The can be calculated analytically~\cite{Orfanidis2010}. The fields at the slab surfaces are related to those at the observation and excitation points by
+These can be calculated analytically~\cite{Orfanidis2010}. The fields at the slab surfaces are related to those at the observation and excitation points by
 \begin{eqnarray}
 \frac{E^+_z(160)}{E^+_z(150)} &=& \re^{ -\jmath \omega \cdot 10 \Delta t / c_0} \\
 \frac{E^+_z(50)}{E^+_z(29)} &=& \re^{ -\jmath \omega \cdot 21 \Delta t / c_0} \\
@@ -3472,7 +3473,7 @@ effective thickness one cell greater than the bounding box thickness.
 
 \subsection{Example 8: Plane-wave penetration through an aperture}
 
-This examples looks the transmission through a small square aperture in an infinite PEC plate using
+This example looks at the transmission through a small square aperture in an infinite PEC plate using
 a truncated plane-wave excitation. The mesh for the problem is:
 \begin{verbatim}
 VM 1.0.0

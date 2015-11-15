@@ -38,20 +38,20 @@ set( ${PROJECT_NAME}_VERSION_STRING "\"${${PROJECT_NAME}_VERSION_MAJOR}.${${PROJ
 
 # Build options.
 option( CHECK_LIMITS       "Build limit checking version"   OFF )
-
 option( WITH_OPENMP        "Compile with OpenMP support"    OFF )
 option( WITH_SIBC          "Compile with SIBC support"      OFF )
-option( WITH_LATEX         "Compile LaTeX user manual"      ON  )
-
 option( USE_INDEXED_MEDIA  "Compile using indexed media"    OFF )
 option( USE_SCALED_FIELDS  "Compile using scaled fields"    OFF )
 option( USE_AVERAGED_MEDIA "Compile using media averaging"  OFF )
 
-option( GNUPLOT_TESTS      "Run gnuplot tests"              OFF )
-option( PYTHON_TESTS       "Run python validation tests"    OFF )
-option( OCTAVE_TESTS       "Run octave validation tests"    OFF )
-option( PROCESSING_TESTS   "Run processing tool tests"      OFF )
-option( BIG_TESTS          "Run big RAM/CPU time tests"     OFF )
+option( WITH_TESTS         "Configure test suite"           OFF )
+option( GNUPLOT_TESTS      "Add gnuplot tests"              OFF )
+option( PYTHON_TESTS       "Add python validation tests"    OFF )
+option( OCTAVE_TESTS       "Add octave validation tests"    OFF )
+option( PROCESSING_TESTS   "Add processing tool tests"      OFF )
+option( BIG_TESTS          "Add big RAM/CPU time tests"     OFF )
+
+option( WITH_LATEX         "Compile LaTeX user manual"      OFF )
 
 #
 # Compile options.
@@ -64,7 +64,8 @@ if( CMAKE_COMPILER_IS_GNUCC )
   set( CMAKE_C_FLAGS         "-Wall -pedantic-errors -std=c99" )
   set( CMAKE_C_FLAGS_PROFILE "-O0 -g -fprofile-arcs -ftest-coverage" )
   set( CMAKE_C_FLAGS_DEBUG   "-DDEBUG -O1 -g -fbounds-check" )
-  set( CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG" )
+  #set( CMAKE_C_FLAGS_RELEASE "-m64 -Ofast -flto -DNDEBUG -mfpmath=sse -funroll-loops -march=core2" )
+  set( CMAKE_C_FLAGS_RELEASE " -Ofast -flto -DNDEBUG -mfpmath=sse -funroll-loops -march=core2" )
   # Note if we are using MingW so we can workaround some bugs.
   if( MINGW )
     add_definitions( -DUSE_MINGW_FIX )
@@ -156,64 +157,68 @@ add_subdirectory ( doc )
 # Testing.
 #
 
-include( CTest )
-enable_testing()
+if( WITH_TESTS )
 
-# Check if for Python.
-if( PYTHON_TESTS )
-  find_package( PythonInterp )
-  if( PYTHONINTERP_FOUND )
-    message( STATUS "Found python interpreter: ${PYTHON_EXECUTABLE}" )
-  else( PYTHONINTERP_FOUND )
-    message( WARNING "Python interpreter not found: disabling diffs in tests" )
-    option( PYTHON_TESTS OFF )
-  endif( PYTHONINTERP_FOUND )
-endif( PYTHON_TESTS )
+  include( CTest )
+  enable_testing()
 
-# If running matlab tests requested:
-if( OCTAVE_TESTS )
-  find_program( OCTAVE octave )
-  if( OCTAVE )
-    message( STATUS "Octave: ${OCTAVE}" )
-    set( MEXEC ${OCTAVE} "-q" "--eval" CACHE INTERNAL "" )
-  else( OCTAVE )
-    find_program( MATLAB matlab )
-    if( MATLAB )
-      message( STATUS "MATLAB: ${MATALB}" )
-      set( MEXEC  matlab "-nosplash" "-nojvm" "-nodisplay" "-nodesktop" "-r" CACHE INTERNAL "" ) 
-    else( MATLAB )
-      message( FATAL_ERROR "Cannot find Octave or MATLAB" )
-    endif( MATLAB )
-  endif( OCTAVE )
-endif( OCTAVE_TESTS )
+  # Check if for Python.
+  if( PYTHON_TESTS )
+    find_package( PythonInterp )
+    if( PYTHONINTERP_FOUND )
+      message( STATUS "Found python interpreter: ${PYTHON_EXECUTABLE}" )
+    else( PYTHONINTERP_FOUND )
+      message( WARNING "Python interpreter not found: disabling diffs in tests" )
+      option( PYTHON_TESTS OFF )
+    endif( PYTHONINTERP_FOUND )
+  endif( PYTHON_TESTS )
 
-# Check for gnuplot.
-if( GNUPLOT_TESTS )
-  find_package( Gnuplot )
-  if( GNUPLOT_FOUND )
-    message( STATUS "Found gnuplot: ${GNUPLOT_EXECUTABLE}" )
-  else( GNUPLOT_FOUND )
-    message( WARNING "Gnuplot not found: disabling gnuplot in tests" )
-    option( GNUPLOT_TESTS OFF )
-  endif( GNUPLOT_FOUND )
-endif( GNUPLOT_TESTS )
+  # If running matlab tests requested:
+  if( OCTAVE_TESTS )
+    find_program( OCTAVE octave )
+    if( OCTAVE )
+      message( STATUS "Octave: ${OCTAVE}" )
+      set( MEXEC ${OCTAVE} "-q" "--eval" CACHE INTERNAL "" )
+    else( OCTAVE )
+      find_program( MATLAB matlab )
+      if( MATLAB )
+        message( STATUS "MATLAB: ${MATALB}" )
+        set( MEXEC  matlab "-nosplash" "-nojvm" "-nodisplay" "-nodesktop" "-r" CACHE INTERNAL "" ) 
+      else( MATLAB )
+        message( FATAL_ERROR "Cannot find Octave or MATLAB" )
+      endif( MATLAB )
+    endif( OCTAVE )
+  endif( OCTAVE_TESTS )
 
-# Check for xtime, xtransall, xfreq
-if( PROCESSING_TESTS )
-  find_program( XTIME_EXECUTABLE NAMES xtime )
-  find_program( XTRANSALL_EXECUTABLE NAMES xtransall )
-  find_program( XFREQ_EXECUTABLE NAMES xfreq )
-  if( XTIME_EXECUTABLE AND XTRANSALL_EXECUTABLE AND  XFREQ_EXECUTABLE )
-    message( STATUS "Found processing tools (xtime): ${XTIME_EXECUTABLE}" )  
-    message( STATUS "Found processing tools (xtransall): ${XTRANSALL_EXECUTABLE}" )  
-    message( STATUS "Found processing tools (xfreq): ${XFREQ_EXECUTABLE}" )  
-  else()
-    message( WARNING "Processing tools not all found: disabling processing tests" )
-    option( PROCESSING_TESTS OFF )  
-  endif()
-endif( PROCESSING_TESTS )
+  # Check for gnuplot.
+  if( GNUPLOT_TESTS )
+    find_package( Gnuplot )
+    if( GNUPLOT_FOUND )
+      message( STATUS "Found gnuplot: ${GNUPLOT_EXECUTABLE}" )
+    else( GNUPLOT_FOUND )
+      message( WARNING "Gnuplot not found: disabling gnuplot in tests" )
+      option( GNUPLOT_TESTS OFF )
+    endif( GNUPLOT_FOUND )
+  endif( GNUPLOT_TESTS )
 
-add_subdirectory ( tests )
+  # Check for xtime, xtransall, xfreq
+  if( PROCESSING_TESTS )
+    find_program( XTIME_EXECUTABLE NAMES xtime )
+    find_program( XTRANSALL_EXECUTABLE NAMES xtransall )
+    find_program( XFREQ_EXECUTABLE NAMES xfreq )
+    if( XTIME_EXECUTABLE AND XTRANSALL_EXECUTABLE AND  XFREQ_EXECUTABLE )
+      message( STATUS "Found processing tools (xtime): ${XTIME_EXECUTABLE}" )  
+      message( STATUS "Found processing tools (xtransall): ${XTRANSALL_EXECUTABLE}" )  
+      message( STATUS "Found processing tools (xfreq): ${XFREQ_EXECUTABLE}" )  
+    else()
+      message( WARNING "Processing tools not all found: disabling processing tests" )
+      option( PROCESSING_TESTS OFF )  
+    endif()
+  endif( PROCESSING_TESTS )
+
+  add_subdirectory ( tests )
+
+endif( WITH_TESTS )
 
 #
 # Package generation.

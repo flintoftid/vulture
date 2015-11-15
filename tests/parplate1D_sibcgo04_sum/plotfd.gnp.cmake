@@ -1,3 +1,6 @@
+db10( x ) = 10.0 * log10 ( abs( x )  )
+db20( x ) = 20.0 * log10 ( abs( x )  )
+db20ri( r , i ) = 10.0 * log10 ( r**2 + i**2 )
 se terminal post eps enhanced color "Helvetica" 16
 se output "parplate1D_sibcgo04_sum.eps"
 se title "Vulture Test Case: Parallel plate WG GO04 SIBC: Summary"

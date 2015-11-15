@@ -8,6 +8,8 @@ Priority Items
 
 - Generalise tests to use Octave or MATLAB. This will require
   turning all Octave sctipts into functions- same as AEG Mesher.
+
+- Find way to reduce amount of static validation data in tests.
   
 - Implement xtime, xplane, mxplane, xtransall, xfreq, xfplane and mxfplane
   as Octave/MATALB functions which can also output in physical units and
@@ -24,22 +26,26 @@ Priority Items
   
 - Add basic thin wire model and delta gap voltage source (See section wires below).
 
-- Completely rethink observers and interaction with mesher (see below).
+- Mesh parsing may be using too much RAM when each cell/face is in separate
+  MB/TB. Can this be optimised?
 
+- Completely rethink observers and interaction with mesher (see below).
 
 Build and packaging infrastructure
 ----------------------------------
 
-- Add Implementation Manual once stablised.
+- Support older cmakes - 2.6.x?
 
-- Update Implementation Manual on plane-waves, interations of media/boundaries.
-
+- Improve support for different compilers.
 
 Documentation
 -------------
 
 - Write script to generate figures in manual from test-suite results.
 
+- Add Implementation Manual once stablised.
+
+- Update Implementation Manual on plane-waves, interations of media/boundaries.
 
 Testsuite
 ---------
@@ -228,6 +234,8 @@ Graphics
  
 Grid
 ----
+
+- Check mesh line are monotonically strictly increasing sets.
 
 - Refactoring: Make standard update equations into separate functions.
 

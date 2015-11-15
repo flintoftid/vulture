@@ -1,3 +1,6 @@
+db10( x ) = 10.0 * log10 ( abs( x )  )
+db20( x ) = 20.0 * log10 ( abs( x )  )
+db20ri( r , i ) = 10.0 * log10 ( r**2 + i**2 )
 set terminal post eps enhanced color "Helvetica" 16
 set output 'sgref_pml6_fd.eps'
 set xlabel 'Frequency (GHz)'

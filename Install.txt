@@ -8,7 +8,7 @@ Quick start for Linux
 hg clone <path-to-repository> vulture-working
 mkdir vulture-build-linux_$(arch)
 cd vulture-build-linux_$(arch)
-cmake -D CMAKE_INSTALL_PREFIX=/home/idf1/Work/Software/linux_x86_64 -D CMAKE_BUILD_TYPE=Release -D WITH_OPENMP=ON -D USE_SCALED_FIELDS=ON -D GNUPLOT_TESTS=ON -D PYTHON_TESTS=ON -D OCTAVE_TESTS=ON -D PROCESSING_TESTS=ON -D BIG_TESTS=OFF -D WITH_SIBC=ON ../vulture-working/
+cmake -D CMAKE_INSTALL_PREFIX=/usr/local -D CMAKE_BUILD_TYPE=Release -D WITH_OPENMP=ON -D USE_SCALED_FIELDS=ON -D WITH_TESTS=ON -D GNUPLOT_TESTS=ON -D PYTHON_TESTS=ON -D OCTAVE_TESTS=ON -D PROCESSING_TESTS=ON -D BIG_TESTS=OFF -D WITH_SIBC=ON ../vulture-working/
 make
 make test
 make install
@@ -51,7 +51,7 @@ cd vulture-build-linux_$(arch)
 Configure the build using cmake, specifying the installation prefix, build
 type and any other compilation options (see below)
 
-cmake -D CMAKE_INSTALL_PREFIX=/usr/local -D CMAKE_BUILD_TYPE=Release ../vulture-x.x.x-Source
+cmake -D CMAKE_INSTALL_PREFIX=/usr/local -D CMAKE_BUILD_TYPE=Release -D WITH_TESTS=ON ../vulture-x.x.x-Source
 
 Build the software
 
@@ -204,3 +204,32 @@ WITH_SIBC=ON/OFF (default: OFF)
 
   Build with surface impedance boundary condition support.
 
+WITH_TESTS=ON/OFF (default: OFF)
+
+  Build with support for running the test suite.
+  
+GNUPLOT_TESTS=ON/OFF (default: OFF)
+
+  Include testsuite components that require gnuplot if it is available.
+  
+PYTHON_TESTS=On/OFF (default: OFF)
+
+  Include testsuite components that require python if it is available.  
+
+OCTAVE_TESTS=ON/OFF (default: OFF)
+
+  Include testsuite components that require GNU Octave if it is available. 
+  
+PROCESSING_TESTS=ON/OFF (default: OFF)
+
+  Include testsuite components that require the AEG post-processing package
+  if it is available. 
+  
+BIG_TESTS=ON/OFF (default: OFF)
+
+  Include tests that take a long time to run.
+
+WITH_LATEX=ON/OFF (default: OFF)
+
+  Build the LaTeX user manual. 
+  
