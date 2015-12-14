@@ -74,8 +74,18 @@ typedef struct PlaneWaveItem_t {
   real *Hzi;
   real betaEyi;                   // Material property arrays.
   real gammaHzi;
-  real Eyitemp;                   // Temporary for Mur ABC.
-  real bcfact;                    // Mur ABC factor.
+  real *Pyi;                      // PML EM Field Arrays.
+  real *PPyi;
+  real *Bzi; 
+  real *adx;                      // PML Loss Profile Arrays.
+  real *bdx;
+  real *ahx;
+  real *bhx;
+  real oldPyi;                    // Temporary storage for PML field arrays.
+  real oldPPyi;
+  real oldBzi;
+  int npml;                       // PML depth.
+  int xb;                         // PML Boundary position.
 
   /* UT list. */
 
@@ -118,7 +128,7 @@ bool decodeFaceMask( bool isActive[6] , char maskStr[] );
 real incidentFieldAnalytic( FieldComponent field , int i , int j , int k , real time , PlaneWaveItem *item );
 real incidentFieldAuxGrid( FieldComponent field , int i , int j , int k , real time , PlaneWaveItem *item );
 void updateAuxGridHfield( PlaneWaveItem *item , real time );
-void updateAuxGridEfield( PlaneWaveItem *item , real time );
+void updateAuxGridEfield( PlaneWaveItem *item , real time, int n );
 void deallocAuxGrid( PlaneWaveItem *item );
 bool isPlaneWave( char *name , PlaneWaveIndex *number );
 void initAuxGrid( PlaneWaveItem *item );
@@ -564,7 +574,7 @@ real incidentFieldAnalytic( FieldComponent field , int i , int j , int k , real 
 }
 
 /* Apply electric field plane wave correction. */
-void updatePlaneWavesEfield( real timeE )
+void updatePlaneWavesEfield( real timeE , int n)
 {
 
   PlaneWaveItem *item;
@@ -575,7 +585,7 @@ void updatePlaneWavesEfield( real timeE )
   {
 
     if( useAuxGrid )
-      updateAuxGridEfield( item , timeE );
+      updateAuxGridEfield( item , timeE, n );
       
     if( item->isActive[YLO] )
     {
@@ -1221,6 +1231,7 @@ void initAuxGrid( PlaneWaveItem *item )
   int i;
   real dt;
   real d[3];
+  real depth, sprof;
   
   dt = getGridTimeStep();
   getUniformGridSize( d );
@@ -1236,19 +1247,30 @@ void initAuxGrid( PlaneWaveItem *item )
     /* Free space parameters for incident field buffer. */
     item->betaEyi = dt / ( eps0 * d[0] ) / relPhaseVelocity;
     item->gammaHzi = dt / ( mu0 * d[0] ) / relPhaseVelocity;
-  
-    /* Mur ABC factor. */
-    item->bcfact = ( sqrt( item->betaEyi * item->gammaHzi ) - 1.0 ) / ( sqrt( item->betaEyi * item->gammaHzi ) + 1.0 );
+
+    /* Choose depth of PML. */
+    item->npml = 10;
 
     /* Grid size - diagonal of bbox plus 10. */
-    item->nx = 6 + sqrt( ( item->gbbox[XHI] - item->gbbox[XLO] ) * ( item->gbbox[XHI] - item->gbbox[XLO] ) +
+    item->nx = 6 + item->npml + sqrt( ( item->gbbox[XHI] - item->gbbox[XLO] ) * ( item->gbbox[XHI] - item->gbbox[XLO] ) +
                          ( item->gbbox[YHI] - item->gbbox[YLO] ) * ( item->gbbox[YHI] - item->gbbox[YLO] ) +
                          ( item->gbbox[ZHI] - item->gbbox[ZLO] ) * ( item->gbbox[ZHI] - item->gbbox[ZLO] ) );
     message( MSG_DEBUG3 , 0 , "    Aux. grid length=%d\n" , item->nx );
+
+    /* Determine position of PML boundary. */
+
+    item->xb = item->nx-item->npml;
     
     /* Allocate arrays. */
     item->Eyi  = (real *) malloc( sizeof( real ) * ( item->nx + 1 ) );
     item->Hzi  = (real *) malloc( sizeof( real ) * ( item->nx + 1 ) );
+    item->Pyi  = (real *) malloc( sizeof( real ) * ( item->npml ) );
+    item->PPyi  = (real *) malloc( sizeof( real ) * ( item->npml ) );
+    item->Bzi  = (real *) malloc( sizeof( real ) * ( item->npml ) );
+    item->adx  = (real *) malloc( sizeof( real ) * ( item->npml ) );
+    item->bdx  = (real *) malloc( sizeof( real ) * ( item->npml ) );
+    item->ahx  = (real *) malloc( sizeof( real ) * ( item->npml ) );
+    item->bhx  = (real *) malloc( sizeof( real ) * ( item->npml ) );
 
     /* Clear the mesh and initialise to free space. */
     for ( i = 0 ; i <= item->nx ; i++ ) 
@@ -1256,8 +1278,28 @@ void initAuxGrid( PlaneWaveItem *item )
         item->Eyi[i] = 0.0;
         item->Hzi[i] = 0.0;
     }
-  
-    item->Eyitemp = 0.0; 
+
+    /* Initialise PML arrays and create loss profiles. */
+    for ( i = 0 ; i < item->npml ; i++)
+    {
+        item->Pyi[i] = 0.0;
+        item->PPyi[i] = 0.0;
+        item->Bzi[i] = 0.0;
+
+        depth = abs( i ) / (real)item->npml;
+        sprof = pow( depth , 4.0 ) * 0.8 * (5) / d[0] / eta0;
+        item->bdx[i] = 1.0 / ( 1.0 + sprof );
+        item->adx[i] = ( 1.0 - sprof ) / ( 1.0 + sprof );
+
+        depth = (abs( i ) + 0.5) / (real)(item->npml);
+        sprof = pow( depth , 4.0 ) * 0.8 * (5) / d[0] / eta0;
+        item->bhx[i] = 1.0 / ( 1.0 + sprof );
+        item->ahx[i] = ( 1.0 - sprof ) / ( 1.0 + sprof );
+
+    }
+
+    item->oldPyi = 0.0;
+    item->oldPPyi  = 0.0;
 
   }
 
@@ -1273,6 +1315,11 @@ void deallocAuxGrid( PlaneWaveItem *item )
   { 
     free( item->Eyi );
     free( item->Hzi );
+    free( item->PPyi );
+    free( item->Pyi );
+    free( item->Bzi );
+    free( item->adx );
+    free( item->bdx );
   }
   
   return;
@@ -1280,20 +1327,31 @@ void deallocAuxGrid( PlaneWaveItem *item )
 }
 
 /* Update electric field in auxiliary grid. */
-void updateAuxGridEfield( PlaneWaveItem *item , real time )
+void updateAuxGridEfield( PlaneWaveItem *item , real time , int n)
 {
 
-  int i;
+  int i,Lp;
   real waveform;
 
-  /* Mur ABC at xb - must come before standard update! */
-  i = item->nx - 1;
-  item->Eyitemp = item->Eyi[i-1] + item->betaEyi * ( item->Hzi[i-2] - item->Hzi[i-1] );
-  item->Eyi[i] = item->Eyi[i-1] + item->bcfact * ( item->Eyitemp - item->Eyi[i] );
-    
   /* Update incident field buffer - eqn. (5.45a). */
-  for ( i = 1 ; i < item->nx - 1 ; i++ ) 
+  for ( i = 1 ; i < item->xb ; i++ ) 
     item->Eyi[i] = item->Eyi[i] + item->betaEyi * ( item->Hzi[i-1] - item->Hzi[i] );
+
+
+  /* Update incident field Eyi from Hzi, PPyi and Pyi in PML region. */
+  /* PEC at the edges implemented by not updating those E fields. */
+  /* Must come after standard update!*/
+  for ( i = item->xb ; i < item->nx; i++ ) 
+  {
+
+    Lp = i-item->xb;
+    item->oldPPyi = item->PPyi[Lp];
+    item->PPyi[Lp] = item->PPyi[Lp] + item->betaEyi * ( item->Hzi[i-1] - item->Hzi[i] );
+    item->oldPyi = item->Pyi[Lp];
+    item->Pyi[Lp] = item->Pyi[Lp] + ( item->PPyi[Lp] - item->oldPPyi );
+    item->Eyi[i] = item->adx[Lp] * item->Eyi[i] + item->bdx[Lp] * ( item->Pyi[Lp] - item->oldPyi );
+
+  }
 
   /* Get waveform. */
   waveform = getWaveformValue( time , item->waveformNumber , item->delay );
@@ -1301,8 +1359,6 @@ void updateAuxGridEfield( PlaneWaveItem *item , real time )
   /* Add Electric field excitation to incident field buffer - eqn. (5.44). */
   /* can put source strength here too. */
   item->Eyi[m0-2] = waveform;
-    
-  return;
   
 }
 
@@ -1310,9 +1366,21 @@ void updateAuxGridEfield( PlaneWaveItem *item , real time )
 void updateAuxGridHfield( PlaneWaveItem *item , real time )
 {
 
+  int i, Lp;
+
   /* Update incident field buffer - eqn. (5.45b). */
-  for ( int i = 0 ; i <= item->nx - 1 ; i++ ) 
+  for ( i = 0 ; i < item->xb ; i++ ) 
     item->Hzi[i] = item->Hzi[i] + item->gammaHzi * ( item->Eyi[i] - item->Eyi[i+1]);
+
+  /* Update incident field Hzi from Ei and Bzi in PML region. */
+  /* Must come after standard update!*/
+  for ( i = item->xb  ; i < item->nx ; i++ ) 
+  {
+    Lp = i-item->xb;
+    item->oldBzi = item->Bzi[Lp];
+    item->Bzi[Lp] = item->ahx[Lp] * item->Bzi[Lp] + item->gammaHzi * item->bhx[Lp] * ( -item->Eyi[i+1] + item->Eyi[i] );
+    item->Hzi[i] = item->Hzi[i] + ( item->Bzi[Lp] - item->oldBzi );
+  }
 
 }
 
