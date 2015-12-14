@@ -128,7 +128,7 @@ bool decodeFaceMask( bool isActive[6] , char maskStr[] );
 real incidentFieldAnalytic( FieldComponent field , int i , int j , int k , real time , PlaneWaveItem *item );
 real incidentFieldAuxGrid( FieldComponent field , int i , int j , int k , real time , PlaneWaveItem *item );
 void updateAuxGridHfield( PlaneWaveItem *item , real time );
-void updateAuxGridEfield( PlaneWaveItem *item , real time, int n );
+void updateAuxGridEfield( PlaneWaveItem *item , real time);
 void deallocAuxGrid( PlaneWaveItem *item );
 bool isPlaneWave( char *name , PlaneWaveIndex *number );
 void initAuxGrid( PlaneWaveItem *item );
@@ -574,7 +574,7 @@ real incidentFieldAnalytic( FieldComponent field , int i , int j , int k , real 
 }
 
 /* Apply electric field plane wave correction. */
-void updatePlaneWavesEfield( real timeE , int n)
+void updatePlaneWavesEfield( real timeE )
 {
 
   PlaneWaveItem *item;
@@ -585,7 +585,7 @@ void updatePlaneWavesEfield( real timeE , int n)
   {
 
     if( useAuxGrid )
-      updateAuxGridEfield( item , timeE, n );
+      updateAuxGridEfield( item , timeE );
       
     if( item->isActive[YLO] )
     {
@@ -1327,7 +1327,7 @@ void deallocAuxGrid( PlaneWaveItem *item )
 }
 
 /* Update electric field in auxiliary grid. */
-void updateAuxGridEfield( PlaneWaveItem *item , real time , int n)
+void updateAuxGridEfield( PlaneWaveItem *item , real time )
 {
 
   int i,Lp;
