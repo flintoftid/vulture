@@ -97,6 +97,7 @@ The code is licensed under the GNU_Public_Licence,_version_3.
 Developers
 
 Dr_Ian_Flintoft : ian.flintoft@york.ac.uk
+Mr Samuel Bourke : sab544@york.ac.uk 
 
 Contacts
 
