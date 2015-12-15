@@ -81,10 +81,6 @@ typedef struct PlaneWaveItem_t {
   real *bdx;
   real *ahx;
   real *bhx;
-  real oldPyi;                    // Temporary storage for PML field arrays.
-  real oldPPyi;
-  real oldBzi;
-  int npml;                       // PML depth.
   int xb;                         // PML Boundary position.
 
   /* UT list. */
@@ -114,6 +110,9 @@ bool useAuxGrid = false;
 
 /* Null phase point of auxiliary grids. */
 static int m0 = 2;
+
+/* PML Depth. */
+static int npml = 10;
 
 /* Function pointer for indicent field function. */
 static real (*incidentField)( FieldComponent field , int i , int j , int k , real time , PlaneWaveItem *item ) = NULL;
@@ -1236,72 +1235,61 @@ void initAuxGrid( PlaneWaveItem *item )
   dt = getGridTimeStep();
   getUniformGridSize( d );
   
-  /* Loop over items here... */
-  {
+  /* vp(0,0) / vp(item->theta,item->phi) */
+  relPhaseVelocity = numericalPhaseVelocity( 0.0 , 0.0 ) / numericalPhaseVelocity( pi * item->theta / 180.0 , pi * item->phi / 180.0 );
 
-    /* vp(0,0) / vp(item->theta,item->phi) */
-    relPhaseVelocity = numericalPhaseVelocity( 0.0 , 0.0 ) / numericalPhaseVelocity( pi * item->theta / 180.0 , pi * item->phi / 180.0 );
+  message( MSG_DEBUG3 , 0 , "    Relative numerical phase velocity=%g\n" , relPhaseVelocity );
 
-    message( MSG_DEBUG3 , 0 , "    Relative numerical phase velocity=%g\n" , relPhaseVelocity );
+  /* Free space parameters for incident field buffer. */
+  item->betaEyi = dt / ( eps0 * d[0] ) / relPhaseVelocity;
+  item->gammaHzi = dt / ( mu0 * d[0] ) / relPhaseVelocity;
 
-    /* Free space parameters for incident field buffer. */
-    item->betaEyi = dt / ( eps0 * d[0] ) / relPhaseVelocity;
-    item->gammaHzi = dt / ( mu0 * d[0] ) / relPhaseVelocity;
+  /* Grid size - diagonal of bbox plus 10. */
+  item->nx = 6 + npml + sqrt( ( item->gbbox[XHI] - item->gbbox[XLO] ) * ( item->gbbox[XHI] - item->gbbox[XLO] ) +
+                              ( item->gbbox[YHI] - item->gbbox[YLO] ) * ( item->gbbox[YHI] - item->gbbox[YLO] ) +
+                              ( item->gbbox[ZHI] - item->gbbox[ZLO] ) * ( item->gbbox[ZHI] - item->gbbox[ZLO] ) );
+  message( MSG_DEBUG3 , 0 , "    Aux. grid length=%d\n" , item->nx );
 
-    /* Choose depth of PML. */
-    item->npml = 10;
+  /* Determine position of PML boundary. */
 
-    /* Grid size - diagonal of bbox plus 10. */
-    item->nx = 6 + item->npml + sqrt( ( item->gbbox[XHI] - item->gbbox[XLO] ) * ( item->gbbox[XHI] - item->gbbox[XLO] ) +
-                         ( item->gbbox[YHI] - item->gbbox[YLO] ) * ( item->gbbox[YHI] - item->gbbox[YLO] ) +
-                         ( item->gbbox[ZHI] - item->gbbox[ZLO] ) * ( item->gbbox[ZHI] - item->gbbox[ZLO] ) );
-    message( MSG_DEBUG3 , 0 , "    Aux. grid length=%d\n" , item->nx );
-
-    /* Determine position of PML boundary. */
-
-    item->xb = item->nx-item->npml;
+  item->xb = item->nx-npml;
     
-    /* Allocate arrays. */
-    item->Eyi  = (real *) malloc( sizeof( real ) * ( item->nx + 1 ) );
-    item->Hzi  = (real *) malloc( sizeof( real ) * ( item->nx + 1 ) );
-    item->Pyi  = (real *) malloc( sizeof( real ) * ( item->npml ) );
-    item->PPyi  = (real *) malloc( sizeof( real ) * ( item->npml ) );
-    item->Bzi  = (real *) malloc( sizeof( real ) * ( item->npml ) );
-    item->adx  = (real *) malloc( sizeof( real ) * ( item->npml ) );
-    item->bdx  = (real *) malloc( sizeof( real ) * ( item->npml ) );
-    item->ahx  = (real *) malloc( sizeof( real ) * ( item->npml ) );
-    item->bhx  = (real *) malloc( sizeof( real ) * ( item->npml ) );
+  /* Allocate arrays. */
+  item->Eyi  = (real *) malloc( sizeof( real ) * ( item->nx + 1 ) );
+  item->Hzi  = (real *) malloc( sizeof( real ) * ( item->nx + 1 ) );
+  item->Pyi  = (real *) malloc( sizeof( real ) * ( npml ) );
+  item->PPyi  = (real *) malloc( sizeof( real ) * ( npml ) );
+  item->Bzi  = (real *) malloc( sizeof( real ) * ( npml ) );
+  item->adx  = (real *) malloc( sizeof( real ) * ( npml ) );
+  item->bdx  = (real *) malloc( sizeof( real ) * ( npml ) );
+  item->ahx  = (real *) malloc( sizeof( real ) * ( npml ) );
+  item->bhx  = (real *) malloc( sizeof( real ) * ( npml ) );
 
-    /* Clear the mesh and initialise to free space. */
-    for ( i = 0 ; i <= item->nx ; i++ ) 
-    {
-        item->Eyi[i] = 0.0;
-        item->Hzi[i] = 0.0;
-    }
+  /* Clear the mesh and initialise to free space. */
+  for ( i = 0 ; i <= item->nx ; i++ ) 
+  {
+      item->Eyi[i] = 0.0;
+      item->Hzi[i] = 0.0;
+  }
 
-    /* Initialise PML arrays and create loss profiles. */
-    for ( i = 0 ; i < item->npml ; i++)
-    {
-        item->Pyi[i] = 0.0;
-        item->PPyi[i] = 0.0;
-        item->Bzi[i] = 0.0;
+  /* Initialise PML arrays and create loss profiles. */
+  for ( i = 0 ; i < npml ; i++)
+  {
+      item->Pyi[i] = 0.0;
+      item->PPyi[i] = 0.0;
+      item->Bzi[i] = 0.0;
+      depth = abs( i ) / (real)npml;
+      sprof = pow( depth , 4.0 ) * 0.8 * (5) / d[0] / eta0;
+      item->bdx[i] = 1.0 / ( 1.0 + sprof );
+      item->adx[i] = ( 1.0 - sprof ) / ( 1.0 + sprof );
 
-        depth = abs( i ) / (real)item->npml;
-        sprof = pow( depth , 4.0 ) * 0.8 * (5) / d[0] / eta0;
-        item->bdx[i] = 1.0 / ( 1.0 + sprof );
-        item->adx[i] = ( 1.0 - sprof ) / ( 1.0 + sprof );
-
-        depth = (abs( i ) + 0.5) / (real)(item->npml);
-        sprof = pow( depth , 4.0 ) * 0.8 * (5) / d[0] / eta0;
-        item->bhx[i] = 1.0 / ( 1.0 + sprof );
-        item->ahx[i] = ( 1.0 - sprof ) / ( 1.0 + sprof );
-
-    }
-
-    item->oldPyi = 0.0;
-    item->oldPPyi  = 0.0;
+      depth = (abs( i ) + 0.5) / (real)(npml);
+      sprof = pow( depth , 4.0 ) * 0.8 * (5) / d[0] / eta0;
+      item->bhx[i] = 1.0 / ( 1.0 + sprof );
+      item->ahx[i] = ( 1.0 - sprof ) / ( 1.0 + sprof );
 
   }
+
 
   return;
 
@@ -1311,16 +1299,13 @@ void initAuxGrid( PlaneWaveItem *item )
 void deallocAuxGrid( PlaneWaveItem *item )
 {
 
-  /* Loop over items here. */ 
-  { 
-    free( item->Eyi );
-    free( item->Hzi );
-    free( item->PPyi );
-    free( item->Pyi );
-    free( item->Bzi );
-    free( item->adx );
-    free( item->bdx );
-  }
+  free( item->Eyi );
+  free( item->Hzi );
+  free( item->PPyi );
+  free( item->Pyi );
+  free( item->Bzi );
+  free( item->adx );
+  free( item->bdx );
   
   return;
   
@@ -1332,6 +1317,7 @@ void updateAuxGridEfield( PlaneWaveItem *item , real time )
 
   int i,Lp;
   real waveform;
+  real oldPPyi, oldPyi;
 
   /* Update incident field buffer - eqn. (5.45a). */
   for ( i = 1 ; i < item->xb ; i++ ) 
@@ -1345,11 +1331,11 @@ void updateAuxGridEfield( PlaneWaveItem *item , real time )
   {
 
     Lp = i-item->xb;
-    item->oldPPyi = item->PPyi[Lp];
+    oldPPyi = item->PPyi[Lp];
     item->PPyi[Lp] = item->PPyi[Lp] + item->betaEyi * ( item->Hzi[i-1] - item->Hzi[i] );
-    item->oldPyi = item->Pyi[Lp];
-    item->Pyi[Lp] = item->Pyi[Lp] + ( item->PPyi[Lp] - item->oldPPyi );
-    item->Eyi[i] = item->adx[Lp] * item->Eyi[i] + item->bdx[Lp] * ( item->Pyi[Lp] - item->oldPyi );
+    oldPyi = item->Pyi[Lp];
+    item->Pyi[Lp] = item->Pyi[Lp] + ( item->PPyi[Lp] - oldPPyi );
+    item->Eyi[i] = item->adx[Lp] * item->Eyi[i] + item->bdx[Lp] * ( item->Pyi[Lp] - oldPyi );
 
   }
 
@@ -1367,6 +1353,7 @@ void updateAuxGridHfield( PlaneWaveItem *item , real time )
 {
 
   int i, Lp;
+  real oldBzi;
 
   /* Update incident field buffer - eqn. (5.45b). */
   for ( i = 0 ; i < item->xb ; i++ ) 
@@ -1377,9 +1364,9 @@ void updateAuxGridHfield( PlaneWaveItem *item , real time )
   for ( i = item->xb  ; i < item->nx ; i++ ) 
   {
     Lp = i-item->xb;
-    item->oldBzi = item->Bzi[Lp];
+    oldBzi = item->Bzi[Lp];
     item->Bzi[Lp] = item->ahx[Lp] * item->Bzi[Lp] + item->gammaHzi * item->bhx[Lp] * ( -item->Eyi[i+1] + item->Eyi[i] );
-    item->Hzi[i] = item->Hzi[i] + ( item->Bzi[Lp] - item->oldBzi );
+    item->Hzi[i] = item->Hzi[i] + ( item->Bzi[Lp] - oldBzi );
   }
 
 }
