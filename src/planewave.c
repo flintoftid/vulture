@@ -1279,12 +1279,12 @@ void initAuxGrid( PlaneWaveItem *item )
       item->PPyi[i] = 0.0;
       item->Bzi[i] = 0.0;
       depth = abs( i ) / (real)npml;
-      sprof = pow( depth , 4.0 ) * 0.8 * (5) / d[0] / eta0;
+      sprof = 0.5 * dt / eps0 * pow( depth , 3.77 ) * 4.0 / eta0 / d[0];
       item->bdx[i] = 1.0 / ( 1.0 + sprof );
       item->adx[i] = ( 1.0 - sprof ) / ( 1.0 + sprof );
 
       depth = (abs( i ) + 0.5) / (real)(npml);
-      sprof = pow( depth , 4.0 ) * 0.8 * (5) / d[0] / eta0;
+      sprof = 0.5 * dt / eps0 * pow( depth , 3.77 ) * 4.0 / eta0 / d[0];
       item->bhx[i] = 1.0 / ( 1.0 + sprof );
       item->ahx[i] = ( 1.0 - sprof ) / ( 1.0 + sprof );
 
