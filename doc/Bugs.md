@@ -1,11 +1,9 @@
 
-KNOWN BUGS
-==========
+# Kown bugs in AEG VultureKNOWN BUGS
 
 
 
-FIXED IN 0.6.2
-==============
+## FIXED IN 0.6.2
 
 ID: 000005
 Date: 20/02/2013
@@ -34,8 +32,8 @@ Workaround: Add manually to mesh.gnp file
 Summary: The file containing internal surfaces, gnuplot-surface.dat, is
          not added to the list of files to splot in mesh.gnp.
 
-FIXED IN 0.6.1
-==============
+## FIXED IN 0.6.1
+
 
 ID: 000003
 Date: 22/11/2012
@@ -51,8 +49,7 @@ Summary: Incorrect rendering of current sources by gvulture.
          If size of bbox in source polarisation direction is zero
          arrow algorithm fails. Make it one cell long - half below, half above?
 
-FIXED IN 0.6.0
-==============
+## FIXED IN 0.6.0
 
 ID: 000001
 Date: 19/11/2012
@@ -78,4 +75,3 @@ Resolution: Wrong scaling function used to apply magnetic current density
 Workaround: Scale amplitude in mesh file.
 Summary: Magnetic current sources appear to have incorrect amplitude
          by factor equal to mesh size.
-
