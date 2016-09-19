@@ -21,7 +21,7 @@
 # Author: Ian Flintoft <ian.flintoft@york.ac.uk>
 #
 
-install( FILES "${VULTURE_SOURCE_DIR}/doc/Bugs.txt"
+install( FILES "${VULTURE_SOURCE_DIR}/doc/Bugs.md"
          DESTINATION share/doc/vulture
          COMPONENT instructionData )
 

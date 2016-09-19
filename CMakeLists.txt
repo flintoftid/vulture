@@ -146,7 +146,7 @@ install( DIRECTORY m/ DESTINATION share/octave/packages/vulture FILES_MATCHING P
 #
 
 install( FILES "${VULTURE_SOURCE_DIR}/Licence.txt"
-               "${VULTURE_SOURCE_DIR}/ReadMe.txt"
+               "${VULTURE_SOURCE_DIR}/ReadMe.md"
          DESTINATION share/doc/vulture
          COMPONENT instructionData )
 
