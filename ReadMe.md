@@ -67,24 +67,26 @@ To run the test-suite the following are also required:
 
 3. (Optional) [Python][].
 
-4. (Optional) The [AEG][] time-domain post-processing tools. 
+4. (Optional) The [AEG][] time-domain post-processing tools (not yet available). 
+
+5. (Optional) The [AEG Mesher][] can create Vulture meshes from CAD files. 
 
 The code has been primarily developed on Linux platforms, but it should build 
 and run on both Linux and Windows systems.
 
 ## Documentation
 
-Installation instructions are contained in the file [Install.txt][] in the 
+Installation instructions are contained in the file [Install.md][] in the 
 source distribution. There is also a [LaTeX][] user manual and tutorial in the 
 doc directory of the source distribution that builds into [UserManual.pdf][].
 
 ## Bugs and support
 
 The code is still under development and no doubt will contain many bugs. Known 
-significant bugs are listed in the file doc/[Bugs.txt][] in the source code. 
+significant bugs are listed in the file doc/[Bugs.md][] in the source code. 
 
 Please report bugs using the bitbucket issue tracker at
-<https://bitbucket.org/uoyaeg/vulture/issues> or by email to <ian.flintoft@york.ac.uk>.
+<https://bitbucket.org/uoyaeg/vulture/issues> or by email to <ian.flintoft@googlemail.com>.
 
 For general guidance on how to write a good bug report see, for example:
 
@@ -107,9 +109,9 @@ We welcome any contributions to the development of the code, including:
 
 * Improving the user documentation.
 
-* Items in the to-do list in the file [ToDo.txt][].
+* Items in the to-do list in the file [ToDo.md][].
 
-Please contact [Dr Ian Flintoft], <ian.flintoft@york.ac.uk>, if you are 
+Please contact [Dr Ian Flintoft][], <ian.flintoft@googlemail.com>, if you are 
 interested in helping with these or any other aspect of development.
 
 ## Licence
@@ -118,13 +120,13 @@ The code is licensed under the [GNU Public Licence, version 3](http://www.gnu.or
 
 ## Developers
 
-[Dr Ian Flintoft](http://www.elec.york.ac.uk/staff/idf1.html) : <ian.flintoft@york.ac.uk>
+[Dr Ian Flintoft][] : <ian.flintoft@googlemail.com>
 
 Mr Samuel Bourke : <sab544@york.ac.uk>
 
 ## Contacts
 
-[Dr Ian Flintoft](http://www.elec.york.ac.uk/staff/idf1.html) : <ian.flintoft@york.ac.uk>
+[Dr Ian Flintoft][] : <ian.flintoft@googlemail.com>
 
 [Dr John Dawson](http://www.elec.york.ac.uk/staff/jfd1.html) : <john.dawson@york.ac.uk>
 
@@ -154,6 +156,8 @@ Symposium on EMC, York, UK, 26-30 September, 2011. pp. 575-580.
 
 ## Related links
 
+* The [AEG Box Test Suite][] provides validation test cases for computational solvers. 
+
 * The free [MEEP](http://ab-initio.mit.edu/wiki/index.php/Meep) devloped at MIT.
 
 * [Understanding the FDTD Method](http://www.eecs.wsu.edu/~schneidj/ufdtd) by John B. Schneider. 
@@ -172,11 +176,12 @@ Symposium on EMC, York, UK, 26-30 September, 2011. pp. 575-580.
 [Mercurial]:                 http://mercurial.selenic.com
 [CMake]:                     http://www.cmake.org
 [AEG Mesher]:                https://bitbucket.org/uoyaeg/aegmesher
+[AEG Box Test Suite]:        https://bitbucket.org/uoyaeg/aegboxts
 
 [University of York]:        http://www.york.ac.uk
 [Department of Electronics]: http://www.elec.york.ac.uk
 [AEG]:                       http://www.elec.york.ac.uk/research/physLayer/appliedEM.html
-[Dr Ian Flintoft]:           http://www.elec.york.ac.uk/staff/idf1.html
+[Dr Ian Flintoft]:           https://scholar.google.co.uk/citations?user=2RZgeUQAAAAJ
 [Dr John Dawson]:            http://www.elec.york.ac.uk/staff/jfd1.html
 [Dr Stuart Porter]:          http://www.elec.york.ac.uk/staff/sjp1.html
 [EMC]:                       http://www.elec.york.ac.uk/research/physLayer/appliedEM/emc.html

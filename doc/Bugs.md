@@ -1,6 +1,5 @@
 
-# Kown bugs in AEG VultureKNOWN BUGS
-
+# Kown bugs in Vulture
 
 
 ## FIXED IN 0.6.2
