@@ -41,7 +41,7 @@ function [ x , y , z , Ex , Ey , Ez , Hx , Hy , Hz , f ] = ...
 % This file is part of Vulture.
 %
 % Vulture finite-difference time-domain electromagnetic solver.
-% Copyright (C) 2011-2013 Ian David Flintoft
+% Copyright (C) 2011-2016 Ian David Flintoft
 %
 % This program is free software; you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by

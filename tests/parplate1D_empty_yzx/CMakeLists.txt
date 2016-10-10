@@ -2,7 +2,7 @@
 # This file is part of Vulture.
 #
 # Vulture finite-difference time-domain electromagnetic solver.
-# Copyright (C) 2011-2013 Ian David Flintoft
+# Copyright (C) 2011-2016 Ian David Flintoft
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
 #
-# Author: Ian Flintoft <ian.flintoft@york.ac.uk>
+# Author: Ian Flintoft <ian.flintoft@googlemail.com>
 #
 
 vulture_test( "parplate1D_empty_yzx" )

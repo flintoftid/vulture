@@ -1,8 +1,107 @@
+2016-10-02  Ian Flintoft  <ian.flintoft@york.ac.uk>
+
+	* ReadMe.md, doc/Bugs.md:
+	user: Ian Flintoft <ian.flintoft@york.ac.uk> branch 'default'
+	changed ReadMe.md changed doc/Bugs.md
+
+	 Link and email updates.
+	[199fd30c9222] [tip]
+
+2016-09-19  Ian Flintoft  <ian.flintoft@york.ac.uk>
+
+	* CMakeLists.txt, doc/CMakeLists.txt:
+	user: Ian Flintoft <ian.flintoft@york.ac.uk> branch 'default'
+	changed CMakeLists.txt changed doc/CMakeLists.txt
+
+	 Changed suffix on files to md.
+	[8b2a6779142d]
+
+	* CMakeLists.txt:
+	user: Ian Flintoft <ian.flintoft@york.ac.uk> branch 'default'
+	changed CMakeLists.txt
+
+	 Fixes to default compiler options for Ubuntu 16.04
+	[04a635642522]
+
+2016-09-17  Ian Flintoft  <ian.flintoft@york.ac.uk>
+
+	* ChangeLog.txt, Install.md, Install.txt, ReadMe.md, ReadMe.txt,
+	doc/Bugs.md, doc/Bugs.txt, doc/ChangeLog.txt, doc/ToDo.md,
+	doc/ToDo.txt:
+	user: Ian Flintoft <ian.flintoft@york.ac.uk> branch 'default' added
+	ChangeLog.txt added Install.md added ReadMe.md added doc/Bugs.md
+	added doc/ToDo.md removed Install.txt removed ReadMe.txt removed
+	doc/Bugs.txt removed doc/ChangeLog.txt removed doc/ToDo.txt
+
+	 Changed suffix to md for markdown. Updates.
+	[7c26080f9950]
+
+2016-02-18  Samuel Bourke  <sab544@york.ac.uk>
+
+	* src/planewave.c:
+	Added correction to Planewave source - Timestep added to pml sigma
+	profile calculation.
+	[c1602db399b4]
+
+2016-01-23  Ian David Flintoft  <ian.flintoft@york.ac.uk>
+
+	* ReadMe.txt, doc/UserManual/UserManual.tex:
+	user: Ian David Flintoft <ian.flintoft@york.ac.uk> branch 'default'
+
+	changed ReadMe.txt
+
+	 Use Markdown.
+
+	changed doc/UserManual/UserManual.tex
+
+	 Fix typo.
+	[ef10fbb076e8]
+
+2015-12-15  Ian David Flintoft  <ian.flintoft@york.ac.uk>
+
+	* ReadMe.txt:
+	user: Ian David Flintoft <ian.flintoft@york.ac.uk> branch 'default'
+
+	changed ReadMe.txt
+
+	 Resync'd wiki page and ReadMe.txt.
+	[f1c03f80d05d]
+
+	* src/planewave.c:
+	user: Ian David Flintoft <ian.flintoft@york.ac.uk> branch merge
+	branch 'default'
+
+	changed src/planewave.c
+
+	 Removed some left over loop braces and changed indent.
+	[afacae7c8cbc]
+
+2015-12-14  Ian David Flintoft  <ian.flintoft@york.ac.uk>
+
+	* ReadMe.txt, doc/ChangeLog.txt:
+	user: Ian David Flintoft <ian.flintoft@york.ac.uk> branch 'default'
+
+	added doc/ChangeLog.txt
+
+	 Added changle log from hg log --style=changelog
+
+	changed ReadMe.txt
+
+	 Added Sam to developers list.
+	[1142dda2a9e9]
+
 2015-12-14  Samuel Bourke  <sab544@york.ac.uk>
 
 	* src/planewave.c:
+	Tidied code in planewave sourcefile:
+		- Made temporary storage variables oldPyi, oldPPyi and oldBzi local to
+	update functions.
+		- Made PML depth a private static int.
+	[baac9c5b0f68]
+
+	* src/planewave.c:
 	Corrected some function parameters to match header files.
-	[b78f03d05d79] [tip]
+	[b78f03d05d79]
 
 	* src/planewave.c:
 	Add PML absorbing boundary to planewave auxillary grid.

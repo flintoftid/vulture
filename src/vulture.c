@@ -2,7 +2,7 @@
  * This file is part of Vulture.
  *
  * Vulture finite-difference time-domain electromagnetic solver.
- * Copyright (C) 2011-2013 Ian David Flintoft
+ * Copyright (C) 2011-2016 Ian David Flintoft
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
  *
- * Author: Ian Flintoft <ian.flintoft@york.ac.uk>
+ * Author: Ian Flintoft <ian.flintoft@googlemail.com>
  *
  */
 
@@ -302,7 +302,7 @@ void printUsage( void )
 void printVersion( void )
 {
 
-  printf( "\nVulture (version %d.%d.%d) Copyright (C) 2011-2013 Ian David Flintoft\n\n" , 
+  printf( "\nVulture (version %d.%d.%d) Copyright (C) 2011-2016 Ian David Flintoft\n\n" , 
           solverVersion[0] , solverVersion[1] , solverVersion[2] );
   printf( "Vulture comes with ABSOLUTELY NO WARRANTY; for details type `vulture --licence'.\n" );
   printf( "This is free software, and you are welcome to redistribute it\n" );
@@ -343,7 +343,7 @@ void printLicence( void )
 {
  
   printf( "\nVulture finite-difference time-domain electromagnetic solver.\n" );
-  printf( "Copyright (C) 2011-2013 Ian David Flintoft\n" );
+  printf( "Copyright (C) 2011-2016 Ian David Flintoft\n" );
   printf( "\n" );
   printf( "This program is free software; you can redistribute it and/or modify\n" );
   printf( "it under the terms of the GNU General Public License as published by\n" );

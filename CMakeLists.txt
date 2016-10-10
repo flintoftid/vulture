@@ -2,7 +2,7 @@
 # This file is part of Vulture.
 #
 # Vulture finite-difference time-domain electromagnetic solver.
-# Copyright (C) 2011-2013 Ian David Flintoft
+# Copyright (C) 2011-2016 Ian David Flintoft
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
 #
-# Author: Ian Flintoft <ian.flintoft@york.ac.uk>
+# Author: Ian Flintoft <ian.flintoft@googlemail.com>
 #
 
 project ( VULTURE C )
@@ -228,8 +228,8 @@ endif( WITH_TESTS )
 
 set( CPACK_PACKAGE_NAME                "vulture" )
 set( CPACK_PACKAGE_DESCRIPTION_SUMMARY "Vulture FDTD code" )
-set( CPACK_PACKAGE_VENDOR              "Ian Flintoft <ian.flintoft@york.ac.uk>" )
-set( CPACK_PACKAGE_CONTACT             "Ian Flintoft <ian.flintoft@york.ac.uk>" )
+set( CPACK_PACKAGE_VENDOR              "Ian Flintoft <ian.flintoft@googlemail.com>" )
+set( CPACK_PACKAGE_CONTACT             "Ian Flintoft <ian.flintoft@googlemail.com>" )
 set( CPACK_PACKAGE_DESCRIPTION_FILE    "${VULTURE_SOURCE_DIR}/ReadMe.md" )
 set( CPACK_RESOURCE_FILE_LICENSE       "${VULTURE_SOURCE_DIR}/Licence.txt" )
 set( CPACK_PACKAGE_VERSION_MAJOR       "${VULTURE_VERSION_MAJOR}" )

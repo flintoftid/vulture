@@ -181,7 +181,7 @@ Symposium on EMC, York, UK, 26-30 September, 2011. pp. 575-580.
 [University of York]:        http://www.york.ac.uk
 [Department of Electronics]: http://www.elec.york.ac.uk
 [AEG]:                       http://www.elec.york.ac.uk/research/physLayer/appliedEM.html
-[Dr Ian Flintoft]:           https://scholar.google.co.uk/citations?user=2RZgeUQAAAAJ
+[Dr Ian Flintoft]:           https://idflintoft.bitbucket.io
 [Dr John Dawson]:            http://www.elec.york.ac.uk/staff/jfd1.html
 [Dr Stuart Porter]:          http://www.elec.york.ac.uk/staff/sjp1.html
 [EMC]:                       http://www.elec.york.ac.uk/research/physLayer/appliedEM/emc.html
