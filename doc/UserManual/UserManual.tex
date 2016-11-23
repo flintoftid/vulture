@@ -16,6 +16,8 @@
 %\usepackage{txfonts}
 \usepackage{fancyvrb}
 \usepackage{url}
+\usepackage{hyperref}
+\hypersetup{pdftex, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, urlcolor=blue, pdftitle=, pdfauthor=Ian Flintoft, pdfsubject=, pdfkeywords=}
 
 \renewcommand{\topmargin}{-1.0cm}
 \renewcommand{\headheight}{14.4pt}
@@ -1898,7 +1900,7 @@ given by the area of the dual grid faces associated with the edges excited.
 For example,
 \begin{verbatim}
 # A soft electric current density source
-EX 16 17 16 17 16 17 current_density JY 1.0
+EX 16 17 16 17 16 17 current_density JY wf1 1.0
 \end{verbatim}
 would correspond to a $y$-polarised electric current density of 1\,A\,m$^{-2}$ impressed on four primary
 grid edges in the volume bounded by \texttt{[15.5,17.5,15.5,17.5,16,17]}.
@@ -1925,7 +1927,7 @@ field in an aperture can be impressed using
 # An equivalent magnetic current density source for an
 # aperture with an electric field of 1 V/m.
 TB  0 10 10 10  0 10 PEC
-EX  5  6 10 10  5  6 aperture_efield JMSZY 1.0
+EX  5  6 10 10  5  6 aperture_efield JMSZY wf1 1.0
 \end{verbatim}
 Note that this will radiate into both the $j<10$ and $j>10$ half-spaces which is 
 probably not what is intended. A volumetic PEC backing needs to be used on the 
@@ -1934,13 +1936,13 @@ non-radiating side, say the $j<10$ half-space:
 # An equivalent magnetic current density source for an
 # aperture with a uniform electric field of 1 V/m.
 MB  0 10  0 10  0 10 PEC
-EX  5  6 10 10  5  6 aperture_efield JMSZY 1.0
+EX  5  6 10 10  5  6 aperture_efield JMSZY wf1 1.0
 \end{verbatim}
 
 Another example is
 \begin{verbatim}
 # A soft electric surface current density source
-EX 15 20 15 20 10 10 current_sheet JSXY 1.0
+EX 15 20 15 20 10 10 current_sheet JSXY wf1 1.0
 \end{verbatim}
 which corresponds to an $x$-polarised electric surface current density of 1\,A\,m$^{-1}$ impressed on 36 primary
 grid edges on the $z$-normal surface bounded by \texttt{[15,20,14.5,20.5,9.5,10.5]}. The equivalent volume current density
@@ -1952,9 +1954,9 @@ for each polarisation so that each polarisation has the same phase centre~\cite{
 dipole moment with amplitude 1\,A\,m, aligned along unit vector $(1\sqrt{3},1\sqrt{3},1\sqrt{3})$ can be implemented using
 \begin{verbatim}
 # Non-aligned source with same phase centre for each polarisation.
-EX 10 11 10 10 10 10 current_sheet IDX 0.5773
-EX 10 10 10 11 10 10 current_sheet IDY 0.5773
-EX 10 10 10 10 10 11 current_sheet IDZ 0.5773
+EX 10 11 10 10 10 10 current_sheet IDX wf1 0.5773
+EX 10 10 10 11 10 10 current_sheet IDY wf1 0.5773
+EX 10 10 10 10 10 11 current_sheet IDZ wf1 0.5773
 \end{verbatim}
 
 \subsubsection{\texttt{IX}, \texttt{IY}, \texttt{IZ}, \texttt{IMX}, \texttt{IMY} and \texttt{IMZ} line current sources}
@@ -1963,7 +1965,7 @@ Line current sources are related to current densities using the area of the dual
 excited edge. For example, 
 \begin{verbatim}
 # A soft electric current source
-EX 15 15 15 15 14 16 line_current IZ 1.0
+EX 15 15 15 15 14 16 line_current IZ wf1 1.0
 \end{verbatim}
 impresses a $z$-directed current of 1\, A flowing in the volume 
 \texttt{[14.5,15.5,14.5,15.5,14,16]}. The current density is determined as
@@ -1971,7 +1973,7 @@ $1/(\tDelta x_{15} \tDelta y_{15})$\,A\,m$^{-2}$. Current sources can be specifi
 on volumetric bounding boxes as well. So,
 \begin{verbatim}
 # A soft volumetric electric current source
-EX 15 16 15 16 14 16 line_current IZ 1.0
+EX 15 16 15 16 14 16 line_current IZ wf1 1.0
 \end{verbatim}
 would distribute the 1\,A current across the area $(\tDelta x_{15} + \tDelta x_{16})\times (\tDelta y_{15} + \tDelta y_{16}) $ 
 normal to the current direction.
@@ -1984,7 +1986,7 @@ direction and then the current density is found by dividing by the area of the n
 faces. For example,
 \begin{verbatim}
 # A soft volumetric electric current moment source
-EX 15 16 15 16 14 16 current_moment IDZ 1.0
+EX 15 16 15 16 14 16 current_moment IDZ wf1 1.0
 \end{verbatim}
 would distribute the 1\,A\,m current moment across the area $(\tDelta x_{15} + \tDelta x_{16})\times (\tDelta y_{15} + \tDelta y_{16}) $ 
 normal to the current direction and length $\Delta z_{14}+\Delta x_{15}$.
@@ -1999,7 +2001,7 @@ default CFLN of $\sqrt{3}/2$ an infinite plane of colinearly polarised edges wou
 wave with the specified electric/magnetic field amplitude in to the grid. Explicitly,
 \begin{verbatim}
 # A soft electric ``field'' source
-EX  1 10  1 10  5  5 eplane EZ 1.0
+EX  1 10  1 10  5  5 eplane EZ wf1 1.0
 \end{verbatim}
 would launch a ``plane-wave'' of amplitude 1\,V/m in both the positve and negative $z$-directions
 on a uniform mesh with the default CFLN. {\em Note that in practice the source plane is usually not infinite 
@@ -2112,7 +2114,7 @@ on a PEC surface, for example:
 # Direct Dirchlet boundary condition for
 # aperture with a uniform electric field of 1 V/m.
 MB  0 10  0 10  0 10 PEC
-EX  5  6 10 10  5  6 aperture_efield =EZ 1.0
+EX  5  6 10 10  5  6 aperture_efield =EZ wf1 1.0
 \end{verbatim}
 
 \subsubsection{\texttt{=VX}, \texttt{=VY} and \texttt{=VZ} hard voltage sources}
@@ -2176,7 +2178,7 @@ Examples:
 # A soft z-polarised lumped voltage source of ampltiude 1 V
 # and internal resistance 50 ohms applied on the grid edge 
 # from (16,16,16) to (16,16,17).
-EX 16 16 16 16 16 17 feed VRZ 50.0 1.0
+EX 16 16 16 16 16 17 feed VRZ wf1 50.0 1.0
 \end{verbatim}
 
 \subsubsection{\texttt{VDX}, \texttt{VDY} and \texttt{VDZ} delta-gap thin wire voltage sources}
