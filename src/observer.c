@@ -1254,7 +1254,9 @@ void gmshObservers( void )
      * and different physical numbers. OPs likely to have overlapping nodes to give them
      * entity number zero (no tag).
      */
-    entityNumber = 0UL;
+    //entityNumber = 0UL;  
+    /* May be fixed now?*/
+    entityNumber = gmshGetEntityNumber();
     snprintf( name , GMSH_NAME_LENGTH - 1 , "OP_%s" , item->name );
     gmshAddEntity( entityNumber , BB_POINT , name , item->mbbox , item->step );
   }

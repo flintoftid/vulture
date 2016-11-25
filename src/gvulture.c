@@ -190,6 +190,7 @@ void printUsage( void )
   printf( "\nValid options are:\n\n" );
   printf( "-e, --no-ext-surf\tDo not render mesh external surfaces\n" );  
   printf( "-g, --gnuplot\t\tGenerate gnuplot format output (default)\n" );  
+  printf( "-m, --gmsh\t\tGenerate Gmsh format output\n" );  
   printf( "-p, --physical\t\tGenerate plot data in physical units (metres)\n" );
   printf( "-v, --verbose\t\tProduce verbose logging information\n\n" );
 
