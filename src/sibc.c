@@ -374,9 +374,6 @@ void initSibcSurfaces( SurfaceIndex number , SurfaceItem *surfaceList )
               sibcArray[surface].isAdjB[ii][jj][kk][1] = isSibcFace[i+1][j][k][XDIR];
               sibcArray[surface].isAdjB[ii][jj][kk][2] = isSibcFace[i][j][k][YDIR];
               sibcArray[surface].isAdjB[ii][jj][kk][3] = isSibcFace[i+1][j+1][k][YDIR];
-
-
-
             }
         break;
       default:
@@ -500,9 +497,6 @@ void updateSibcSurfacesEfield( void )
             Htan[3] = 0.5 * ( 1 + sibcArray[surface].isAdjB[ii][jj][kk][2] + sibcArray[surface].isAdjB[ii][jj][kk][3] )
                           * ( UNSCALE_Hz( Hz[i][j][k]   , k ) + UNSCALE_Hz( Hz[i][j][k+1]   , k + 1 ) );
             /* Transform magnetic field vectors from mesh to principal axes. */
-
-            
-
             matMulVector( Hin , A , Htan );
 
             /* Apply SIBC. */
@@ -570,7 +564,6 @@ void updateSibcSurfacesEfield( void )
             /* Transform magnetic field vectors from mesh to principal axes. */
             matMulVector( Hin , A , Htan );
             /* Apply SIBC. */
-
             for( p = 0 ; p < 4 ; p++ )
             {
               Eout[p] = 0.0;
@@ -579,7 +572,6 @@ void updateSibcSurfacesEfield( void )
             }
             /* Transform output electric field from principal to mesh axes and store in surface. */ 
             matMulVector( sibcArray[surface].Etan[ii][jj][kk] , B , Eout );
-
           }         
       break;
     default:
@@ -665,7 +657,6 @@ void updateSibcSurfacesHfield( void )
             Hx[i][j-1][k] = Hx[i][j-1][k] + GAMMA_HZ(i,j-1,i) * 0.5 * edgeWeightzl * (!sibcArray[surface].isAdjA[ii][jj][kk][1] * dEz_dx( Eza, i-1) + !sibcArray[surface].isAdjB[ii][jj][kk][1] * dEz_dx( Ezb, i));
             Hx[i][j][k+1] = Hx[i][j][k+1] - GAMMA_HY(i,j,k+1) * 0.5 * edgeWeightyh * (!sibcArray[surface].isAdjA[ii][jj][kk][2] * dEy_dx( Eya, i-1) + !sibcArray[surface].isAdjB[ii][jj][kk][2] * dEy_dx( Eyb, i));
             Hx[i][j][k-1] = Hx[i][j][k-1] + GAMMA_HY(i,j,k-1) * 0.5 * edgeWeightyl * (!sibcArray[surface].isAdjA[ii][jj][kk][3] * dEy_dx( Eya, i-1) + !sibcArray[surface].isAdjB[ii][jj][kk][3] * dEy_dx( Eyb, i));
-
           }
       break;
     case YDIR:
@@ -699,9 +690,6 @@ void updateSibcSurfacesHfield( void )
             Hy[i][j][k-1] = Hy[i][j][k-1] - GAMMA_HZ(i,j,k-1) * 0.5 * edgeWeightzl * (!sibcArray[surface].isAdjA[ii][jj][kk][1] * dEz_dy( Eza, j-1) + !sibcArray[surface].isAdjB[ii][jj][kk][1] * dEz_dy( Exb, j));
             Hy[i+1][j][k] = Hy[i+1][j][k] + GAMMA_HX(i+1,j,k) * 0.5 * edgeWeightxh * (!sibcArray[surface].isAdjA[ii][jj][kk][2] * dEx_dy( Exa, j-1) + !sibcArray[surface].isAdjB[ii][jj][kk][2] * dEx_dy( Exb, j));
             Hy[i-1][j][k] = Hy[i-1][j][k] - GAMMA_HX(i-1,j,k) * 0.5 * edgeWeightxl * (!sibcArray[surface].isAdjA[ii][jj][kk][3] * dEx_dy( Exa, j-1) + !sibcArray[surface].isAdjB[ii][jj][kk][3] * dEx_dy( Exb, j));
-            
-
-
           }
       break;
     case ZDIR:
@@ -735,8 +723,6 @@ void updateSibcSurfacesHfield( void )
             Hz[i-1][j][k] = Hz[i-1][j][k] - GAMMA_HY(i-1,j,k) * 0.5 * edgeWeightyl * (!sibcArray[surface].isAdjA[ii][jj][kk][1] * dEy_dz( Eya, k-1) + !sibcArray[surface].isAdjB[ii][jj][kk][1] * dEy_dz( Eyb, k));
             Hz[i][j+1][k] = Hz[i][j+1][k] + GAMMA_HX(i,j+1,k) * 0.5 * edgeWeightxh * (!sibcArray[surface].isAdjA[ii][jj][kk][2] * dEx_dz( Exa, k-1) + !sibcArray[surface].isAdjB[ii][jj][kk][2] * dEx_dz( Exb, k));
             Hz[i][j-1][k] = Hz[i][j-1][k] - GAMMA_HX(i,j-1,k) * 0.5 * edgeWeightxl * (!sibcArray[surface].isAdjA[ii][jj][kk][3] * dEx_dz( Exa, k-1) + !sibcArray[surface].isAdjB[ii][jj][kk][3] * dEx_dz( Exb, k));
-
-
           }
       break;
     default:
