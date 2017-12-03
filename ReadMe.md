@@ -6,7 +6,7 @@
 
 The Applied Electromagnetics Group ([AEG][]) [FDTD][] solver, Vulture, is an 
 [Open Source][] non-uniform structured mesh [FDTD][] code for electromagnetic 
-simulations. It was developed in the in the [Department of Electronic Engineering][] 
+simulations. It was developed in the [Department of Electronic Engineering][] 
 at the [University of York][] for research in electromagnetic compatibility ([EMC][]), 
 computational electromagnetics ([CEM][]) and [bioelectromagnetics][].
 
