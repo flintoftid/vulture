@@ -6,8 +6,8 @@
 
 The Applied Electromagnetics Group ([AEG][]) [FDTD][] solver, Vulture, is an 
 [Open Source][] non-uniform structured mesh [FDTD][] code for electromagnetic 
-simulations. It was developed in the in the [Department of Electronics][] at the 
-[University of York][] for research in electromagnetic compatibility ([EMC][]), 
+simulations. It was developed in the in the [Department of Electronic Engineering][] 
+at the [University of York][] for research in electromagnetic compatibility ([EMC][]), 
 computational electromagnetics ([CEM][]) and [bioelectromagnetics][].
 
 ## Code Features
@@ -137,7 +137,7 @@ Mr Samuel Bourke : <sab544@york.ac.uk>
 
 Vulture was inspired by a number of earlier electromagnetic simulation codes 
 developed in the Applied Electromagnetics Group in the [Department of 
-Electronics][] at the [University of York][]. The input mesh format for Vulture 
+Electronic Engineering][] at the [University of York][]. The input mesh format for Vulture 
 is an evolution of the format used by the “Hawk” Transmission Line Matrix 
 ([TLM][]) and “Falcon” [FDTD][] solvers by [Dr Stuart Porter][] and [Dr John 
 Dawson][]. The binary output format was also originally developed by [Dr Stuart 
@@ -149,13 +149,17 @@ Porter][] and [Dr John Dawson][] for these two codes.
 
 ([Flintoft2018])	I. D. Flintoft, S. A. Bourke, J. Alvarez, J. F. Dawson, M. R. Cabello, M. P. Robinson and S. G. Garcia, “Face centered anisotropic surface impedance boundary conditions in FDTD”, IEEE Transactions on Microwave Theory and Techniques, vol. 66, 2018.
 
-[Bourke2017]: http://dx.doi.org/10.1109/EMCEurope.2017.8094791
+[Bourke2017b]: http://dx.doi.org/10.1109/EMCEurope.2017.8094791
 
-([Bourke2017]) S. A. Bourke, J. F. Dawson, I. D. Flintoft, M. P. Robinson, “Errors in the shielding effectiveness of cavities due to stair-cased meshing in FDTD: Application of empirical correction factors”, EMC Europe 2017, International Symposium and Exhibition on Electromagnetic Compatibility, Angers, France, paper no. 52, 4-8 Sep. 2017.
+([Bourke2017b]) S. A. Bourke, J. F. Dawson, I. D. Flintoft, M. P. Robinson, “Errors in the shielding effectiveness of cavities due to stair-cased meshing in FDTD: Application of empirical correction factors”, EMC Europe 2017, International Symposium and Exhibition on Electromagnetic Compatibility, Angers, France, paper no. 52, 4-8 Sep. 2017.
 
 [Dawson2017]: http://dx.doi.org/10.1109/NEMO.2017.7964253
 
 ([Dawson2017]) J. F. Dawson, I. D. Flintoft, S. A. Bourke, M. P. Robinson, M. R. Cabello, S. G. Garcia and J. Alvarez, “Face centered anisotropic surface impedance boundary conditions in FDTD: Improved performance of staircased mesh for shielding problems”, 2017 IEEE MTT-S International Conference on Numerical Electromagnetic and Multiphysics Modeling and Optimization for RF, Microwave and Terahertz Applications (NEMO2017), Sevilla, Spain, pp. 260-262, 17-19 May, 2017.
+
+[Bourke2017a]: http://eprints.whiterose.ac.uk/120548/7/Bourke2017_postprint.pdf
+
+([Bourke2017a]) S. A. Bourke, J. F. Dawson, I. D. Flintoft and M. P. Robinson, “Errors due to orthogonal meshing of electromagnetic cavities in FDTD”, IET EM Modelling and Simulations for RF and Microwave Applications Seminar, Nottingham, UK, 29 Nov. 2016.
 
 [Xia2012]: http://dx.doi.org/10.1109/EMCEurope.2012.6396718
 
@@ -190,17 +194,16 @@ Porter][] and [Dr John Dawson][] for these two codes.
 [AEG Box Test Suite]:        https://bitbucket.org/uoyaeg/aegboxts
 
 [University of York]:        http://www.york.ac.uk
-[Department of Electronics]: http://www.elec.york.ac.uk
-[AEG]:                       http://www.elec.york.ac.uk/research/physLayer/appliedEM.html
+[Department of Electronic Engineering]: https://www.york.ac.uk/electronic-engineering
+[AEG]:                       https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices
 [Dr Ian Flintoft]:           https://idflintoft.bitbucket.io
-[Dr John Dawson]:            http://www.elec.york.ac.uk/staff/jfd1.html
-[Dr Stuart Porter]:          http://www.elec.york.ac.uk/staff/sjp1.html
-[EMC]:                       http://www.elec.york.ac.uk/research/physLayer/appliedEM/emc.html
-[CEM]:                       http://www.elec.york.ac.uk/research/physLayer/appliedEM/numerical.html
-[bioelectromagnetics]:       http://www.elec.york.ac.uk/research/physLayer/appliedEM/bio.html
+[Dr John Dawson]:            https://www.york.ac.uk/electronic-engineering/staff/john_dawson
+[Dr Stuart Porter]:          https://www.york.ac.uk/electronic-engineering/staff/stuart_porter
+[EMC]:                       https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices/emc-shielding
+[CEM]:                       https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices/numerical-modelling-optimisation
+[bioelectromagnetics]:       https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices/bio-electromagnetics
 
 [Install.md]:                https://bitbucket.org/uoyaeg/vulture/raw/tip/Install.md
 [UserManual.pdf]:            https://bitbucket.org/uoyaeg/vulture/wiki/UserManual.pdf
 [ToDo.md]:                   https://bitbucket.org/uoyaeg/vulture/raw/tip/doc/ToDo.md
 [Bugs.md]:                   https://bitbucket.org/uoyaeg/vulture/raw/tip/doc/Bugs.md
-
