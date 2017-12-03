@@ -88,8 +88,6 @@ void gnuplotScript( bool isExternalSurfaces )
   else
     units = 1;
 
-  printf("%i %i %i %i %i %i surface\n", mbox[XLO], mbox[XHI], mbox[YLO], mbox[YHI], mbox[ZLO], mbox[ZHI]);
-
   fprintf( scriptFile , "set term push\n" );
   fprintf( scriptFile , "set term post eps enhanced color \"Helvetica\" 16\n" );
   fprintf( scriptFile , "set output 'mesh.eps'\n" );
@@ -106,7 +104,7 @@ void gnuplotScript( bool isExternalSurfaces )
   fprintf( scriptFile , "# Obervers.\n" );
   fprintf( scriptFile , "set style line  6 pt  6 lc rgb \"#000000\" ps 0.2\n" );
   if ( equalBoundaries() )
-    fprintf(scriptFile , "set view equal xyz\n");
+    fprintf( scriptFile , "set view equal xyz\n" );
 
   fprintf( scriptFile , "\n" );
   fprintf( scriptFile , "set ticslevel 0\n" );
@@ -544,24 +542,25 @@ real indexInRealUnits( int index , CoordAxis dir )
 
 }
 
-
 /* Determine if longest external edge is within ten percent of smallest external edge */
 bool equalBoundaries()
 {
+
   int side[3] = { mbox[XHI] - mbox[XLO] , mbox[YHI] - mbox[YLO] , mbox[ZHI] - mbox[ZLO] };
+  int small = 0;
+  int large = 0;
 
-  int small = 0, large = 0;
-
-  for (int i = 1; i < 3; ++i)
+  for( int i = 1; i < 3 ; ++i )
   {
-    if (side[i] < side[small])
+    if( side[i] < side[small] )
       small = i;
-    if (side[i] > side[large])
+    if( side[i] > side[large] )
       large = i;
   }
 
-  if ( side[large] - side[small] <= side[small] / 10)
+  if( side[large] - side[small] <= side[small] / 10 )
     return 1;
 
   return 0;
 }
+
