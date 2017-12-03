@@ -39,6 +39,9 @@ The code currently has the following features:
 * Arbitrary electrically dispersive media using a generalised multi-pole Debye 
   dispersion relationship.
 
+* A face-centred two-sided surface impedance boundary condition for efficient modelling
+  of thin frequency dependent material surfaces ([Dawson2017],[Flintoft2018]).
+
 * A total-field-scattered-field (TFSF) plane-wave source, also known as a 
   Huygen's surface source, for multiple plane-wave excitation. The implementation 
   supports partial Huygen's surfaces and has grid dispersion optimisations for 
@@ -142,17 +145,25 @@ Porter][] and [Dr John Dawson][] for these two codes.
 
 ## Publications using Vulture
 
+[Flintoft2018]: http://dx.doi.org/10.1109/TMTT.2017.2778059
+
+([Flintoft2018])	I. D. Flintoft, S. A. Bourke, J. Alvarez, J. F. Dawson, M. R. Cabello, M. P. Robinson and S. G. Garcia, “Face centered anisotropic surface impedance boundary conditions in FDTD”, IEEE Transactions on Microwave Theory and Techniques, vol. 66, 2018.
+
+[Bourke2017]: http://dx.doi.org/10.1109/EMCEurope.2017.8094791
+
+([Bourke2017]) S. A. Bourke, J. F. Dawson, I. D. Flintoft, M. P. Robinson, “Errors in the shielding effectiveness of cavities due to stair-cased meshing in FDTD: Application of empirical correction factors”, EMC Europe 2017, International Symposium and Exhibition on Electromagnetic Compatibility, Angers, France, paper no. 52, 4-8 Sep. 2017.
+
+[Dawson2017]: http://dx.doi.org/10.1109/NEMO.2017.7964253
+
+([Dawson2017]) J. F. Dawson, I. D. Flintoft, S. A. Bourke, M. P. Robinson, M. R. Cabello, S. G. Garcia and J. Alvarez, “Face centered anisotropic surface impedance boundary conditions in FDTD: Improved performance of staircased mesh for shielding problems”, 2017 IEEE MTT-S International Conference on Numerical Electromagnetic and Multiphysics Modeling and Optimization for RF, Microwave and Terahertz Applications (NEMO2017), Sevilla, Spain, pp. 260-262, 17-19 May, 2017.
+
 [Xia2012]: http://dx.doi.org/10.1109/EMCEurope.2012.6396718
 
-([Xia2012]) R. Xia, J. F. Dawson, I. D. Flintoft, A. C. Marvin and S. J. Porter, “Use of a 
-genetic algorithm in modelling small structures in airframe”, EMC Europe 2012, 11th 
-International Symposium on EMC, Rome, Italy, 17-21 September, 2012.
+([Xia2012]) R. Xia, J. F. Dawson, I. D. Flintoft, A. C. Marvin and S. J. Porter, “Use of a genetic algorithm in modelling small structures in airframe”, EMC Europe 2012, 11th International Symposium on EMC, Rome, Italy, 17-21 September, 2012.
 
 [Xia2011]: http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6078646&isnumber=6078493
 
-([Xia2011]) R. Xia, J. F. Dawson, I. D. Flintoft, A. C. Marvin, S. J. Porter and I. Marschke, 
-“Building macro-models for small structures on aircraft”, EMC Europe 2011, 10th International 
-Symposium on EMC, York, UK, 26-30 September, 2011. pp. 575-580. 
+([Xia2011]) R. Xia, J. F. Dawson, I. D. Flintoft, A. C. Marvin, S. J. Porter and I. Marschke, “Building macro-models for small structures on aircraft”, EMC Europe 2011, 10th International Symposium on EMC, York, UK, 26-30 September, 2011. pp. 575-580. 
 
 ## Related links
 
@@ -192,3 +203,4 @@ Symposium on EMC, York, UK, 26-30 September, 2011. pp. 575-580.
 [UserManual.pdf]:            https://bitbucket.org/uoyaeg/vulture/wiki/UserManual.pdf
 [ToDo.md]:                   https://bitbucket.org/uoyaeg/vulture/raw/tip/doc/ToDo.md
 [Bugs.md]:                   https://bitbucket.org/uoyaeg/vulture/raw/tip/doc/Bugs.md
+
