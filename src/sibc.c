@@ -373,7 +373,7 @@ void initSibcSurfaces( SurfaceIndex number , SurfaceItem *surfaceList )
               sibcArray[surface].isAdjB[ii][jj][kk][0] = isSibcFace[i][j][k][XDIR];
               sibcArray[surface].isAdjB[ii][jj][kk][1] = isSibcFace[i+1][j][k][XDIR];
               sibcArray[surface].isAdjB[ii][jj][kk][2] = isSibcFace[i][j][k][YDIR];
-              sibcArray[surface].isAdjB[ii][jj][kk][3] = isSibcFace[i+1][j+1][k][YDIR];  
+              sibcArray[surface].isAdjB[ii][jj][kk][3] = isSibcFace[i+1][j+1][k][YDIR];
             }
         break;
       default:
@@ -498,6 +498,7 @@ void updateSibcSurfacesEfield( void )
                           * ( UNSCALE_Hz( Hz[i][j][k]   , k ) + UNSCALE_Hz( Hz[i][j][k+1]   , k + 1 ) );
             /* Transform magnetic field vectors from mesh to principal axes. */
             matMulVector( Hin , A , Htan );
+
             /* Apply SIBC. */
             for( p = 0 ; p < 4 ; p++ )
             {
@@ -650,6 +651,12 @@ void updateSibcSurfacesHfield( void )
             Hz[i-1][j][k+1] = Hz[i-1][j][k+1] - GAMMA_HZ(i-1,j,k+1) * edgeWeightyh * dEy_dx( Eya , i - 1 );
             Hz[i][j][k]     = Hz[i][j][k]     + GAMMA_HZ(i,j,k)     * edgeWeightyl * dEy_dx( Eyb , i );
             Hz[i][j][k+1]   = Hz[i][j][k+1]   + GAMMA_HZ(i,j,k+1)   * edgeWeightyh * dEy_dx( Eyb , i );
+
+            /* Apply parallel adjacent magnetic field correction */
+            Hx[i][j+1][k] = Hx[i][j+1][k] - GAMMA_HX(i,j+1,k) * 0.5 * edgeWeightzh * (!sibcArray[surface].isAdjA[ii][jj][kk][0] * dEz_dx( Eza, i-1) + !sibcArray[surface].isAdjB[ii][jj][kk][0] * dEz_dx( Ezb, i));
+            Hx[i][j-1][k] = Hx[i][j-1][k] + GAMMA_HX(i,j-1,k) * 0.5 * edgeWeightzl * (!sibcArray[surface].isAdjA[ii][jj][kk][1] * dEz_dx( Eza, i-1) + !sibcArray[surface].isAdjB[ii][jj][kk][1] * dEz_dx( Ezb, i));
+            Hx[i][j][k+1] = Hx[i][j][k+1] - GAMMA_HX(i,j,k+1) * 0.5 * edgeWeightyh * (!sibcArray[surface].isAdjA[ii][jj][kk][2] * dEy_dx( Eya, i-1) + !sibcArray[surface].isAdjB[ii][jj][kk][2] * dEy_dx( Eyb, i));
+            Hx[i][j][k-1] = Hx[i][j][k-1] + GAMMA_HX(i,j,k-1) * 0.5 * edgeWeightyl * (!sibcArray[surface].isAdjA[ii][jj][kk][3] * dEy_dx( Eya, i-1) + !sibcArray[surface].isAdjB[ii][jj][kk][3] * dEy_dx( Eyb, i));
           }
       break;
     case YDIR:
@@ -677,6 +684,12 @@ void updateSibcSurfacesHfield( void )
             Hx[i+1][j-1][k] = Hx[i+1][j-1][k] - GAMMA_HX(i+1,j-1,k) * edgeWeightzh * dEz_dy( Eza , j - 1 );
             Hx[i][j][k]     = Hx[i][j][k]     + GAMMA_HX(i,j,k)     * edgeWeightzl * dEz_dy( Ezb , j );
             Hx[i+1][j][k]   = Hx[i+1][j][k]   + GAMMA_HX(i+1,j,k)   * edgeWeightzh * dEz_dy( Ezb , j );
+
+            /* Apply parallel adjacent magnetic field correction */
+            Hy[i][j][k+1] = Hy[i][j][k+1] + GAMMA_HY(i,j,k+1) * 0.5 * edgeWeightzh * (!sibcArray[surface].isAdjA[ii][jj][kk][0] * dEz_dy( Eza, j-1) + !sibcArray[surface].isAdjB[ii][jj][kk][0] * dEz_dy( Exb, j));
+            Hy[i][j][k-1] = Hy[i][j][k-1] - GAMMA_HY(i,j,k-1) * 0.5 * edgeWeightzl * (!sibcArray[surface].isAdjA[ii][jj][kk][1] * dEz_dy( Eza, j-1) + !sibcArray[surface].isAdjB[ii][jj][kk][1] * dEz_dy( Exb, j));
+            Hy[i+1][j][k] = Hy[i+1][j][k] + GAMMA_HY(i+1,j,k) * 0.5 * edgeWeightxh * (!sibcArray[surface].isAdjA[ii][jj][kk][2] * dEx_dy( Exa, j-1) + !sibcArray[surface].isAdjB[ii][jj][kk][2] * dEx_dy( Exb, j));
+            Hy[i-1][j][k] = Hy[i-1][j][k] - GAMMA_HY(i-1,j,k) * 0.5 * edgeWeightxl * (!sibcArray[surface].isAdjA[ii][jj][kk][3] * dEx_dy( Exa, j-1) + !sibcArray[surface].isAdjB[ii][jj][kk][3] * dEx_dy( Exb, j));
           }
       break;
     case ZDIR:
@@ -704,7 +717,13 @@ void updateSibcSurfacesHfield( void )
             Hy[i][j+1][k-1] = Hy[i][j+1][k-1] - GAMMA_HY(i,j+1,k-1) * edgeWeightxh * dEx_dz( Exa , k - 1 );
             Hy[i][j][k]     = Hy[i][j][k]     + GAMMA_HY(i,j,k)     * edgeWeightxl * dEx_dz( Exb , k );
             Hy[i][j+1][k]   = Hy[i][j+1][k]   + GAMMA_HY(i,j+1,k)   * edgeWeightxh * dEx_dz( Exb , k );
-           }
+
+            /* Apply parallel adjacent magnetic field correction */
+            Hz[i+1][j][k] = Hz[i+1][j][k] + GAMMA_HZ(i+1,j,k) * 0.5 * edgeWeightyh * (!sibcArray[surface].isAdjA[ii][jj][kk][0] * dEy_dz( Eya, k-1) + !sibcArray[surface].isAdjB[ii][jj][kk][0] * dEy_dz( Eyb, k));
+            Hz[i-1][j][k] = Hz[i-1][j][k] - GAMMA_HZ(i-1,j,k) * 0.5 * edgeWeightyl * (!sibcArray[surface].isAdjA[ii][jj][kk][1] * dEy_dz( Eya, k-1) + !sibcArray[surface].isAdjB[ii][jj][kk][1] * dEy_dz( Eyb, k));
+            Hz[i][j+1][k] = Hz[i][j+1][k] + GAMMA_HZ(i,j+1,k) * 0.5 * edgeWeightxh * (!sibcArray[surface].isAdjA[ii][jj][kk][2] * dEx_dz( Exa, k-1) + !sibcArray[surface].isAdjB[ii][jj][kk][2] * dEx_dz( Exb, k));
+            Hz[i][j-1][k] = Hz[i][j-1][k] - GAMMA_HZ(i,j-1,k) * 0.5 * edgeWeightxl * (!sibcArray[surface].isAdjA[ii][jj][kk][3] * dEx_dz( Exa, k-1) + !sibcArray[surface].isAdjB[ii][jj][kk][3] * dEx_dz( Exb, k));
+          }
       break;
     default:
       assert( 0 );
