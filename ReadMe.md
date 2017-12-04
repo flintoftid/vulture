@@ -125,7 +125,7 @@ The code is licensed under the [GNU Public Licence, version 3](http://www.gnu.or
 
 [Dr Ian Flintoft][] : <ian.flintoft@googlemail.com>
 
-Mr Samuel Bourke : <sab544@york.ac.uk>
+Mr Samuel Bourke : <samuel.bourke@york.ac.uk>
 
 ## Contacts
 
