@@ -50,7 +50,7 @@
 
 
 /* Vulture version. */
-static int solverVersion[3] = { 0 , 7 , 0 };
+static int solverVersion[3] = { 0 , 7 , 1 };
 
 /* Support mesh versions. */
 static int meshVersion[2][3] = { { 0 , 0 , 0 } , { 1 , 0 , 0 } };
