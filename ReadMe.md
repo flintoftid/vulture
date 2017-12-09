@@ -131,7 +131,7 @@ Mr Samuel Bourke : <samuel.bourke@york.ac.uk>
 
 [Dr Ian Flintoft][] : <ian.flintoft@googlemail.com>
 
-[Dr John Dawson](http://www.elec.york.ac.uk/staff/jfd1.html) : <john.dawson@york.ac.uk>
+[Dr John Dawson][] : <john.dawson@york.ac.uk>
 
 ## Credits
 
@@ -194,33 +194,30 @@ Symposium on EMC, York, UK, 26-30 September, 2011. pp. 575-580.
 * [Understanding the FDTD Method](http://www.eecs.wsu.edu/~schneidj/ufdtd) by John B. Schneider. 
 
 
-[PML]:                       http://en.wikipedia.org/wiki/Perfectly_matched_layer
-[Open Source]:               http://opensource.org
-[LaTeX]:                     http://www.latex-project.org
-[TLM]:                       http://en.wikipedia.org/wiki/Transmission-line_matrix_method
-[FDTD]:                      http://en.wikipedia.org/wiki/Finite-difference_time-domain_method
-[gnuplot]:                   http://www.gnuplot.info
-[Python]:                    https://www.python.org
-[Octave]:                    http://www.gnu.org/software/octave
-[MATLAB]:                    http://www.mathworks.co.uk/products/matlab
-[C99]:                       http://en.wikipedia.org/wiki/C99
-[Mercurial]:                 http://mercurial.selenic.com
-[CMake]:                     http://www.cmake.org
-[AEG Mesher]:                https://bitbucket.org/uoyaeg/aegmesher
-[AEG Box Test Suite]:        https://bitbucket.org/uoyaeg/aegboxts
-
-[University of York]:        http://www.york.ac.uk
+[PML]: http://en.wikipedia.org/wiki/Perfectly_matched_layer
+[Open Source]: http://opensource.org
+[LaTeX]: http://www.latex-project.org
+[TLM]: http://en.wikipedia.org/wiki/Transmission-line_matrix_method
+[FDTD]: http://en.wikipedia.org/wiki/Finite-difference_time-domain_method
+[gnuplot]: http://www.gnuplot.info
+[Python]: https://www.python.org
+[Octave]: http://www.gnu.org/software/octave
+[MATLAB]: http://www.mathworks.co.uk/products/matlab
+[C99]: http://en.wikipedia.org/wiki/C99
+[Mercurial]: http://mercurial.selenic.com
+[CMake]: http://www.cmake.org
+[AEG Mesher]: https://bitbucket.org/uoyaeg/aegmesher
+[AEG Box Test Suite]: https://bitbucket.org/uoyaeg/aegboxts
+[University of York]: http://www.york.ac.uk
 [Department of Electronic Engineering]: https://www.york.ac.uk/electronic-engineering
-[AEG]:                       https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices
-[Dr Ian Flintoft]:           https://idflintoft.bitbucket.io
-[Dr John Dawson]:            https://www.york.ac.uk/electronic-engineering/staff/john_dawson
-[Dr Stuart Porter]:          https://www.york.ac.uk/electronic-engineering/staff/stuart_porter
-[EMC]:                       https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices/emc-shielding
-[CEM]:                       https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices/numerical-modelling-optimisation
-[bioelectromagnetics]:       https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices/bio-electromagnetics
-
-[Install.md]:                https://bitbucket.org/uoyaeg/vulture/raw/tip/Install.md
-[UserManual.pdf]:            https://bitbucket.org/uoyaeg/vulture/wiki/UserManual.pdf
-[ToDo.md]:                   https://bitbucket.org/uoyaeg/vulture/raw/tip/doc/ToDo.md
-[Bugs.md]:                   https://bitbucket.org/uoyaeg/vulture/raw/tip/doc/Bugs.md
-
+[AEG]: https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices
+[Dr Ian Flintoft]: https://idflintoft.bitbucket.io
+[Dr John Dawson]: https://www.york.ac.uk/electronic-engineering/staff/john_dawson
+[Dr Stuart Porter]: https://www.york.ac.uk/electronic-engineering/staff/stuart_porter
+[EMC]: https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices/emc-shielding
+[CEM]: https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices/numerical-modelling-optimisation
+[bioelectromagnetics]: https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices/bio-electromagnetics
+[Install.md]: https://bitbucket.org/uoyaeg/vulture/raw/tip/Install.md
+[UserManual.pdf]: https://bitbucket.org/uoyaeg/vulture/wiki/UserManual.pdf
+[ToDo.md]: https://bitbucket.org/uoyaeg/vulture/raw/tip/doc/ToDo.md
+[Bugs.md]: https://bitbucket.org/uoyaeg/vulture/raw/tip/doc/Bugs.md
