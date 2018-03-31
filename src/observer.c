@@ -444,7 +444,7 @@ void initObservers( void )
   }
 
   message( MSG_LOG , 0 , "  Observer freqs: fstart=%g MHz, fstop=%g MHz, fstep=%g MHz, fnumber=%lu\n" , 
-                            startFreq / 1e6 , stopFreq / 1e6 , stepFreq , numFreq );
+                            startFreq / 1e6 , stopFreq / 1e6 , stepFreq / 1e6 , numFreq );
  
   /* Add time and frequency domain waveform observers for every waveform. */
   /* Keep mapping from waveform number to its frequency domain observer. */
