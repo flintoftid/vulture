@@ -1,6 +1,4 @@
-![](https://bitbucket.org/uoyaeg/vulture/wiki/aperture.jpg )
-
-[TOC]
+![](https://github.com/flintoftid/blob/master/doc/vulture.jpg )
 
 # Vulture: An Open Source FDTD Solver For Electromagnetic Simulations
 
@@ -60,7 +58,7 @@ The code is written in standard [C99][]. Additional requirements are:
    is needed.
 
 2. (Optional) To help with development or as an alternative way to download the 
-   source a client for the [Mercurial][] Version Control System is required.
+   source a client for the [git][] Version Control System is required.
 
 To run the test-suite the following are also required:
 
@@ -88,8 +86,8 @@ doc directory of the source distribution that builds into [UserManual.pdf][].
 The code is still under development and no doubt will contain many bugs. Known 
 significant bugs are listed in the file doc/[Bugs.md][] in the source code. 
 
-Please report bugs using the bitbucket issue tracker at
-<https://bitbucket.org/uoyaeg/vulture/issues> or by email to <ian.flintoft@googlemail.com>.
+Please report bugs using the issue tracker at
+<https://github.com/flintoftid/vulture/issues> or by email to <ian.flintoft@googlemail.com>.
 
 For general guidance on how to write a good bug report see, for example:
 
@@ -99,8 +97,6 @@ For general guidance on how to write a good bug report see, for example:
 
 Some of the tips in <http://www.catb.org/esr/faqs/smart-questions.html> are also 
 relevant to reporting bugs.
-
-There is a Wiki on the bitbucket [project page](https://bitbucket.org/uoyaeg/vulture/wiki).
 
 ## How to contribute
 
@@ -204,20 +200,19 @@ Symposium on EMC, York, UK, 26-30 September, 2011. pp. 575-580.
 [Octave]: http://www.gnu.org/software/octave
 [MATLAB]: http://www.mathworks.co.uk/products/matlab
 [C99]: http://en.wikipedia.org/wiki/C99
-[Mercurial]: http://mercurial.selenic.com
+[git]: https://git-scm.com
 [CMake]: http://www.cmake.org
-[AEG Mesher]: https://bitbucket.org/uoyaeg/aegmesher
-[AEG Box Test Suite]: https://bitbucket.org/uoyaeg/aegboxts
+[AEG Mesher]: https://github.com/flintoftid/aegmesher
+[AEG Box Test Suite]: https://github.com/flintoftid/aegboxts
 [University of York]: http://www.york.ac.uk
 [Department of Electronic Engineering]: https://www.york.ac.uk/electronic-engineering
 [AEG]: https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices
-[Dr Ian Flintoft]: https://idflintoft.bitbucket.io
+[Dr Ian Flintoft]: https://flintoftid.github.io
 [Dr John Dawson]: https://www.york.ac.uk/electronic-engineering/staff/john_dawson
 [Dr Stuart Porter]: https://www.york.ac.uk/electronic-engineering/staff/stuart_porter
-[EMC]: https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices/emc-shielding
-[CEM]: https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices/numerical-modelling-optimisation
+[EMC]: https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices/emc-shielding/
+[CEM]: https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices/
 [bioelectromagnetics]: https://www.york.ac.uk/electronic-engineering/research/communication-technologies/applied-electromagnetics-devices/bio-electromagnetics
-[Install.md]: https://bitbucket.org/uoyaeg/vulture/raw/tip/Install.md
-[UserManual.pdf]: https://bitbucket.org/uoyaeg/vulture/wiki/UserManual.pdf
-[ToDo.md]: https://bitbucket.org/uoyaeg/vulture/raw/tip/doc/ToDo.md
-[Bugs.md]: https://bitbucket.org/uoyaeg/vulture/raw/tip/doc/Bugs.md
+[Install.md]: https://github.com/flintoftid/vulture/blob/master/Install.md
+[ToDo.md]: https://github.com/flintoftid/vulture/blob/master/doc/ToDo.md
+[Bugs.md]: https://github.com/flintoftid/vulture/blob/master/doc/Bugs.md

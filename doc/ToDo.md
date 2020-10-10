@@ -1,7 +1,5 @@
 # Vulture To Do List
 
-[TOC]
-
 ## Priority Items
 
 ### Generalise tests to use Octave or MATLAB. 

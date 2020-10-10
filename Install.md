@@ -6,7 +6,7 @@
 
 ## Quick start for Linux
 
-    hg clone <path-to-repository> vulture-working
+    git clone <path-to-repository> vulture-working
     mkdir vulture-build-linux_$(arch)
     cd vulture-build-linux_$(arch)
     cmake -D CMAKE_INSTALL_PREFIX=/usr/local -D CMAKE_BUILD_TYPE=Release -D WITH_OPENMP=ON \
@@ -22,7 +22,7 @@
 
 Requirements: 
 
- * [Mercurial][], optional, for obtaining source from repository
+ * [git][], optional, for obtaining source from repository
  
  * [CMake][], required, version >= 2.8.3
  
@@ -32,9 +32,9 @@ Requirements:
                 
  * [Python][], optional, for data comparison tests
 
-Obtain the source from a Mercurial repository
+Obtain the source from a repository
 
-    hg clone <path-to-repository>/vulture vulture-x.x.x-Source
+    git clone <path-to-repository>/vulture vulture-x.x.x-Source
 
 or by unpacking a source archive
 
@@ -225,7 +225,7 @@ Build the LaTeX user manual.
 
 
 
-[Mercurial]: http://mercurial.selenic.com
+[git]: https://git-scm.com
 [CMake]: http://www.cmake.org
 [Octave]: http://www.octave.org
 [MATLAB]: http://www.mathworks.com/MATLAB
