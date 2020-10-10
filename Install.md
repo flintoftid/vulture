@@ -1,6 +1,4 @@
 
-[TOC]
-
 # Vulture Finite Difference Time-Domain Electromagnetic Solver
 
 

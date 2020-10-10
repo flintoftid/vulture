@@ -1,4 +1,4 @@
-![](https://github.com/flintoftid/blob/master/doc/vulture.jpg )
+![](https://github.com/flintoftid/vulture/blob/master/doc/vulture.jpg)
 
 # Vulture: An Open Source FDTD Solver For Electromagnetic Simulations
 
